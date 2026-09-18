@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="JURDop06rJPtmo2gkwU6ty">
+<head data-page-node-id="48DaafhX70BRiz9RDiuLER">
+  <meta charset="UTF-8" data-page-node-id="j0aDdeZFwArhnNSVrESDhx" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="2XvSAmA19Ju9NhxqDtmz2o" />
+  <title>APCA 管理后台 · 个人AI办公能力测评</title>
+  <link rel="stylesheet" href="admin.css" data-page-node-id="OAKYJesVtWjMxUYDCIOvX0" />
+</head>
+<body data-page-node-id="ZReH6uRAbDyO959eaxEu8t">
+
+  <!-- ============ 登录 ============ -->
+  <div class="login-wrap" id="loginWrap" data-page-node-id="PW6EIz9kWMuuo966ucxGLZ">
+    <form class="login-card" id="loginForm" autocomplete="off" data-page-node-id="ayq5RsaCq5T2zUJGzswmsJ">
+      <div class="login-logo" data-page-node-id="l2QZsvgxUXsBhtQeG52XqA">AI</div>
+      <h1 class="login-title" data-page-node-id="G5aihiTU6MtKNacLh519Df">APCA 管理后台</h1>
+      <p class="login-sub" data-page-node-id="9ixC5RsCHNQNn7E7BFz8E9">请输入管理员账号与密码</p>
+
+      <label class="login-label" for="loginUser" data-page-node-id="9Dgc9pPsvWzezS8XiGSjCB">账号</label>
+      <input class="login-input" type="text" id="loginUser" placeholder="请输入账号" autocomplete="username" data-page-node-id="OIh2NzzwmSBqffYti2T6BN" />
+
+      <label class="login-label" for="loginPass" data-page-node-id="8K5S0lgG2KeewR59OJkiu0">密码</label>
+      <input class="login-input" type="password" id="loginPass" placeholder="请输入密码" autocomplete="current-password" data-page-node-id="GdggoSytw4VrvT4whvKT3c" />
+
+      <button class="login-btn" type="submit" id="btnLogin" data-page-node-id="kzXDkTqdoKyMZF6qw3d4zC">登 录</button>
+      <p class="login-err" id="loginErr" hidden data-page-node-id="1NFSvcdVGk1K9MzKrE22bD"></p>
+      <p class="login-tip" id="loginTip" data-page-node-id="Q4gQmjg5tJij1mshJbWcl0">正在检测后台服务…</p>
+    </form>
+  </div>
+
+  <!-- ============ 后台主体 ============ -->
+  <div class="admin" id="adminWrap" hidden data-page-node-id="R6wx0DlKab7qe2DFCRKn5d">
+
+    <header class="topbar" data-page-node-id="Pa95ViSuF4HsvqFHMUvVWm">
+      <div class="brand" data-page-node-id="LW0k4g8zFVee1MJpBA9Ukx">
+        <span class="brand-logo" data-page-node-id="KEmEzf10jag0aE3Vql6CgH">AI</span>
+        <span class="brand-name" data-page-node-id="sLLnwTXXLR6sBAmxyGrO4w">APCA 管理后台</span>
+      </div>
+      <div class="topbar-right" data-page-node-id="YxX5VZijTr7jCLmUle7aEX">
+        <span class="mode-tag" id="modeTag" data-page-node-id="KWKU2ZUTIHF1AtuqlimF00">—</span>
+        <button class="btn-logout" id="btnLogout" data-page-node-id="MrO04oHbzPcQ4v1k4LGNaL">退出登录</button>
+      </div>
+    </header>
+
+    <nav class="tabs" id="tabs" data-page-node-id="SvBEFrhNO4WTIhMGrXJz2o">
+      <button class="tab is-active" data-tab="overview" data-page-node-id="043DmDzxcl6zzHJljJbRtp">汇总概览</button>
+      <button class="tab" data-tab="people" data-page-node-id="rofupV8gi72CRzSPF0te9D">人员清单</button>
+      <button class="tab" data-tab="bank" data-page-node-id="c6pU7Ew365QLhKvhqKJRuI">测评题库</button>
+      <button class="tab" data-tab="rules" data-page-node-id="HFcM4egc8hntJOAkiqGTPI">规则库</button>
+    </nav>
+
+    <main class="main" data-page-node-id="B9n9ML6ITzF7APEiEH6auc">
+
+      <!-- ---- 汇总概览 ---- -->
+      <section class="panel" id="tabOverview" data-page-node-id="YqR03H0eenRbJsjaD4FHfP">
+        <div class="stat-grid" id="statGrid" data-page-node-id="MU88S5pUf7XCTx0scgPSET"></div>
+
+        <div class="grid-2" data-page-node-id="ridV6UFBVjBDvKGWjQgwnr">
+          <div class="card" data-page-node-id="zHHVpGQ4IvgA8nAmfcjkmf">
+            <div class="card-h" data-page-node-id="7aewq9MND7uCvgdhy1wUNm">等级分布 <span class="badge" id="levelBadge" data-page-node-id="Wz7HNOG4BrG7AA1P6bf9TD"></span></div>
+            <div id="distLevel" class="dist" data-page-node-id="XrXiNw1LL0VbXWv5Ph1eN7"></div>
+          </div>
+          <div class="card" data-page-node-id="DuD65gxKtWg7V8J5WduWa3">
+            <div class="card-h" data-page-node-id="TAsoR4x4Kw9HGleR9xTDj1">六维平均得分</div>
+            <div id="distDim" class="dist" data-page-node-id="YE8pFdXh5VFrGWYswpuGQU"></div>
+          </div>
+        </div>
+
+        <div class="grid-2" data-page-node-id="Aqgr35a8DWesHZ9lGzZS1b">
+          <div class="card" data-page-node-id="nQH94FhHbcSrgifBFdi4BD">
+            <div class="card-h" data-page-node-id="uK2es4iPBd9g596dXoSCZk">按测评批次分布</div>
+            <div id="distBatch" class="dist" data-page-node-id="tp3QUqzIiDqB6H3KY7kQXZ"></div>
+          </div>
+          <div class="card" data-page-node-id="AvMuc83tPjmDe656gxp5rT">
+            <div class="card-h" data-page-node-id="RhwwbARlUxomH2Q3zY3WML">按公司分布</div>
+            <div id="distCompany" class="dist" data-page-node-id="FWHAdRVuOldFmXCAtlsZMF"></div>
+          </div>
+        </div>
+
+        <div class="grid-2" data-page-node-id="AEHoj8WctSopjHKY7zOWfB">
+          <div class="card" data-page-node-id="o7lngz0UoVPioGMDp4PxJB">
+            <div class="card-h" data-page-node-id="1plNdUuMn4Yj8fgPcHYrZj">按岗位分布</div>
+            <div id="distPosition" class="dist" data-page-node-id="zVF4jJIy3gCIOQyBiUcT9m"></div>
+          </div>
+          <div class="card" data-page-node-id="pyROAwReh4obhpQVS8vW0u">
+            <div class="card-h" data-page-node-id="2BdYRBZBcP0BS7iwwksjz1">按测评卷分布</div>
+            <div id="distPack" class="dist" data-page-node-id="hJxu811cnFSJYXGGb6gvnM"></div>
+          </div>
+        </div>
+
+        <div class="card" data-page-node-id="hiKrnHnh6HbFJ8KtZO5y2W">
+          <div class="card-h" data-page-node-id="4DxVMBQ2GOpSamEQMoqf7b">每日测评量趋势</div>
+          <div id="trendBox" class="trend" data-page-node-id="TNbPde5bSiO6Vdvtf0bRtp"></div>
+        </div>
+      </section>
+
+      <!-- ---- 人员清单 ---- -->
+      <section class="panel" id="tabPeople" hidden data-page-node-id="mdhjKzWuNnDoXvYvdWEGx0">
+        <div class="card" data-page-node-id="9CBomD0E5x6hL0ivuezHAl">
+          <div class="card-h" data-page-node-id="FnGIdSpOJZQ8CW4YPs4NUO">
+            人员清单 <span class="badge" id="peopleCount" data-page-node-id="UEdDsYqWARuJl2F1d0OfYK">0 人</span>
+            <span class="peer-state" id="peerState" data-page-node-id="rPzRnxFgTaBjvC8kKMuVLY" title="对端服务器聚合状态">未配对端</span>
+            <label class="peer-toggle" id="peerToggleWrap" data-page-node-id="tDFsHMRqSvVnyYrThBktKe" hidden>
+              <input type="checkbox" id="peerToggle" data-page-node-id="yQFqzbRKCwxHtAeNnnTYPu" checked />
+              <span data-page-node-id="tPWHDnB0sYDFqTkH8GKytF">显示对端记录</span>
+            </label>
+            <span class="card-h-actions" data-page-node-id="UaPKUsB52mVQZLsFSP9kKG">
+              <button class="btn-sm btn-ghost" id="btnRefresh" data-page-node-id="PLvXB2nZAEhdSe3lJHJYEp">刷新</button>
+              <button class="btn-sm btn-ghost" id="btnExport" data-page-node-id="UVGErxqgfnWCHadnxEpoOv">导出 CSV</button>
+              <button class="btn-sm btn-danger" id="btnClearAll" data-page-node-id="evVNRVDvJamuQbAkVTyDik">清空全部</button>
+            </span>
+          </div>
+
+          <div class="filters" data-page-node-id="SsWz6WzrxETs85JqkdOhFF">
+            <input class="f-input" type="search" id="searchInput" placeholder="搜索姓名 / 公司 / 岗位 / 批次" data-page-node-id="8eB3hrKXlAMcLN6xV0T2Fl" />
+            <select class="f-select" id="filterBatch" data-page-node-id="EWZid8GTcNdDPGL1HHtauJ"></select>
+            <select class="f-select" id="filterCompany" data-page-node-id="ty0MrWDNZnczyRrRRBMtAh"></select>
+            <select class="f-select" id="filterLevel" data-page-node-id="WcMDyiEMJF6dvf6B5Q2tAM"></select>
+            <select class="f-select" id="filterPack" data-page-node-id="vSn3hdfIkVtiylW4GDvPsc"></select>
+          </div>
+
+          <div class="table-wrap" data-page-node-id="tOkaxjLBytOcFUaFLBjtOf">
+            <table class="table" id="peopleTable" data-page-node-id="tXNV8D6lT6N6lJr09B3RZP">
+              <thead data-page-node-id="71mRVw7DPGUizT03rKdynF">
+                <tr data-page-node-id="XJfOpQT7oVyskblRZaLGVF">
+                  <th data-page-node-id="WDuXBTWu7bZQoz6oHANp07">姓名</th><th data-page-node-id="lUILqv0LpEU4TyZ7gYfHX5">公司</th><th data-page-node-id="Y9tkTVTirrJXI91bWw0Ds6">岗位</th><th data-page-node-id="wuMZxKouZICZ33vLXtIKES">批次</th>
+                  <th data-page-node-id="W6WGeqVwuWYOhqHGprhckF">测评卷</th><th data-page-node-id="ekvldrhStvGFQfBCEWAfT1">总分</th><th data-page-node-id="8vgVn3C10fwEAGhJulM0im">等级</th><th data-page-node-id="vSRnVnfihyYifNmPvfIFdU">时间</th><th data-page-node-id="g59G3ZfFaiSWcHr92ps7Dq"></th>
+                </tr>
+              </thead>
+              <tbody id="peopleBody" data-page-node-id="jwwFICp1V8V2ExsXuubGVu"></tbody>
+            </table>
+          </div>
+          <p class="empty" id="peopleEmpty" hidden data-page-node-id="tDWtxJqzEQFFwXbrHVambw">暂无符合条件的测评记录。</p>
+        </div>
+      </section>
+
+      <!-- ---- 题库 ---- -->
+      <section class="panel" id="tabBank" hidden data-page-node-id="jSW1UEsNdVx85EUitX9RcQ">
+        <div class="card" data-page-node-id="UDSHYgvbb8wGkdpxTlAAOw">
+          <div class="card-h" data-page-node-id="YxJGcH1ExJPBAnU9KRs3jE">
+            测评题库 <span class="badge" id="bankCount" data-page-node-id="lyucl2ixKsLzfq1MIPAwCi">0 题</span>
+          </div>
+          <div class="filters" data-page-node-id="uso7QpExW3TE4pSAsPzYHD">
+            <select class="f-select" id="bankPackSelect" data-page-node-id="Br3PGBbQb33YLC4YyiYHw6"></select>
+            <select class="f-select" id="bankDimSelect" data-page-node-id="JQRBGCl9YA7Ju6KnppYiug"></select>
+          </div>
+          <div id="bankList" class="bank-list" data-page-node-id="j6Z5WouGQnEdtKp4isfQzE"></div>
+        </div>
+      </section>
+
+      <!-- ---- 规则库 ---- -->
+      <section class="panel" id="tabRules" hidden data-page-node-id="0mbXFZb2GTxKzQzOhgaPi6">
+        <div id="rulesBody" data-page-node-id="cCTdD0xHvFGLkAFdys9igU"></div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- 详情弹层 -->
+  <div class="modal" id="detailModal" hidden data-page-node-id="uPG5U8Urto4aEZRZJ9hrsf">
+    <div class="modal-mask" id="detailMask" data-page-node-id="iGsjEyCZFwWK5pm6lcTcN9"></div>
+    <div class="modal-box" data-page-node-id="iIolarUfa5eSuGx8fCQv5p">
+      <div class="modal-h" data-page-node-id="nbqobbtwrJt1N3ojrLQIMJ">
+        <span id="detailTitle" data-page-node-id="1ys8ZVFuzHEnu7Je6DButP">测评详情</span>
+        <button class="modal-x" id="btnDetailClose" data-page-node-id="vtkYUH7FUqkJqpGSjCE4VE">×</button>
+      </div>
+      <div class="modal-body" id="detailBody" data-page-node-id="oOddA67tBsCNTEo6tPnb8P"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" hidden data-page-node-id="ehN2XX4qpt9Njbc23ywKvb"></div>
+
+  <script src="data.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

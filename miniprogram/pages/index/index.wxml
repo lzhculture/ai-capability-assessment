@@ -1,0 +1,93 @@
+<view class="container">
+  <comp-hero total="{{total}}"
+              pack-tag="{{packTag}}"
+              minutes="{{minutes}}"
+              version-tag="APCA · v0.7"></comp-hero>
+
+  <!-- 未完成恢复 -->
+  <view wx:if="{{pending}}" class="resume card">
+    <view class="grow">
+      <view class="b">检测到上次未完成的测评</view>
+      <view class="muted" style="margin-top: 8rpx;">
+        {{pending.packName}} · 已完成 {{pending.answered}}/{{pending.totalQ}} 题 · {{pending.dateStr}}
+      </view>
+    </view>
+    <view class="row" style="gap: 16rpx;">
+      <button class="btn primary" bindtap="resumeQuiz">继续上次</button>
+      <button class="btn" bindtap="clearPending">丢弃</button>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="pill">测评说明</view>
+    <view class="section-title" style="margin-top: 24rpx; padding: 0; border: 0; font-size: 32rpx;">这套测评在测什么?</view>
+    <view class="muted" style="line-height: 1.7; margin-top: 12rpx;">
+      不考你「会不会用 ChatGPT/Claude/豆包」, 而考你「会不会用好 AI」。
+      6 个维度来自对公开 AI 能力诊断评估资料的拆解, 并融合了 UNESCO AI 素养、IBM AI Skills 等主流框架。
+    </view>
+
+    <view class="dim-grid">
+      <view class="dim-cell"><text class="dim-id">D1</text>AI 沟通能力</view>
+      <view class="dim-cell"><text class="dim-id">D2</text>任务拆解能力</view>
+      <view class="dim-cell"><text class="dim-id">D3</text>流程选择能力</view>
+      <view class="dim-cell"><text class="dim-id">D4</text>质量管控能力</view>
+      <view class="dim-cell"><text class="dim-id">D5</text>风险应对能力</view>
+      <view class="dim-cell"><text class="dim-id">D6</text>经验复用能力</view>
+    </view>
+
+    <view class="tip" style="margin-top: 28rpx;">
+      <view class="tip-lbl">提示</view>
+      <view>结果仅用于培训规划, 不涉及个人考核。题目没有「绝对对错」, 请根据你的真实习惯选择最像自己的那一项。</view>
+    </view>
+  </view>
+
+  <view class="section-title">行业专项加测（可选，也可单独成卷）</view>
+  <view class="muted" style="margin: -8rpx 4rpx 16rpx; line-height: 1.7;">
+    APCA 是<span style="color:#1f5cff;font-weight:600;">通用个人 AI 能力测评</span>（主入口，6 维度 30 题）。下方「专项」是可选的加测模块，每个都有自己的测试标准与题库：勾选后随通用卷一起做（加测），或点「单独测」只做该专项。
+  </view>
+  <comp-pack-picker packs="{{packs}}"
+                    selected="{{selected}}"
+                    bind:change="onPickPack"></comp-pack-picker>
+
+  <view class="section-title">成长记录 (最近 {{history.length}} 次)</view>
+  <view wx:if="{{history.length === 0}}" class="card empty">
+    还没有测评记录, 完成一次测评后会在这里显示成长曲线
+  </view>
+  <view wx:else class="history">
+    <view wx:for="{{history}}"
+          wx:key="ts"
+          class="hist-row"
+          data-ts="{{item.ts}}"
+          bindtap="openHistoryItem">
+      <view class="hist-lvl lvl-{{item.levelId}}">{{item.levelId}}</view>
+      <view class="hist-info">
+        <view class="hist-t">{{item.levelName}} · {{item.total}} 分</view>
+        <view class="hist-m">{{item.packName}} · {{item.qcount}} 题 · {{item.agoStr}}</view>
+      </view>
+    </view>
+    <view class="row" style="justify-content: flex-end; margin-top: 16rpx;">
+      <button class="btn ghost" bindtap="clearHistory">清空历史</button>
+    </view>
+  </view>
+
+  <view class="actions">
+    <button class="btn primary" bindtap="startQuiz">开始通用测评 →</button>
+    <button wx:if="{{selected !== 'none'}}"
+            class="btn"
+            bindtap="startStandalone">仅测「{{selectedName}}」专项 →</button>
+  </view>
+
+  <view class="actions" style="margin-top: 16rpx;">
+    <button class="btn" bindtap="goHistory" wx:if="{{history.length > 0}}">查看历史</button>
+    <button class="btn" bindtap="goAbout">关于本工具</button>
+  </view>
+
+  <!-- 首次启动隐私告知 (一次性) -->
+  <comp-privacy-popup id="privacyPopup"
+                      show-cancel="{{true}}"
+                      cancel-text="查看隐私说明"
+                      agree-text="同意并开始"
+                      content="{{privacyContent}}"
+                      bind:agree="onAgreePrivacy"
+                      bind:cancel="onViewPrivacy"></comp-privacy-popup>
+</view>

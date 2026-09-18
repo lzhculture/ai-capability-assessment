@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "测评结果",
+  "usingComponents": {
+    "comp-poster": "/components/comp-poster/comp-poster"
+  }
+}

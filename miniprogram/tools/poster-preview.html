@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="5nOPHpyEoeLa0kv4kulxmB">
+<head data-page-node-id="HVlohr50eDa2GFVmYCmXIm">
+<meta charset="utf-8" data-page-node-id="1whkXZMr60Zxt5Zxl6e1u1">
+<meta name="viewport" content="width=device-width, initial-scale=1" data-page-node-id="fbJisncqM7UcjkmnHjPvX4">
+<title>APCA 结果海报 · 预览</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 32px 20px 60px;
+    background: #f4f6fb;
+    font-family: -apple-system, "PingFang SC", "Helvetica Neue", "Microsoft YaHei", sans-serif;
+    color: #1f2a44;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+  h1 { font-size: 22px; margin: 0 0 6px; }
+  .sub { color: #64748b; font-size: 14px; margin-bottom: 24px; line-height: 1.7; }
+  .bar {
+    display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+    background: #fff; border: 1px solid #e6ebf5; border-radius: 14px;
+    padding: 14px 16px; margin-bottom: 20px;
+  }
+  .bar b { font-size: 13px; color: #64748b; margin-right: 2px; }
+  .seg { display: flex; gap: 6px; }
+  button {
+    font: inherit; font-size: 13px; cursor: pointer;
+    border: 1px solid #d8e0f0; background: #fff; color: #1f2a44;
+    padding: 7px 14px; border-radius: 999px; transition: .15s;
+  }
+  button:hover { border-color: #1f5cff; color: #1f5cff; }
+  button.on { background: #1f5cff; border-color: #1f5cff; color: #fff; }
+  button.primary { background: #1f5cff; border-color: #1f5cff; color: #fff; }
+  .stage { display: flex; gap: 32px; flex-wrap: wrap; align-items: flex-start; }
+  .phone {
+    flex: none; background: #fff; border: 1px solid #e6ebf5; border-radius: 18px;
+    padding: 16px; box-shadow: 0 10px 30px rgba(20,40,90,.08);
+  }
+  canvas { display: block; width: 375px; height: 540px; border-radius: 10px; }
+  .meta { margin-top: 12px; text-align: center; font-size: 12px; color: #94a3b8; }
+  .side { flex: 1; min-width: 300px; }
+  .card {
+    background: #fff; border: 1px solid #e6ebf5; border-radius: 14px;
+    padding: 18px 20px; margin-bottom: 16px;
+  }
+  .card h3 { margin: 0 0 12px; font-size: 15px; }
+  .kv { display: flex; font-size: 13px; padding: 6px 0; border-bottom: 1px dashed #eef1f7; }
+  .kv:last-child { border-bottom: 0; }
+  .kv span:first-child { width: 92px; color: #94a3b8; flex: none; }
+  .kv span:last-child { color: #1f2a44; font-weight: 600; }
+  .note { font-size: 13px; line-height: 1.8; color: #64748b; }
+  .note code {
+    background: #f1f4fa; padding: 1px 6px; border-radius: 5px;
+    font-size: 12px; color: #1f5cff;
+  }
+  /* ---- 结果页「逐题复盘」模块 1:1 预览 ---- */
+  .mp-preview { max-width: 420px; }
+  .rv-head {
+    background: linear-gradient(135deg,#eef3ff,#f7f9ff); border: 1px solid #dbe4fb;
+    border-radius: 14px; padding: 16px 18px; margin-bottom: 12px;
+  }
+  .rv-lead { font-size: 11px; font-weight: 700; color: #1f5cff; letter-spacing: 1px; }
+  .rv-hl { margin-top: 6px; font-size: 14px; line-height: 1.7; font-weight: 600; }
+  .rv-card { background: #fff; border: 1px solid #e6ebf5; border-radius: 14px; overflow: hidden; margin-bottom: 12px; }
+  .rv-top { padding: 14px 16px; }
+  .rv-q { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .rv-dim { font-size: 12px; font-weight: 700; color: #1f5cff; }
+  .rv-id { font-size: 10px; color: #94a3b8; background: #f0f3fa; padding: 1px 6px; border-radius: 4px; }
+  .rv-qt { font-size: 14px; line-height: 1.65; font-weight: 600; }
+  .rv-pick { display: flex; gap: 8px; margin-top: 10px; padding: 10px 12px; background: #fafbfe; border-radius: 10px; align-items: flex-start; }
+  .rv-badge {
+    flex: none; width: 22px; height: 22px; line-height: 22px; text-align: center;
+    border-radius: 6px; font-size: 12px; font-weight: 800; color: #fff; background: #94a3b8;
+  }
+  .rv-badge.pick-A { background: #d84a4a; }
+  .rv-badge.pick-B { background: #e0872c; }
+  .rv-badge.pick-C { background: #3b82f6; }
+  .rv-badge.pick-D { background: #1f9255; }
+  .rv-pick-txt { font-size: 12.5px; line-height: 1.6; color: #64748b; }
+  .rv-more { margin-top: 10px; font-size: 12px; color: #1f5cff; text-align: right; }
+  .rv-body { border-top: 1px solid #eef1f7; padding: 12px 16px 14px; background: #fbfcff; }
+  .rv-blk { margin-bottom: 12px; }
+  .rv-blk:last-child { margin-bottom: 0; }
+  .rv-lb { font-size: 11px; font-weight: 700; color: #1f5cff; margin-bottom: 3px; }
+  .rv-tx { font-size: 12.5px; line-height: 1.75; color: #64748b; }
+  .rv-tx.best { color: #1f9255; font-weight: 600; }
+  .foot { text-align: center; color: #94a3b8; font-size: 12px; margin-top: 28px; }
+</style>
+</head>
+<body data-page-node-id="cKV8arnTsbuRYSKUHY0hKF">
+<div class="wrap" data-page-node-id="GjRYg2ckOCfbFjmnDLMisO">
+  <h1 data-page-node-id="fRdYWpAtZLU0WRkRgS8uD3">APCA 结果海报 · 本地预览</h1>
+  <div class="sub" data-page-node-id="03UfHnW4gSyi09Qu7MrW1j">
+    这里跑的就是小程序里 <code data-page-node-id="olH6xCvRpUh9M7bHctjCig">utils/poster.js</code> 的原始代码，渲染在浏览器 Canvas 上，所见即所得。
+    切到「有码」会用一张模拟小程序码演示真实版式；工程里没有 <code data-page-node-id="BkXFxFf6AzBund2iYaSOPZ">qrcode.png</code> 时会自动降级成占位块。
+  </div>
+
+  <div class="bar" data-page-node-id="7mFkxYQEa3V2PTv5HXTYwB">
+    <b data-page-node-id="bnm8LBgjSuCulgFrOnFzj4">等级</b>
+    <div class="seg" id="segLevel" data-page-node-id="nO84pGZbJAB2PQHssIjwan"></div>
+    <b style="margin-left:12px;" data-page-node-id="z4mrWPcsxOyhofDTfRiRbM">小程序码</b>
+    <div class="seg" data-page-node-id="zZ9NICw8slB4xWysqwz5Yp">
+      <button data-qr="1" class="on" data-page-node-id="3xCMH6FDS6386xnTEVDRlc">有码</button>
+      <button data-qr="0" data-page-node-id="Hp3ZDJXGyO3cz8Np0Tc9sK">无码（降级）</button>
+    </div>
+    <button class="primary" id="dl" style="margin-left:auto;" data-page-node-id="SiiOlK4DyxWrtPvWsBq5NU">下载 PNG（2 倍图）</button>
+  </div>
+
+  <div class="stage" data-page-node-id="u0kks1LvnOt9ZejLJdplr9">
+    <div class="phone" data-page-node-id="lviE0XK2iprKEcLMo8iwtk">
+      <canvas id="cv" width="750" height="1080" data-page-node-id="zCiBxhK8CuYursAsDLzaSX"></canvas>
+      <div class="meta" data-page-node-id="dswBYheCCRKn30LhBUO3Sx">750 × 1080 逻辑像素 · 显示已缩至 50%</div>
+    </div>
+
+    <div class="side" data-page-node-id="qXNgEmlDRUZ5E8vC515Dle">
+      <div class="card" data-page-node-id="4CNlgi2RtmHzxNqEG0UOlh">
+        <h3 data-page-node-id="v27or2GzGWCemZEltb79su">当前示例数据</h3>
+        <div id="kv" data-page-node-id="4F42mvLD9XnA3heRPHGIrx"></div>
+      </div>
+
+      <div class="card" data-page-node-id="suW72jRVEct7LbfiMGvbML">
+        <h3 data-page-node-id="krWyojpBMWDXZFCaG4Sj8v">海报里有什么</h3>
+        <div class="note" data-page-node-id="j6HPqaF6xiKaQa4S8FPQmu">
+          等级大字 + 等级名 + 等级释义 → 综合得分 → 六维雷达 → 强项 / 待提升 → 卷别与题数 → 小程序码 + 引导语。<br data-page-node-id="mtERf35A5Tq3ATjct0Y1eI">
+          背景是深蓝渐变，卡片是白色圆角带阴影。尺寸 750×1080，正好是朋友圈与聊天的常见比例。
+        </div>
+      </div>
+
+      <div class="card" data-page-node-id="w1LiE545jiTjNHOKSAx1Vb">
+        <h3 data-page-node-id="e1qu7BWzoVNDLhgOaVbv3p">上线前要做的两件事</h3>
+        <div class="note" data-page-node-id="ac81L3PmSOqqNOnSRdwVuo">
+          1. 把小程序码放成 <code data-page-node-id="0QFUraf2W8g5aSAzl9upPD">miniprogram/assets/qrcode.png</code>（公众平台 → 设置 → 基本设置 → 小程序码，下载 500px 以上）。<br data-page-node-id="aKmoSQ4nMBGNrvuhnDX3mi">
+          2. 小程序管理后台配置《用户隐私保护指引》，勾选「相册 / 添加到相册」，否则部分基础库会拦截保存。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mp-preview" style="margin-top:32px;" data-page-node-id="bPIpkinuBo49Bz1sNr1tHP">
+    <h3 data-page-node-id="cyP2nImfyaUuHnvTALWQM1">结果页新增模块：逐题复盘（样式 1:1 预览）</h3>
+    <div class="note" style="margin-bottom:14px;" data-page-node-id="yMt7wr0N3IZiZPAzxUZlCN">
+      引用你实际答了哪几题、选了哪个选项，再给出该题的解析与更优解。这是规则实现，不调用大模型，零成本、零延迟、可离线。
+    </div>
+    <div class="rv-head" data-page-node-id="dh8gZxXCb20DBRtWdCoaRz">
+      <div class="rv-lead" data-page-node-id="NG9IXGBbhSPgmq81itmzJq">针对性回看</div>
+      <div class="rv-hl" id="rvHeadline" data-page-node-id="tR5PJNMCmdw3Ved1Z1cTD5"></div>
+    </div>
+    <div id="rvList" data-page-node-id="5qt5xLg5VDsEe0ik4cWs6A"></div>
+  </div>
+
+  <div class="foot" data-page-node-id="JJ5N28mUZ8oGaBVTEJ8aDx">APCA v0.5 · 海报与逐题复盘预览 · 由 tools/build-poster-preview.js 生成</div>
+</div>
+
+<script id="src-dims" type="text/plain">// 自动生成, 来源: 01-指标体系.json (v0.3)
+// 6 个能力维度, 含 id/code/name/name_en/tagline/weight/abilities
+module.exports = [
+  {
+    "id": "D1",
+    "code": "AI_COMM",
+    "name": "AI 沟通能力",
+    "name_en": "AI Communication",
+    "tagline": "把业务诉求翻译成 AI 能听懂的指令",
+    "weight": 0.18,
+    "abilities": [
+      "受众识别 (受众决定表达方式)",
+      "目标定义 (回答什么 / 不回答什么)",
+      "约束声明 (格式 / 字数 / 语气 / 受众)",
+      "上下文注入 (背景 / 角色 / 既有材料)"
+    ]
+  },
+  {
+    "id": "D2",
+    "code": "TASK_DECOMP",
+    "name": "任务拆解能力",
+    "name_en": "Task Decomposition",
+    "tagline": "把模糊目标拆成可顺序执行的子任务",
+    "weight": 0.17,
+    "abilities": [
+      "问题驱动 (先问'要回答什么'再选方法)",
+      "子任务分解 (粒度合理 / 依赖清晰)",
+      "解耦与并行 (不同模块分别处理再整合)",
+      "完成标准前置 (DoD: Definition of Done)"
+    ]
+  },
+  {
+    "id": "D3",
+    "code": "PROCESS_DESIGN",
+    "name": "流程选择能力",
+    "name_en": "Process Design",
+    "tagline": "为不同风险/复杂度的任务选择合适的协作流程",
+    "weight": 0.17,
+    "abilities": [
+      "一次成型 vs 分阶段 (按任务分级)",
+      "节点化质量门禁 (关键节点检查方向)",
+      "解耦-汇总流程 (避免错误累积到最后)",
+      "风险分级 (低风险一次出 / 高风险分段确认)"
+    ]
+  },
+  {
+    "id": "D4",
+    "code": "QUALITY_CTRL",
+    "name": "质量管控能力",
+    "name_en": "Quality Control",
+    "tagline": "对 AI 输出做有重点的核查与修正",
+    "weight": 0.16,
+    "abilities": [
+      "决策驱动核验 (先想用来做什么决策)",
+      "影响范围判断 (错在哪里 / 会不会改结论)",
+      "原文/真值回查 (数字/引用/事实)",
+      "经验沉淀为检查清单 (按类型迭代)"
+    ]
+  },
+  {
+    "id": "D5",
+    "code": "RISK_AWARE",
+    "name": "风险应对能力",
+    "name_en": "Risk Awareness",
+    "tagline": "识别对外/合规/承诺类内容的风险并分级处置",
+    "weight": 0.16,
+    "abilities": [
+      "风险点识别 (承诺/价格/合同/数据出处)",
+      "信息分级处理 (按类型调整检查重点)",
+      "口径披露 (待确认/估算 vs 确定事实)",
+      "时效-风险平衡 (紧急但有风险时如何处置)"
+    ]
+  },
+  {
+    "id": "D6",
+    "code": "REUSE",
+    "name": "经验复用能力",
+    "name_en": "Experience Reuse",
+    "tagline": "把一次性的好做法沉淀为可被自己和他人复用的资产",
+    "weight": 0.16,
+    "abilities": [
+      "分类资产化 (按任务类型整理模板/问法)",
+      "差异分析 (上次哪些步骤这次仍可用)",
+      "隐性经验显性化 (可观察标准 vs 直觉)",
+      "外化与反馈迭代 (给别人用, 按反馈改进)"
+    ]
+  }
+];
+</script>
+<script id="src-levels" type="text/plain">// 自动生成, 来源: 01-指标体系.json (v0.3)
+// 4 级能力等级 + 评分映射
+module.exports = {
+  "levels": [
+    {
+      "id": "L1",
+      "name": "摸索模式",
+      "subtitle": "凭感觉用, 临时组织语言, 用完即弃",
+      "score_range": [
+        0,
+        25
+      ]
+    },
+    {
+      "id": "L2",
+      "name": "指令模式",
+      "subtitle": "能结构化表达, 但任务拆解与质量管控尚未系统化",
+      "score_range": [
+        26,
+        50
+      ]
+    },
+    {
+      "id": "L3",
+      "name": "流程模式",
+      "subtitle": "为复杂任务设计流程, 主动管控风险与质量",
+      "score_range": [
+        51,
+        75
+      ]
+    },
+    {
+      "id": "L4",
+      "name": "系统模式",
+      "subtitle": "方法论沉淀成资产, 可外化教学, 持续反馈迭代",
+      "score_range": [
+        76,
+        100
+      ]
+    }
+  ],
+  "scoreMap": {
+    "A": 0,
+    "B": 33.3,
+    "C": 66.7,
+    "D": 100
+  }
+};
+</script>
+<script id="src-poster" type="text/plain">// utils/poster.js
+// 海报绘制: 纯绘制函数, 不依赖 wx API (便于在 Node 里用桩 ctx 跑测试)
+// 画布基准尺寸 W=750 H=1080 (逻辑像素), 调用方按 dpr 做 scale
+
+const DIMS = require('../data/dimensions.js');
+
+const W = 750;
+const H = 1080;
+
+const C = {
+  bgTop: '#1f3a8a',
+  bgBottom: '#2f6bff',
+  card: '#ffffff',
+  ink: '#1f2a44',
+  ink2: '#64748b',
+  ink3: '#94a3b8',
+  brand: '#1f5cff',
+  brandSoft: 'rgba(31, 92, 255, 0.18)',
+  line: '#e6ebf5',
+  warn: '#f59e0b',
+  white: '#ffffff',
+  white70: 'rgba(255,255,255,0.72)',
+  white40: 'rgba(255,255,255,0.40)'
+};
+
+// ---- 基础绘制工具 ----
+
+function roundRect(ctx, x, y, w, h, r) {
+  const rr = Math.min(r, w / 2, h / 2);
+  ctx.beginPath();
+  ctx.moveTo(x + rr, y);
+  ctx.arcTo(x + w, y, x + w, y + h, rr);
+  ctx.arcTo(x + w, y + h, x, y + h, rr);
+  ctx.arcTo(x, y + h, x, y, rr);
+  ctx.arcTo(x, y, x + w, y, rr);
+  ctx.closePath();
+}
+
+// ctx.measureText 在部分桩实现里可能缺失, 做兜底
+function measure(ctx, text) {
+  if (!ctx.measureText) return { width: String(text).length * 14 };
+  try {
+    const m = ctx.measureText(text);
+    return m && typeof m.width === 'number' ? m : { width: String(text).length * 14 };
+  } catch (e) {
+    return { width: String(text).length * 14 };
+  }
+}
+
+// 按最大宽度折行, 返回行数组
+function wrapText(ctx, text, maxWidth, maxLines) {
+  const src = String(text == null ? '' : text).replace(/\s+/g, ' ').trim();
+  if (!src) return [];
+  const lines = [];
+  let cur = '';
+  for (let i = 0; i < src.length; i++) {
+    const ch = src[i];
+    const next = cur + ch;
+    if (measure(ctx, next).width > maxWidth && cur) {
+      lines.push(cur);
+      cur = ch;
+      if (maxLines && lines.length === maxLines - 1) {
+        // 最后一行: 把剩余内容塞进去并按需省略
+        let tail = src.slice(i);
+        if (measure(ctx, tail).width > maxWidth) {
+          while (tail.length > 1 && measure(ctx, tail + '…').width > maxWidth) {
+            tail = tail.slice(0, -1);
+          }
+          tail = tail + '…';
+        }
+        lines.push(tail);
+        return lines;
+      }
+    } else {
+      cur = next;
+    }
+  }
+  if (cur) lines.push(cur);
+  return lines;
+}
+
+function font(ctx, size, weight) {
+  ctx.font = (weight ? weight + ' ' : '') + size + 'px -apple-system, "PingFang SC", "Helvetica Neue", sans-serif';
+}
+
+// ---- 局部图形 ----
+
+function drawRadar(ctx, cx, cy, R, scores, labels, ids) {
+  const N = ids.length;
+
+  // 网格 4 圈
+  ctx.lineWidth = 1;
+  ctx.strokeStyle = C.line;
+  for (let r = 1; r <= 4; r++) {
+    ctx.beginPath();
+    for (let i = 0; i < N; i++) {
+      const a = (Math.PI * 2 * i) / N - Math.PI / 2;
+      const x = cx + Math.cos(a) * (R * r) / 4;
+      const y = cy + Math.sin(a) * (R * r) / 4;
+      if (i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+    ctx.closePath();
+    ctx.stroke();
+  }
+
+  // 轴线
+  for (let i = 0; i < N; i++) {
+    const a = (Math.PI * 2 * i) / N - Math.PI / 2;
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.lineTo(cx + Math.cos(a) * R, cy + Math.sin(a) * R);
+    ctx.stroke();
+  }
+
+  // 数据面
+  ctx.beginPath();
+  for (let i = 0; i < N; i++) {
+    const a = (Math.PI * 2 * i) / N - Math.PI / 2;
+    const s = (scores[ids[i]] || 0) / 100;
+    const x = cx + Math.cos(a) * R * s;
+    const y = cy + Math.sin(a) * R * s;
+    if (i === 0) ctx.moveTo(x, y);
+    else ctx.lineTo(x, y);
+  }
+  ctx.closePath();
+  ctx.fillStyle = C.brandSoft;
+  ctx.fill();
+  ctx.strokeStyle = C.brand;
+  ctx.lineWidth = 3;
+  ctx.stroke();
+
+  // 节点
+  for (let i = 0; i < N; i++) {
+    const a = (Math.PI * 2 * i) / N - Math.PI / 2;
+    const s = (scores[ids[i]] || 0) / 100;
+    ctx.beginPath();
+    ctx.arc(cx + Math.cos(a) * R * s, cy + Math.sin(a) * R * s, 5, 0, Math.PI * 2);
+    ctx.fillStyle = C.brand;
+    ctx.fill();
+  }
+
+  // 标签 (短名: 去掉"能力"二字)
+  font(ctx, 20);
+  ctx.fillStyle = C.ink2;
+  ctx.textAlign = 'center';
+  for (let i = 0; i < N; i++) {
+    const a = (Math.PI * 2 * i) / N - Math.PI / 2;
+    const lx = cx + Math.cos(a) * (R + 26);
+    const ly = cy + Math.sin(a) * (R + 26);
+    const name = String(labels[i] || '').replace(/能力$/, '');
+    ctx.textAlign = Math.abs(Math.cos(a)) < 0.25 ? 'center' : (Math.cos(a) > 0 ? 'left' : 'right');
+    ctx.fillText(name, lx, ly + 7);
+  }
+}
+
+// 小程序码区域: 有图则画, 无图则画占位块
+function drawQrArea(ctx, x, y, size, qrImage) {
+  if (qrImage) {
+    try {
+      ctx.drawImage(qrImage, x, y, size, size);
+      return true;
+    } catch (e) {
+      /* 落到占位 */
+    }
+  }
+  ctx.save();
+  roundRect(ctx, x, y, size, size, 12);
+  ctx.fillStyle = C.white;
+  ctx.fill();
+  ctx.strokeStyle = C.white40;
+  ctx.lineWidth = 2;
+  ctx.stroke();
+  // 占位: 三定位角 + 中心提示
+  const pad = size * 0.1;
+  const cs = size * 0.18;
+  const corners = [
+    [x + pad, y + pad],
+    [x + size - pad - cs, y + pad],
+    [x + pad, y + size - pad - cs]
+  ];
+  corners.forEach((c) => {
+    ctx.strokeStyle = 'rgba(31, 92, 255, 0.55)';
+    ctx.lineWidth = 3;
+    ctx.strokeRect(c[0], c[1], cs, cs);
+  });
+  font(ctx, 20, 'bold');
+  ctx.fillStyle = 'rgba(31, 92, 255, 0.55)';
+  ctx.textAlign = 'center';
+  ctx.fillText('小程序码', x + size / 2, y + size / 2 + 7);
+  ctx.restore();
+  return false;
+}
+
+// ---- 主绘制 ----
+
+/**
+ * @param {CanvasRenderingContext2D} ctx
+ * @param {Object} data  {
+ *   levelId, levelName, levelSubtitle, total,
+ *   dimScores: {D1:..}, strongName, weakName,
+ *   packName, totalQ, dateStr
+ * }
+ * @param {Object} opts { qrImage }  qrImage 为已加载的小程序码 Image 对象, 可缺省
+ */
+function drawPoster(ctx, data, opts) {
+  opts = opts || {};
+  const d = data || {};
+  const scores = d.dimScores || {};
+  const labels = DIMS.map((x) => x.name);
+  const ids = DIMS.map((x) => x.id);
+
+  // 背景渐变
+  const g = ctx.createLinearGradient(0, 0, W, H);
+  g.addColorStop(0, C.bgTop);
+  g.addColorStop(1, C.bgBottom);
+  ctx.fillStyle = g;
+  ctx.fillRect(0, 0, W, H);
+
+  // 顶部装饰光斑
+  ctx.save();
+  ctx.globalAlpha = 0.16;
+  ctx.beginPath();
+  ctx.arc(W - 60, 40, 200, 0, Math.PI * 2);
+  ctx.fillStyle = C.white;
+  ctx.fill();
+  ctx.beginPath();
+  ctx.arc(30, H - 120, 150, 0, Math.PI * 2);
+  ctx.fillStyle = C.white;
+  ctx.fill();
+  ctx.restore();
+
+  // 标题
+  ctx.textAlign = 'left';
+  font(ctx, 26);
+  ctx.fillStyle = C.white70;
+  ctx.fillText('APCA · 个人 AI 能力测评', 56, 86);
+
+  // 等级大卡
+  font(ctx, 96, 'bold');
+  ctx.fillStyle = C.white;
+  ctx.fillText(String(d.levelId || '-'), 56, 200);
+
+  font(ctx, 44, 'bold');
+  ctx.fillText(String(d.levelName || ''), 56 + measure(ctx, String(d.levelId || '')).width * 2.0, 194);
+
+  font(ctx, 24);
+  ctx.fillStyle = C.white70;
+  const subLines = wrapText(ctx, d.levelSubtitle, W - 112, 2);
+  subLines.forEach((line, i) => ctx.fillText(line, 56, 244 + i * 34));
+
+  // 主卡片
+  const cardX = 40;
+  const cardY = 320;
+  const cardW = W - 80;
+  const cardH = 600;
+  ctx.save();
+  ctx.shadowColor = 'rgba(15, 30, 80, 0.28)';
+  ctx.shadowBlur = 40;
+  ctx.shadowOffsetY = 16;
+  roundRect(ctx, cardX, cardY, cardW, cardH, 28);
+  ctx.fillStyle = C.card;
+  ctx.fill();
+  ctx.restore();
+
+  // 总分
+  ctx.textAlign = 'center';
+  font(ctx, 112, 'bold');
+  ctx.fillStyle = C.brand;
+  ctx.fillText(String(d.total == null ? '-' : d.total), W / 2, cardY + 132);
+
+  font(ctx, 24);
+  ctx.fillStyle = C.ink3;
+  ctx.fillText('综合得分 / 100', W / 2, cardY + 170);
+
+  // 分隔线
+  ctx.beginPath();
+  ctx.moveTo(cardX + 40, cardY + 200);
+  ctx.lineTo(cardX + cardW - 40, cardY + 200);
+  ctx.strokeStyle = C.line;
+  ctx.lineWidth = 1;
+  ctx.stroke();
+
+  // 雷达
+  drawRadar(ctx, W / 2, cardY + 388, 138, scores, labels, ids);
+
+  // 强项 / 待提升
+  ctx.textAlign = 'left';
+  const rowY = cardY + 468;
+  font(ctx, 22);
+  ctx.fillStyle = C.ink3;
+  ctx.fillText('强项', cardX + 48, rowY);
+  font(ctx, 26, 'bold');
+  ctx.fillStyle = C.ink;
+  ctx.fillText(String(d.strongName || '-'), cardX + 110, rowY);
+
+  ctx.textAlign = 'right';
+  font(ctx, 22);
+  ctx.fillStyle = C.ink3;
+  ctx.fillText('待提升', cardX + cardW - 48, rowY);
+  font(ctx, 26, 'bold');
+  ctx.fillStyle = C.warn;
+  ctx.fillText(String(d.weakName || '-'), cardX + cardW - 110, rowY);
+
+  // 卡片底部: 卷别 + 日期
+  ctx.textAlign = 'center';
+  font(ctx, 22);
+  ctx.fillStyle = C.ink3;
+  ctx.fillText(
+    String(d.packName || '通用版') + ' · ' + String(d.totalQ || 0) + ' 题 · ' + String(d.dateStr || ''),
+    W / 2,
+    cardY + cardH - 40
+  );
+
+  // 底部: 小程序码 + 引导语
+  const qrSize = 128;
+  const qrX = 56;
+  const qrY = H - 190;
+  drawQrArea(ctx, qrX, qrY, qrSize, opts.qrImage);
+
+  ctx.textAlign = 'left';
+  font(ctx, 30, 'bold');
+  ctx.fillStyle = C.white;
+  ctx.fillText('扫码测一测你的 AI 段位', qrX + qrSize + 32, qrY + 56);
+  font(ctx, 22);
+  ctx.fillStyle = C.white70;
+  ctx.fillText('6 维度 · 4 等级 · 约 8 分钟', qrX + qrSize + 32, qrY + 94);
+}
+
+module.exports = {
+  W,
+  H,
+  drawPoster,
+  drawRadar,
+  roundRect,
+  wrapText,
+  measure
+};
+</script>
+<script id="src-review" type="text/plain">// utils/review.js
+// 逐题复盘: 基于用户实际作答, 挑出最值得讲的题做针对性解析
+// 纯本地规则实现, 不需要服务端 / 不需要大模型
+
+const SCORE_MAP = { A: 0, B: 33.3, C: 66.7, D: 100 };
+const DIMS = require('../data/dimensions.js');
+
+const DIM_NAME = {};
+const DIM_TAGLINE = {};
+DIMS.forEach((d) => {
+  DIM_NAME[d.id] = d.name;
+  DIM_TAGLINE[d.id] = d.tagline;
+});
+
+// 选项对应的"下一步该往哪走"提示
+const NEXT_STEP = {
+  A: '先建立「先想清楚再让 AI 动手」的习惯: 任何任务开工前, 先写一句话定义这次要交付什么、给谁用。',
+  B: '你已经会用既有材料打底, 下一步是把「凭经验选」变成「按标准选」——把判断依据写成可复用的检查项。',
+  C: '你已经形成了流程意识, 下一步是把它外化成资产: 写成模板/清单/Prompt 库, 让同事直接拿去用。',
+  D: '这一项已达系统级。可考虑把你的做法整理成教学材料, 在团队内做一次分享。'
+};
+
+function scoreOf(letter) {
+  return SCORE_MAP[letter] == null ? 0 : SCORE_MAP[letter];
+}
+
+/**
+ * 挑出需要复盘的题
+ * @param {Array} questions 完整卷面题目
+ * @param {Array} answers   [{id, letter, score}] 或 {id: letter} 形式
+ * @param {Number} limit    返回条数, 默认 4
+ * @returns {Array} [{id, dimension, dimName, dimTagline, scene, question, yourLetter, yourText, yourScore, bestText, analysis, nextStep}]
+ */
+function pickReviewItems(questions, answers, limit) {
+  limit = limit || 4;
+  if (!Array.isArray(questions) || !Array.isArray(answers)) return [];
+
+  // 统一 answers 为 map: id -> letter
+  const map = {};
+  answers.forEach((a) => {
+    if (!a) return;
+    if (typeof a === 'string') map[a] = null;
+    else if (a.letter) map[a.id] = a.letter;
+    else if (a.answer) map[a.id] = a.answer;
+  });
+
+  const items = [];
+  questions.forEach((q) => {
+    const letter = map[q.id];
+    if (!letter || !q.options || !q.options[letter]) return;
+    const score = scoreOf(letter);
+    items.push({
+      id: q.id,
+      dimension: q.dimension,
+      dimName: DIM_NAME[q.dimension] || q.dimension,
+      dimTagline: DIM_TAGLINE[q.dimension] || '',
+      scene: q.scene || '',
+      question: q.question || '',
+      yourLetter: letter,
+      yourText: q.options[letter] || '',
+      yourScore: Math.round(score),
+      bestText: q.options.D || '',
+      analysis: q.analysis || '',
+      nextStep: NEXT_STEP[letter] || ''
+    });
+  });
+
+  // 低分优先; 同分按维度内题序稳定排序
+  items.sort((a, b) => {
+    if (a.yourScore !== b.yourScore) return a.yourScore - b.yourScore;
+    return String(a.id).localeCompare(String(b.id));
+  });
+
+  return items.slice(0, limit);
+}
+
+/**
+ * 一句话总评: 点名最弱的一道题
+ */
+function buildHeadline(items) {
+  if (!items || !items.length) return '';
+  const it = items[0];
+  return '最该回看的是「' + it.dimName + '」里的 ' + it.id + ' —— 你选了 ' + it.yourLetter + ', 这一档说明 ' + it.dimTagline + ' 还没形成稳定做法。';
+}
+
+module.exports = {
+  pickReviewItems,
+  buildHeadline,
+  NEXT_STEP,
+  scoreOf
+};
+</script>
+<script id="src-core" type="text/plain">// 自动生成, 来源: 02-题库.json (v0.3)
+// 字段: id/dimension/type/difficulty/scene/question/options/analysis
+module.exports = [
+  {
+    "id": "D1-1",
+    "dimension": "D1",
+    "type": "scene_decision",
+    "difficulty": 2,
+    "scene": "“你准备用 AI 写一份本周工作周报。”",
+    "question": "“你打算让 AI 开工前, 你最可能先做哪件事?”",
+    "options": {
+      "A": "“把本周做过的事按时间顺序列出来, 再让 AI 帮我组织表达”",
+      "B": "“先参考以前写过的一份好周报, 看看哪些结构能沿用, 哪些必须重写”",
+      "C": "“先判断这份周报最容易被追问的点 (进度/风险/下周动作), 再让 AI 围绕这些点组织内容”",
+      "D": "“先确认这份周报给谁看 (直属上级/跨部门/项目群), 决定表达方式后, 再让 AI 起草”"
+    },
+    "analysis": "“D 体现了‘先受众再定表达’的沟通原则; C 是次优, 先识别被追问点; B 是复用既有资产, 也不错; A 是最朴素的‘先穷举’, 在 AI 协作里通常产出臃肿。”"
+  },
+  {
+    "id": "D1-2",
+    "dimension": "D1",
+    "type": "scene_decision",
+    "difficulty": 2,
+    "scene": "“你需要让 AI 起草一封给某政府客户的方案说明邮件。”",
+    "question": "“你提交给 AI 的指令里, 最不可能漏掉哪个要素?”",
+    "options": {
+      "A": "“邮件主题行的关键词”",
+      "B": "“客户的行业身份与本次沟通的边界 (我方能承诺什么, 不能承诺什么)”",
+      "C": "“对方阅读这份邮件后最可能想做的 3 件事 (回复口径/批给谁/下一步动作)”",
+      "D": "“信件中所有金额、合同编号、有效期与签署主体的精确表述”"
+    },
+    "analysis": "“C 体现‘以终为始’的沟通设计, 让 AI 知道对方读完要做什么, 写出来的邮件更可能闭环; D 是事实精度, 也重要; B 是边界声明, 关键; A 相对次要 (主题行 AI 通常能补)。”"
+  },
+  {
+    "id": "D1-3",
+    "dimension": "D1",
+    "type": "self_behavior",
+    "difficulty": 1,
+    "scene": "“过去一个月, 你向 AI 提问的实际习惯更接近哪种?”",
+    "question": "“你向 AI 提问的实际习惯更接近哪种?”",
+    "options": {
+      "A": "“多数时候临时组织语言, 想到什么就问, 结果出来再调”",
+      "B": "“我有几类常用任务的固定问法或模板, 需要时直接拿出来用”",
+      "C": "“我会按不同任务类型 (写邮件/做分析/写文档) 用不同的问法, 并且这些问法是我有意识总结出来的”",
+      "D": "“我除了按任务分类, 还会定期回头看哪些问法效果好, 把它们整理成‘按场景命名的问法库’, 也能给团队成员参考”"
+    },
+    "analysis": "“D 是体系化资产; C 是分类资产; B 是局部资产; A 是无资产。”"
+  },
+  {
+    "id": "D1-4",
+    "dimension": "D1",
+    "type": "meta_reflection",
+    "difficulty": 3,
+    "scene": "“同事反馈你‘用 AI 问问题总是问得不够清楚’。”",
+    "question": "“你会如何归因?”",
+    "options": {
+      "A": "“可能是我给 AI 的信息不够多, 以后我先把背景写全”",
+      "B": "“可能是我没明确告诉 AI 要重点关注什么, 统一一下输出格式”",
+      "C": "“根本问题是我没想清楚‘为什么要让 AI 做这件事’和‘做完之后要做什么决定’”",
+      "D": "“我会请同事举一两个具体例子, 一起看我们的‘指令’和‘结果’之间到底缺了什么环节”"
+    },
+    "analysis": "“D 是元认知+共创归因; C 是回到决策锚点; B 是单点修补; A 是堆砌输入。”"
+  },
+  {
+    "id": "D1-5",
+    "dimension": "D1",
+    "type": "teach_others",
+    "difficulty": 3,
+    "scene": "“你部门新来一位同事, 你要帮他建立‘对 AI 提问’的基本能力。”",
+    "question": "“你会先教他什么?”",
+    "options": {
+      "A": "“直接把我的几条常用问法发给他, 让他边用边改”",
+      "B": "“先让他用自己的方式问几次, 我在旁边观察他‘每次结果不达预期时都在哪一步卡住’”",
+      "C": "“先给他一份‘提问四件套’清单 (背景/目标/约束/输出格式), 让他每条问题都按这个框架自检”",
+      "D": "“教他‘把一次好结果反推回指令’的方法, 让他自己从结果倒推‘如果再问一次, 我会改哪一句’”"
+    },
+    "analysis": "“D 是元能力培养; C 是给框架; B 是观察辅导; A 是给素材。D 的好处是让对方形成‘反推’能力, 长期最有用。”"
+  },
+  {
+    "id": "D2-1",
+    "dimension": "D2",
+    "type": "scene_decision",
+    "difficulty": 2,
+    "scene": "“你需要用 AI 分析上个月的客户流失数据。”",
+    "question": "“拿到数据后, 你最可能先做什么?”",
+    "options": {
+      "A": "“先判断这次分析最需要回答什么问题 (流失原因/挽回机会/异常群体), 再决定分析方式”",
+      "B": "“先把数据整理干净 (字段统一/缺失值处理/口径统一), 再交给 AI”",
+      "C": "“把历史数据/市场背景/客服记录补充给 AI, 让它综合判断”",
+      "D": "“先列几个常规分析角度 (客户分群/产品线/接触频次), 让 AI 分别看一遍”"
+    },
+    "analysis": "“A 是‘问题驱动’, 在数据任务里是最稳的起点; B 是数据治理, 也重要但只是准备工作; D 是套路驱动; C 是堆上下文, 通常让 AI 答得更泛。”"
+  },
+  {
+    "id": "D2-2",
+    "dimension": "D2",
+    "type": "scene_decision",
+    "difficulty": 2,
+    "scene": "“你需要让 AI 帮忙改一份 30 页的项目方案, 让它变成 PPT 大纲。”",
+    "question": "“你打算如何拆解这个任务?”",
+    "options": {
+      "A": "“把方案直接喂给 AI, 让它一步出 PPT 大纲”",
+      "B": "“先让 AI 帮列出 30 页方案的核心论点 (一句话/页), 我确认后, 再让它把这些论点改写成 PPT 标题+要点”",
+      "C": "“我自己先把方案里的核心信息手抄成 10 条要点, 再让 AI 帮我把它们组织成 PPT 结构”",
+      "D": "“我让 AI 先按章节摘要 (1 段/章), 确认后再让它做整本大纲, 我再逐章校对”"
+    },
+    "analysis": "“B 是‘先骨架后填充’的标准范式, 适合长文档; D 是分段确认, 适合更复杂或更不可控的输入; A 一次成型风险高; C 把活儿自己干了, AI 没发挥。”"
+  },
+  {
+    "id": "D2-3",
+    "dimension": "D2",
+    "type": "self_behavior",
+    "difficulty": 1,
+    "scene": "“过去一个月, 你把任务交给 AI 前的实际习惯更接近哪种?”",
+    "question": "“过去一个月, 你把任务交给 AI 前的实际习惯更接近哪种?”",
+    "options": {
+      "A": "“边想边说, AI 结果出来后再慢慢想清楚要什么”",
+      "B": "“我会先想清楚目标、范围、什么情况算完成, 再让 AI 做”",
+      "C": "“我会先想清楚大概的内容和格式, 完成标准通常看结果再判断”",
+      "D": "“常做的几类任务我已经有比较固定的‘目标+范围+完成标准’定义方式, 需要时直接复用, 也会在每次跑完后修订”"
+    },
+    "analysis": "“D 是任务级 SOP; C 是部分前置; B 是单次前置; A 是无前置。任务级 SOP 是大模型时代最被低估的杠杆。”"
+  },
+  {
+    "id": "D2-4",
+    "dimension": "D2",
+    "type": "meta_reflection",
+    "difficulty": 3,
+    "scene": "“AI 给你的输出很丰富, 但没有回答你这次真正要解决的问题。”",
+    "question": "“你会如何诊断?”",
+    "options": {
+      "A": "“可能是我给 AI 的数据/背景不够多, 先补齐再来”",
+      "B": "“关键不是输入不够, 而是我一开始没有定义‘这次分析要支持什么决策’”",
+      "C": "“可能是我没明确告诉 AI 要重点看哪些指标, 统一一下口径”",
+      "D": "“以后类似任务开始前, 我会先把‘要回答的问题’和‘不能回答/不打算回答的问题’都写清楚, 再交给 AI”"
+    },
+    "analysis": "“D 是把教训沉淀为前置 SOP; B 是单次归因到决策锚点; C 是单点修补; A 是堆输入。最高级是 D, 它体现了‘经验资产化’。”"
+  },
+  {
+    "id": "D2-5",
+    "dimension": "D2",
+    "type": "teach_others",
+    "difficulty": 3,
+    "scene": "“新同事常把‘模糊需求’直接发给 AI, 结果总是不达预期。”",
+    "question": "“你会怎么帮他?”",
+    "options": {
+      "A": "“把‘我自己的指令’发给他, 让他模仿”",
+      "B": "“让他下次发指令前, 先自己口头回答三个问题: 给谁看/为什么做/做到什么程度算够, 然后把回答转成 AI 指令”",
+      "C": "“给他一份‘模糊需求澄清清单’ (受众/边界/完成标准), 让他每条都勾完再发”",
+      "D": "“先让他按 A 试几次, 看到差距后, 再引入 B/C 的方法”"
+    },
+    "analysis": "“C 是流程化, B 是元能力, A 是给材料, D 是分阶段。C 在企业里最容易推广。”"
+  },
+  {
+    "id": "D3-1",
+    "dimension": "D3",
+    "type": "scene_decision",
+    "difficulty": 2,
+    "scene": "“你需要用 AI 写一份涉及三个部门数据的季度总结报告。”",
+    "question": "“你准备开始做这份报告, 会先选择哪种方式?”",
+    "options": {
+      "A": "“把所有资料一次性给 AI, 让它出一版完整草稿, 再看哪里要调整”",
+      "B": "“先让 AI 帮列一个报告框架, 确认方向后再逐步补内容”",
+      "C": "“先判断哪些部分可以一次成型, 哪些部分必须分阶段确认”",
+      "D": "“先把背景、角色、要求写得很详细, 希望 AI 一次生成尽量完整的版本”"
+    },
+    "analysis": "“C 是按风险/复杂度分级处理流程, 最高级; B 是分阶段, 也不错; A 是‘一次成型+事后改’; D 是‘用详尽输入换一次成型’, 在跨部门任务里风险高。”"
+  },
+  {
+    "id": "D3-2",
+    "dimension": "D3",
+    "type": "scene_decision",
+    "difficulty": 2,
+    "scene": "“你需要用 AI 起草一份对外公告, 内容将影响客户对公司的信任。”",
+    "question": "“你打算让 AI 介入的流程是?”",
+    "options": {
+      "A": "“让 AI 一次性出稿, 我通读一遍就发”",
+      "B": "“先让 AI 列出可能被外界误读的 5 个点, 我把‘红线词/红线数据’列出来, 再让它按红线写”",
+      "C": "“让 AI 出 3 版不同口吻的稿子, 我挑一版改”",
+      "D": "“让 AI 出稿, 我自己改一遍, 再让 AI 检查一遍”"
+    },
+    "analysis": "“B 是‘红线驱动’, 适合高对外风险内容; D 是双盲校核, 也可用; C 是多版择优, 适合不确定时; A 是裸奔。”"
+  },
+  {
+    "id": "D3-3",
+    "dimension": "D3",
+    "type": "meta_reflection",
+    "difficulty": 3,
+    "scene": "“有人问你: ‘为什么不直接让 AI 一次写完? 拆开做不是更慢吗?’”",
+    "question": "“你会怎么解释?”",
+    "options": {
+      "A": "“我会把‘这类任务如何决定一次性还是分阶段’的方法整理成几条, 让别人也能自己判断”",
+      "B": "“分开做不是为了慢, 是为了让每一步能发现问题, 不把错误带到最后”",
+      "C": "“一次写完也可以, 只是最后可能要多改几轮”",
+      "D": "“我会看任务风险: 低风险内容可以一次出, 高风险内容必须分段确认”"
+    },
+    "analysis": "“A 是把判断准则外化, 体现系统级能力; D 是判断准则的‘个人版’, 次优; B 是流程价值的解释; C 是结果导向, 略弱。”"
+  },
+  {
+    "id": "D3-4",
+    "dimension": "D3",
+    "type": "self_behavior",
+    "difficulty": 1,
+    "scene": "“过去一个月, 你处理复杂 AI 任务时的实际状态更接近哪种?”",
+    "question": "“处理复杂 AI 任务时, 你的实际状态更接近哪种?”",
+    "options": {
+      "A": "“多数时候边做边看结果, 没有提前规划完整步骤”",
+      "B": "“我知道复杂任务要分步, 但实际还是看第一版结果再调整”",
+      "C": "“常做的复杂任务, 我已经有比较固定的阶段划分, 也能给别人参考”",
+      "D": "“我会先拆阶段, 并在关键节点检查‘输出是否跑偏’, 把节点检查表也维护起来”"
+    },
+    "analysis": "“D 是节点化+质量门禁; C 是阶段化; B 是事后调整; A 是无流程。”"
+  },
+  {
+    "id": "D3-5",
+    "dimension": "D3",
+    "type": "teach_others",
+    "difficulty": 3,
+    "scene": "“你团队另一位同事用 AI 的方式和你很不同, 经常返工。”",
+    "question": "“你会怎么帮他?”",
+    "options": {
+      "A": "“把‘我自己的流程’发给他, 让他照着做”",
+      "B": "“坐下来一起做一次, 在每个节点告诉他‘为什么我在这里停一下’”",
+      "C": "“给他一份‘通用流程骨架’ (拆阶段→节点检查→合并), 让他根据自己的任务填具体动作”",
+      "D": "“让他继续按自己的方式做, 失败了再教”"
+    },
+    "analysis": "“C 是把方法论外化为可填空模板, 最有体系; B 是陪伴式辅导, 适合 1-on-1; A 是给材料; D 是放任。”"
+  },
+  {
+    "id": "D4-1",
+    "dimension": "D4",
+    "type": "scene_decision",
+    "difficulty": 2,
+    "scene": "“AI 帮你总结了一份 20 页的行业报告, 你要作为决策参考使用。”",
+    "question": "“你拿到 AI 总结后, 第一步会怎么检查?”",
+    "options": {
+      "A": "“先看这份总结会用来做什么决策, 再决定重点核查哪些内容”",
+      "B": "“让 AI 再审一遍, 标出它自己认为可能不确定的地方”",
+      "C": "“挑几个关键数据和核心结论, 回到原文核对”",
+      "D": "“快速通读, 看主要观点是否都覆盖、表达是否清楚”"
+    },
+    "analysis": "“A 是‘决策驱动核查’, 最强; C 是真值回查, 基础; B 是 AI 自检, 适合补充; D 是表达层检查, 弱。”"
+  },
+  {
+    "id": "D4-2",
+    "dimension": "D4",
+    "type": "scene_decision",
+    "difficulty": 2,
+    "scene": "“你发现 AI 总结里有一个数字写错了: 原文是‘增长 1.5%’, 总结写成了‘增长 15%’。”",
+    "question": "“你会怎么处理这个发现?”",
+    "options": {
+      "A": "“我会先判断这类错误会不会改变结论, 如果会, 就重新检查相关段落”",
+      "B": "“既然数字错了, 把总结里的其他关键数字也逐个回原文核对”",
+      "C": "“把这个数字改掉, 再看一遍有没有其他明显错误”",
+      "D": "“我会让 AI 解释它为什么会写成 15%, 再根据解释判断有没有类似问题”"
+    },
+    "analysis": "“A 是‘基于影响判断范围’, 最强; D 是根因追溯, 适合系统性 bug; B 是经验式全面回查; C 是修补式。”"
+  },
+  {
+    "id": "D4-3",
+    "dimension": "D4",
+    "type": "self_behavior",
+    "difficulty": 1,
+    "scene": "“过去一个月, 你检查 AI 输出时的实际状态更接近哪种?”",
+    "question": "“检查 AI 输出时, 你的实际状态更接近哪种?”",
+    "options": {
+      "A": "“多数时候快速看一遍, 确认没有明显问题”",
+      "B": "“会重点查几个关键位置, 但每次具体查什么取决于任务”",
+      "C": "“不同类型内容我有比较稳定的检查重点, 基本不会完全凭感觉”",
+      "D": "“我会把新发现的问题记下来, 下次检查同类内容时会专门看这些点, 这份清单一直在迭代”"
+    },
+    "analysis": "“D 是带反馈闭环的检查清单, 最高级; C 是按类型分工; B 是按任务临场判断; A 是应付型。”"
+  },
+  {
+    "id": "D4-4",
+    "dimension": "D4",
+    "type": "meta_reflection",
+    "difficulty": 3,
+    "scene": "“AI 引用了一段‘行业研究报告’的数据, 你在公开渠道找不到这份报告。”",
+    "question": "“你会怎么处理?”",
+    "options": {
+      "A": "“数据看起来合理, 先保留使用, 备注一下出处待查”",
+      "B": "“立刻在文档里加一句‘该数据来源待核’, 同时把这件事记到我的‘AI 幻觉清单’里”",
+      "C": "“直接删掉这段, 用我能查到来源的同类数据替换”",
+      "D": "“让 AI 重新查一次, 看它是否能给出更准确的来源”"
+    },
+    "analysis": "“B 是‘留用+披露+沉淀’, 兼顾时效与复盘, 最高级; C 是规避, 安全但有损; D 是依赖 AI 自纠, 不靠谱; A 是带风险使用, 不可取。”"
+  },
+  {
+    "id": "D4-5",
+    "dimension": "D4",
+    "type": "teach_others",
+    "difficulty": 3,
+    "scene": "“你团队成员开始大量使用 AI, 你想建一份‘AI 输出核查清单’。”",
+    "question": "“你会先列出哪几项?”",
+    "options": {
+      "A": "“数据准确性、引用出处、逻辑一致性、表达清晰度”",
+      "B": "“按‘决策影响 × 信息类型’分矩阵: 高决策影响+对外材料是红色区, 必须逐项核; 低决策影响+内部参考是绿色区, 抽查即可”",
+      "C": "“只列 3-5 条最常出错的 (数字/法规/对外承诺/客户名称/有效期), 让团队先熟记这几条”",
+      "D": "“让团队成员自己先列, 我再合并去重”"
+    },
+    "analysis": "“B 是风险矩阵, 体系化最强; C 是高频清单, 易落地; A 是通用清单, 不分风险等级; D 是共建, 适合长期。”"
+  },
+  {
+    "id": "D5-1",
+    "dimension": "D5",
+    "type": "scene_decision",
+    "difficulty": 2,
+    "scene": "“你让 AI 起草了一份回复重要客户、涉及合同条款和价格的邮件。”",
+    "question": "“邮件写好后, 发送前你会先看什么?”",
+    "options": {
+      "A": "“核对合同条款、价格数字、客户名称这些容易出错的内容”",
+      "B": "“看语气是否得体、信息是否完整, 避免客户读起来不舒服”",
+      "C": "“先判断这封邮件里哪些内容一旦错了会造成承诺、价格或合规风险”",
+      "D": "“让 AI 帮我找一遍可能不准确或容易误解的地方”"
+    },
+    "analysis": "“C 是‘风险点优先识别’, 最高级; A 是要素清单; B 是表达层; D 是依赖 AI 自检。”"
+  },
+  {
+    "id": "D5-2",
+    "dimension": "D5",
+    "type": "scene_decision",
+    "difficulty": 2,
+    "scene": "“邮件 30 分钟后必须发出。里面有一段市场数据查不到来源, 但能支撑你的核心论点。”",
+    "question": "“你会怎么处理?”",
+    "options": {
+      "A": "“数据量级看起来合理, 先保留, 避免影响整体说服力”",
+      "B": "“我会把这次情况记下来, 以后凡是对外材料里的数据都必须能说清来源”",
+      "C": "“删掉这段数据, 用确定的信息重写, 哪怕论点弱一些”",
+      "D": "“如果必须保留, 就明确写成‘待确认估算/内部测算’, 不把它当作确定事实”"
+    },
+    "analysis": "“D 是‘风险披露+口径标注’, 兼顾时效与合规, 最高级; C 是规避, 安全但损内容; B 是复盘, 但当下还有风险; A 是放任, 不可取。”"
+  },
+  {
+    "id": "D5-3",
+    "dimension": "D5",
+    "type": "self_behavior",
+    "difficulty": 1,
+    "scene": "“过去一个月, 你处理含重要信息的 AI 输出时, 实际状态更接近哪种?”",
+    "question": "“处理含重要信息的 AI 输出时, 你的实际状态更接近哪种?”",
+    "options": {
+      "A": "“重要信息和普通信息差不多, 主要看内容有没有明显问题”",
+      "B": "“涉及客户/财务/合同等内容时会更仔细, 但查什么靠当时判断”",
+      "C": "“我已经总结出几类高风险内容, 每次遇到都会专门核对”",
+      "D": "“我会按信息类型调整检查重点, 比如价格/承诺/客户数据分别看不同点, 这套类型-检查点对应表一直在维护”"
+    },
+    "analysis": "“D 是按类型匹配检查表, 最高级; C 是经验清单; B 是定性警觉; A 是未分级。”"
+  },
+  {
+    "id": "D5-4",
+    "dimension": "D5",
+    "type": "meta_reflection",
+    "difficulty": 3,
+    "scene": "“AI 给了你一段不太准确的法规条款表述, 看起来‘差不多对’。”",
+    "question": "“你会怎么处理?”",
+    "options": {
+      "A": "“差不多就行, AI 一般在大方向上不会错”",
+      "B": "“AI 说的不一定错, 我让法务再过一遍这份材料”",
+      "C": "“法规条款属于‘高对外承诺’, 凡是用 AI 起草的, 我会一律回原文核, 自己也保留一份‘红线条款库’”",
+      "D": "“下次问 AI 时, 我会特别强调‘请引用原文条款编号’, 降低出错概率”"
+    },
+    "analysis": "“C 是‘红线条款库+口径前置’, 体系化最高; D 是单点改进; B 是依赖外部复核; A 是放任。”"
+  },
+  {
+    "id": "D5-5",
+    "dimension": "D5",
+    "type": "teach_others",
+    "difficulty": 3,
+    "scene": "“你团队成员用 AI 写对外材料时, 经常把‘AI 生成’和‘事实’混在一起。”",
+    "question": "“你会怎么建立团队习惯?”",
+    "options": {
+      "A": "“在团队 SOP 里写一句‘对外材料必须标注信息来源’”",
+      "B": "“建立团队‘AI 内容标识规则’: 引用类必须有出处, 估算类必须标‘测算/待确认’, 事实类必须可溯源”",
+      "C": "“让每个成员每次发对外材料前, 互相检查一次”",
+      "D": "“把这件事交给 leader 集中审, 团队成员不需要养成习惯”"
+    },
+    "analysis": "“B 是体系化标识规则, 最高级; A 是单点规则; C 是流程兜底; D 是中心化, 不可持续。”"
+  },
+  {
+    "id": "D6-1",
+    "dimension": "D6",
+    "type": "scene_decision",
+    "difficulty": 2,
+    "scene": "“你上周用 AI 做了一个效果很好的客户分析。这周又需要做类似的。”",
+    "question": "“你这周会怎么开始?”",
+    "options": {
+      "A": "“重新开一个对话, 根据这次客户情况重新问”",
+      "B": "“找到上周的聊天记录, 复制当时有用的问法, 改客户信息”",
+      "C": "“在上周的问法基础上继续加细节, 让它覆盖更多情况”",
+      "D": "“先看上周哪些步骤这次还能用, 哪些因为客户不同必须调整”"
+    },
+    "analysis": "“D 是‘结构化复用+差异分析’, 最高级; C 是增量演进; B 是原始素材复用; A 是零复用。”"
+  },
+  {
+    "id": "D6-2",
+    "dimension": "D6",
+    "type": "scene_decision",
+    "difficulty": 2,
+    "scene": "“你做了 3 个不同行业的方案汇报 PPT, 都用了 AI 辅助。”",
+    "question": "“你打算怎么处理这些经验?”",
+    "options": {
+      "A": "“把 3 份 PPT 都存到文件夹里, 下次需要时翻一翻”",
+      "B": "“把 3 次用过的问法复制到一个文档, 标注‘哪个行业/哪种客户用’, 需要时查找”",
+      "C": "“建一份‘PPT 制作问法库’, 按‘开篇钩子/数据呈现/风险解释/结尾呼吁’分类, 每次新项目都按这个目录挑”",
+      "D": "“把‘问法库’做成一个共享知识库, 团队成员可以一起改、共同维护”"
+    },
+    "analysis": "“D 是团队级资产; C 是个人级资产; B 是文件级素材; A 是堆放。”"
+  },
+  {
+    "id": "D6-3",
+    "dimension": "D6",
+    "type": "self_behavior",
+    "difficulty": 1,
+    "scene": "“过去一个月, 你积累 AI 使用经验的方式更接近哪种?”",
+    "question": "“积累 AI 使用经验的方式, 更接近哪种?”",
+    "options": {
+      "A": "“基本没有刻意积累, 用完就结束”",
+      "B": "“偶尔保存好用的问法, 但没有系统整理”",
+      "C": "“会按任务类型整理一些做法, 之后遇到类似任务会翻出来用”",
+      "D": "“我整理的方法给别人用过, 也会根据别人反馈继续改”"
+    },
+    "analysis": "“D 是外化+反馈迭代; C 是分类资产化; B 是局部积累; A 是无积累。”"
+  },
+  {
+    "id": "D6-4",
+    "dimension": "D6",
+    "type": "meta_reflection",
+    "difficulty": 3,
+    "scene": "“有同事问你‘你当时怎么想到这么问 AI 的?’”",
+    "question": "“你会怎么回答?”",
+    "options": {
+      "A": "“我也说不清, 凭感觉吧”",
+      "B": "“其实是有几条基本思路的, 我整理一下发给你”",
+      "C": "“我可以把‘我怎么从那次结果反推出这次指令’的过程演示给你看, 让你也能反推”",
+      "D": "“你去翻一下我整理的那份‘问法库’, 对应场景能找到”"
+    },
+    "analysis": "“D 是引用资产; C 是教方法论; B 是整理一次; A 是不可外化。”"
+  },
+  {
+    "id": "D6-5",
+    "dimension": "D6",
+    "type": "teach_others",
+    "difficulty": 3,
+    "scene": "“你有些判断来自经验 (比如‘这份数据靠不靠谱’), 想教给团队成员。”",
+    "question": "“你会怎么教?”",
+    "options": {
+      "A": "“把‘我的完整过程’发给他, 让他自己照着试”",
+      "B": "“把‘哪些能直接照做、哪些必须自己判断’分开讲, 再给几个例子”",
+      "C": "“把经验判断拆成几个可观察标准 (来源权威性/时间新鲜度/样本量/口径一致性), 让他按这几条去核”",
+      "D": "“先把通用步骤告诉他, 数据判断这部分让他边做边问我”"
+    },
+    "analysis": "“C 是把隐性经验显性化为‘可观察标准’, 最高级; B 是分类教学; A 是给材料; D 是引导式。”"
+  }
+];
+</script>
+
+<script>
+// ---- 把小程序 CommonJS 模块搬进浏览器 ----
+function loadModule(src, req) {
+  const mod = { exports: {} };
+  new Function('module', 'exports', 'require', src)(mod, mod.exports, req);
+  return mod.exports;
+}
+const SRC = id => document.getElementById(id).textContent;
+const DIMS = loadModule(SRC('src-dims'), () => []);
+const LEVELS = loadModule(SRC('src-levels'), () => ({}));
+const CORE = loadModule(SRC('src-core'), () => ({}));
+const REVIEW = loadModule(SRC('src-review'), p => (p.indexOf('dimensions') >= 0 ? DIMS : {}));
+const POSTER = loadModule(SRC('src-poster'), p => (p.indexOf('dimensions') >= 0 ? DIMS : {}));
+
+// ---- 示例数据 ----
+const SAMPLES = {
+  L1: { total: 18, dim: { D1: 22, D2: 15, D3: 26, D4: 12, D5: 18, D6: 8 } },
+  L2: { total: 42, dim: { D1: 52, D2: 38, D3: 45, D4: 33, D5: 41, D6: 30 } },
+  L3: { total: 68, dim: { D1: 83, D2: 67, D3: 72, D4: 58, D5: 61, D6: 50 } },
+  L4: { total: 91, dim: { D1: 100, D2: 89, D3: 92, D4: 83, D5: 95, D6: 86 } }
+};
+// 注意: 等级 (L1-L4) 与行业场景无关, 等级只反映能力段位。
+// 海报里的「卷别」应来自实际所选卷 (通用版 / 某专项), 这里示例统一用通用版, 避免把等级绑死到某个行业。
+const PACKS = {
+  L1: '通用版', L2: '通用版', L3: '通用版', L4: '通用版'
+};
+const QCOUNT = { L1: 30, L2: 30, L3: 30, L4: 30 };
+
+let curLevel = 'L3';
+let hasQr = true;
+let qrImage = null;
+
+// 生成一张模拟小程序码（视觉占位，不是真二维码）
+function makeFakeQr(size) {
+  const c = document.createElement('canvas');
+  c.width = c.height = size;
+  const g = c.getContext('2d');
+  g.fillStyle = '#fff'; g.fillRect(0, 0, size, size);
+  const n = 25, cell = size / n;
+  let seed = 20260902;
+  const rnd = () => (seed = (seed * 1103515245 + 12345) % 2147483648) / 2147483648;
+  g.fillStyle = '#111';
+  for (let y = 0; y < n; y++) {
+    for (let x = 0; x < n; x++) {
+      const inFinder = (x < 7 && y < 7) || (x >= n - 7 && y < 7) || (x < 7 && y >= n - 7);
+      if (inFinder) continue;
+      if (rnd() > 0.52) g.fillRect(x * cell, y * cell, cell, cell);
+    }
+  }
+  // 三个定位角
+  g.fillStyle = '#111';
+  [[0, 0], [n - 7, 0], [0, n - 7]].forEach(([fx, fy]) => {
+    g.fillRect(fx * cell, fy * cell, 7 * cell, 7 * cell);
+    g.fillStyle = '#fff'; g.fillRect((fx + 1) * cell, (fy + 1) * cell, 5 * cell, 5 * cell);
+    g.fillStyle = '#111'; g.fillRect((fx + 2) * cell, (fy + 2) * cell, 3 * cell, 3 * cell);
+  });
+  return c;
+}
+
+function shortOf(dim) {
+  const d = DIMS.find(x => x.id === dim);
+  return d ? d.id + ' ' + d.name.replace(/能力$/, '') : dim;
+}
+
+function buildData(levelId) {
+  const s = SAMPLES[levelId];
+  const lv = LEVELS.levels.find(l => l.id === levelId);
+  const sorted = DIMS.map(d => ({ id: d.id, name: d.name, score: s.dim[d.id] || 0 }))
+    .sort((a, b) => b.score - a.score);
+  return {
+    levelId,
+    levelName: lv.name,
+    levelSubtitle: lv.subtitle,
+    total: s.total,
+    dimScores: s.dim,
+    strongName: shortOf(sorted[0].id),
+    weakName: shortOf(sorted[sorted.length - 1].id),
+    packName: PACKS[levelId],
+    totalQ: QCOUNT[levelId],
+    dateStr: '2026-09-02 14:30'
+  };
+}
+
+const cv = document.getElementById('cv');
+const ctx = cv.getContext('2d');
+
+function draw() {
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.clearRect(0, 0, cv.width, cv.height);
+  POSTER.drawPoster(ctx, buildData(curLevel), { qrImage: hasQr ? qrImage : null });
+}
+
+function renderKv(d) {
+  document.getElementById('kv').innerHTML = [
+    ['等级', d.levelId + ' ' + d.levelName],
+    ['综合得分', d.total],
+    ['强项', d.strongName],
+    ['待提升', d.weakName],
+    ['卷别', d.packName + ' · ' + d.totalQ + ' 题'],
+    ['日期', d.dateStr]
+  ].map(r => '<div class="kv"><span>' + r[0] + '</span><span>' + r[1] + '</span></div>').join('');
+}
+
+// ---- 逐题复盘预览 ----
+function renderReview() {
+  // 用真实题库 + 一份"前 8 题选 A、其余选 D"的作答
+  const trail = CORE.map((q, i) => ({ id: q.id, letter: i < 8 ? 'A' : 'D' }));
+  const items = REVIEW.pickReviewItems(CORE, trail, 3);
+  document.getElementById('rvHeadline').textContent = REVIEW.buildHeadline(items);
+  document.getElementById('rvList').innerHTML = items.map((it, i) => {
+    const open = i === 0 ? '' : ' style="display:none"';
+    const arrow = i === 0 ? '收起解析 ▲' : '查看解析 ▼';
+    return '<div class="rv-card">' +
+      '<div class="rv-top">' +
+        '<div class="rv-q"><span class="rv-dim">' + it.dimName + '</span><span class="rv-id">' + it.id + '</span></div>' +
+        '<div class="rv-qt">' + it.question + '</div>' +
+        '<div class="rv-pick"><span class="rv-badge pick-' + it.yourLetter + '">' + it.yourLetter + '</span>' +
+          '<span class="rv-pick-txt">你的选择: ' + it.yourText + '</span></div>' +
+        '<div class="rv-more">' + arrow + '</div>' +
+      '</div>' +
+      '<div class="rv-body"' + open + '>' +
+        '<div class="rv-blk"><div class="rv-lb">这道题在测什么</div><div class="rv-tx">' + it.dimTagline + '</div></div>' +
+        '<div class="rv-blk"><div class="rv-lb">选项差异</div><div class="rv-tx">' + it.analysis + '</div></div>' +
+        '<div class="rv-blk"><div class="rv-lb">更优解 (D)</div><div class="rv-tx best">' + it.bestText + '</div></div>' +
+        '<div class="rv-blk"><div class="rv-lb">下一步</div><div class="rv-tx">' + it.nextStep + '</div></div>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+  // 小交互: 点卡片展开/收起
+  document.querySelectorAll('#rvList .rv-card').forEach(card => {
+    const top = card.querySelector('.rv-top');
+    const body = card.querySelector('.rv-body');
+    const more = card.querySelector('.rv-more');
+    top.addEventListener('click', () => {
+      const shown = body.style.display !== 'none';
+      body.style.display = shown ? 'none' : '';
+      more.textContent = shown ? '查看解析 ▼' : '收起解析 ▲';
+    });
+  });
+}
+
+// ---- 交互 ----
+const segLevel = document.getElementById('segLevel');
+Object.keys(SAMPLES).forEach(id => {
+  const b = document.createElement('button');
+  b.textContent = id;
+  b.dataset.level = id;
+  if (id === curLevel) b.className = 'on';
+  b.onclick = () => {
+    curLevel = id;
+    segLevel.querySelectorAll('button').forEach(x => x.classList.toggle('on', x.dataset.level === id));
+    render();
+  };
+  segLevel.appendChild(b);
+});
+document.querySelectorAll('[data-qr]').forEach(b => {
+  b.onclick = () => {
+    hasQr = b.dataset.qr === '1';
+    document.querySelectorAll('[data-qr]').forEach(x => x.classList.toggle('on', x === b));
+    render();
+  };
+});
+document.getElementById('dl').onclick = () => {
+  const a = document.createElement('a');
+  a.download = 'APCA海报_' + curLevel + (hasQr ? '_有码' : '_无码') + '.png';
+  a.href = cv.toDataURL('image/png');
+  a.click();
+};
+
+function render() {
+  const d = buildData(curLevel);
+  draw();
+  renderKv(d);
+}
+
+qrImage = makeFakeQr(400);
+render();
+renderReview();
+</script>
+</body>
+</html>

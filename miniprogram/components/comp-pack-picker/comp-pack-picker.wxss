@@ -1,0 +1,49 @@
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+
+.chip {
+  flex: 0 0 calc(50% - 16rpx);
+  box-sizing: border-box;
+  background: #fff;
+  border: 2rpx solid var(--line);
+  border-radius: 20rpx;
+  padding: 18rpx 24rpx;
+  font-size: 24rpx;
+  transition: 0.15s;
+  cursor: pointer;
+}
+
+.chip.on {
+  border-color: var(--brand);
+  background: linear-gradient(135deg, #eaf0ff, #f3f7ff);
+}
+
+.chip .name {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.chip.on .name {
+  color: var(--brand);
+}
+
+.chip .desc {
+  font-size: 22rpx;
+  color: var(--muted);
+  margin-top: 4rpx;
+  line-height: 1.4;
+}
+
+.chip .count {
+  display: inline-block;
+  margin-top: 8rpx;
+  font-size: 20rpx;
+  background: #f0f3fa;
+  border-radius: 10rpx;
+  padding: 2rpx 12rpx;
+  color: var(--ink-2);
+}

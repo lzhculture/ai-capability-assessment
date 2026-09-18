@@ -1,0 +1,56 @@
+<view class="container">
+  <!-- 顶部: 进度 + 题卡入口 -->
+  <view class="bar-wrap">
+    <comp-progress-bar idx="{{idx}}" total="{{total}}"></comp-progress-bar>
+    <view class="bar-meta">
+      <text class="pack">{{packName}}</text>
+      <text class="cnt">已答 {{answeredCount}}/{{total}}</text>
+      <text class="card-btn" bindtap="toggleCard">题卡</text>
+    </view>
+  </view>
+
+  <comp-question-card q="{{cur}}"
+                      ans="{{answers[cur.id]}}"
+                      dim-name="{{dimName}}"
+                      type-name="{{typeName}}"
+                      show-analysis="{{false}}"
+                      bind:pick="onPick"></comp-question-card>
+
+  <view class="tip tip-inline">
+    题目没有绝对对错, 选最像你真实做法的那一项。选完自动跳下一题。
+  </view>
+
+  <!-- 底部操作 -->
+  <view class="nav">
+    <button class="btn" bindtap="prev" disabled="{{idx === 0}}">上一题</button>
+    <block wx:if="{{isLast}}">
+      <button class="btn primary" bindtap="submit">交卷, 看结果 →</button>
+    </block>
+    <block wx:else>
+      <button class="btn" bindtap="next">下一题 →</button>
+    </block>
+  </view>
+
+  <!-- 题卡弹层 -->
+  <view wx:if="{{showCard}}" class="mask" bindtap="toggleCard">
+    <view class="sheet" catchtap="noop">
+      <view class="sheet-hd">
+        <text class="sheet-t">题卡 · {{answeredCount}}/{{total}}</text>
+        <text class="sheet-x" bindtap="toggleCard">收起</text>
+      </view>
+      <view class="q-grid">
+        <view wx:for="{{grid}}"
+              wx:key="n"
+              class="q-cell {{item.done ? 'done' : ''}} {{item.on ? 'on' : ''}}"
+              data-i="{{item.i}}"
+              bindtap="jump">{{item.n}}</view>
+      </view>
+      <view class="sheet-ft">
+        <view class="legend"><view class="dot done"></view>已答</view>
+        <view class="legend"><view class="dot"></view>未答</view>
+        <view class="grow"></view>
+        <button class="btn primary" bindtap="onSubmit">交卷</button>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,30 @@
+.wrap {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  padding: 16rpx 24rpx;
+  background: #fff;
+}
+
+.track {
+  flex: 1;
+  height: 12rpx;
+  background: var(--line);
+  border-radius: 100rpx;
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--brand), var(--brand-2));
+  border-radius: 100rpx;
+  transition: width 0.3s;
+}
+
+.txt {
+  font-size: 24rpx;
+  color: var(--muted);
+  font-weight: 600;
+  min-width: 80rpx;
+  text-align: right;
+}

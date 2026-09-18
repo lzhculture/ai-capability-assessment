@@ -1,0 +1,27 @@
+<view class="qcard">
+  <view class="meta">
+    <text class="dim">{{dimName}}</text>
+    <text class="qid">{{q.id}} · {{typeName}}</text>
+  </view>
+  <view class="scene">
+    <text class="lbl">场景</text>
+    <text class="text">{{q.scene}}</text>
+  </view>
+  <view class="q">{{q.question}}</view>
+
+  <view class="opts">
+    <view wx:for="{{letters}}"
+          wx:key="*this"
+          class="opt {{ans === scoreMap[item] ? 'sel' : ''}}"
+          data-letter="{{item}}"
+          bindtap="onPick">
+      <view class="badge">{{item}}</view>
+      <view class="text">{{q.options[item]}}</view>
+    </view>
+  </view>
+
+  <view wx:if="{{showAnalysis && q.analysis}}" class="analysis">
+    <text class="lbl">最佳解法参考</text>
+    <text class="text">{{q.analysis}}</text>
+  </view>
+</view>

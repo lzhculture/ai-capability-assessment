@@ -1,0 +1,95 @@
+<view class="container">
+  <view class="card">
+    <view class="pill">关于本工具</view>
+    <view class="h">AI 使用能力诊断评估 (APCA)</view>
+    <view class="p">
+      不考你「会不会用某个 AI 产品」, 而考你「会不会用好 AI」。
+      6 个维度来自对公开 AI 能力诊断评估材料的拆解,
+      并融合了 UNESCO AI 素养框架、IBM AI Skills 等主流能力模型。
+    </view>
+    <view class="meta">
+      <view class="meta-cell"><text class="n">{{coreCount}}</text>通用题</view>
+      <view class="meta-cell"><text class="n">{{packs.length - 1}}</text>行业包</view>
+      <view class="meta-cell"><text class="n">{{dims.length}}</text>核心维度</view>
+      <view class="meta-cell"><text class="n">{{levels.length}}</text>能力等级</view>
+    </view>
+  </view>
+
+  <view class="section-title">六大维度</view>
+  <view class="card">
+    <view wx:for="{{dims}}" wx:key="id" class="dim">
+      <view class="dim-hd">
+        <text class="dim-id">{{item.id}}</text>
+        <text class="dim-name">{{item.name}}</text>
+        <text class="dim-w">权重 {{item.weight}}</text>
+      </view>
+      <view class="dim-tagline">{{item.tagline}}</view>
+      <view class="abil">
+        <text wx:for="{{item.abilities}}" wx:for-item="a" wx:key="*this" class="ab">{{a}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="section-title">四级能力等级</view>
+  <view class="card">
+    <view wx:for="{{levels}}" wx:key="id" class="lvl-row">
+      <view class="lvl-badge lvl-{{item.id}}">{{item.id}}</view>
+      <view class="lvl-info">
+        <view class="lvl-name">{{item.name}} · {{item.score_range[0]}}-{{item.score_range[1]}} 分</view>
+        <view class="lvl-sub">{{item.subtitle}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="section-title">题型与计分</view>
+  <view class="card">
+    <view wx:for="{{types}}" wx:key="key" class="type-row">
+      <text class="type-name">{{item.name}}</text>
+      <text class="type-w">{{item.weight}}</text>
+      <text class="type-d">{{item.desc}}</text>
+    </view>
+    <view class="hr"></view>
+    <view class="p small">
+      计分方式: A / B / C / D 分别对应 0 / 33.3 / 66.7 / 100 分,
+      维度内取平均, 综合分为 6 个维度的平均分。等级按综合分落在对应区间判定。
+    </view>
+  </view>
+
+  <view class="section-title">数据与隐私</view>
+  <view class="card">
+    <view class="priv">
+      <view class="priv-lbl">数据存在哪</view>
+      <view class="priv-t">
+        全部测评数据仅保存在你手机本机的微信缓存中 (wx.setStorageSync),
+        不上传服务器、不绑定手机号、不做个人画像。
+      </view>
+    </view>
+    <view class="priv">
+      <view class="priv-lbl">会收集什么</view>
+      <view class="priv-t">不收集任何身份信息与设备标识, 也没有埋点统计。</view>
+    </view>
+    <view class="priv">
+      <view class="priv-lbl">怎么删除</view>
+      <view class="priv-t">
+        在「成长记录」页可一键清空; 卸载微信或清理微信缓存也会一并清除。
+        当前本机保存 {{historyCount}} 条历史记录。
+      </view>
+    </view>
+    <view class="actions">
+      <button class="btn ghost" bindtap="clearAll">清空本机数据</button>
+    </view>
+  </view>
+
+  <view class="section-title">免责声明</view>
+  <view class="card">
+    <view class="p small">
+      本工具为自评型诊断, 结果用于个人与团队的能力提升规划参考,
+      不构成任何考核、晋升或录用依据。题目与等级划分会随版本迭代更新,
+      不同版本之间的分数不保证可比。
+    </view>
+  </view>
+
+  <view class="foot">
+    APCA v0.7.0 · 题目集 v0.7.0 · 框架版本 2026-09-02
+  </view>
+</view>

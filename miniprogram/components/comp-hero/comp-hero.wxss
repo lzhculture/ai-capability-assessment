@@ -1,0 +1,67 @@
+.hero {
+  background: linear-gradient(135deg, #1f5cff, #3b7bff);
+  color: #fff;
+  border-radius: 36rpx;
+  padding: 56rpx 48rpx;
+  margin-bottom: 36rpx;
+  box-shadow: 0 24rpx 64rpx rgba(31, 92, 255, 0.18);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  right: -60rpx;
+  top: -60rpx;
+  width: 220rpx;
+  height: 220rpx;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.tag {
+  display: inline-block;
+  padding: 6rpx 18rpx;
+  border-radius: 100rpx;
+  background: rgba(255, 255, 255, 0.18);
+  font-size: 22rpx;
+  letter-spacing: 1rpx;
+  margin-bottom: 14rpx;
+}
+
+.title {
+  font-size: 44rpx;
+  font-weight: 700;
+  letter-spacing: 1rpx;
+  margin-bottom: 12rpx;
+}
+
+.subtitle {
+  font-size: 26rpx;
+  line-height: 1.6;
+  opacity: 0.92;
+}
+
+.grid {
+  display: flex;
+  gap: 16rpx;
+  margin-top: 36rpx;
+}
+
+.cell {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 20rpx;
+  padding: 20rpx 12rpx;
+  text-align: center;
+  font-size: 24rpx;
+  line-height: 1.4;
+}
+
+.cell .num {
+  display: block;
+  font-size: 36rpx;
+  font-weight: 700;
+  margin-bottom: 4rpx;
+}

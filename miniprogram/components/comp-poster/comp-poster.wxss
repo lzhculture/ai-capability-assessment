@@ -1,0 +1,14 @@
+.poster-stage {
+  position: fixed;
+  left: -9999rpx;
+  top: 0;
+  width: 750rpx;
+  height: 1080rpx;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.poster-canvas {
+  width: 750rpx;
+  height: 1080rpx;
+}

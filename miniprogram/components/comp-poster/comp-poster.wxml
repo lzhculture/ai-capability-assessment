@@ -1,0 +1,16 @@
+<!-- 海报画布: 移出屏幕, 不参与可见布局 -->
+<view class="poster-stage" aria-hidden="true">
+  <canvas type="2d"
+          id="posterCanvas"
+          class="poster-canvas"
+          style="width: {{W}}px; height: {{H}}px;"></canvas>
+</view>
+
+<!-- 隐私授权弹层 (相册保存时由系统隐私回调唤起) -->
+<comp-privacy-popup id="privacyPopup"
+                    show-cancel="{{true}}"
+                    agree-text="同意并保存"
+                    cancel-text="暂不保存"
+                    content="{{privacyContent}}"
+                    bind:agree="onAgreePrivacy"
+                    bind:cancel="onCancelPrivacy"></comp-privacy-popup>

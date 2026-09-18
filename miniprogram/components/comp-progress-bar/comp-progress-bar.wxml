@@ -1,0 +1,6 @@
+<view class="wrap">
+  <view class="track">
+    <view class="bar" style="width: {{percent}}%;"></view>
+  </view>
+  <view class="txt">{{idx + 1}} / {{total}}</view>
+</view>

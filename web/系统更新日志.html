@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>更新日志 · 个人AI办公能力测评（APCA）</title>
+<style>
+:root { --fg:#1f2a44; --muted:#64748b; --brand:#1f5cff; --code-bg:#f1f4fa; --quote-bg:#f5f8ff; --hr:#e6ebf5; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; padding: 48px 20px 80px;
+  background: #f4f6fb;
+  color: var(--fg);
+  font-family: -apple-system, "PingFang SC", "Helvetica Neue", "Microsoft YaHei", sans-serif;
+  font-size: 15px; line-height: 1.75;
+}
+.wrap { max-width: 920px; margin: 0 auto; background: #fff; border-radius: 16px;
+  box-shadow: 0 6px 32px rgba(20,40,90,0.08); padding: 40px 56px; }
+h1 { font-size: 28px; margin: 0 0 8px; line-height: 1.3; }
+h2 { font-size: 21px; margin: 36px 0 12px; padding-bottom: 6px; border-bottom: 1px solid var(--hr); line-height: 1.3; }
+h3 { font-size: 17px; margin: 24px 0 10px; color: var(--brand); line-height: 1.3; }
+h4 { font-size: 15px; margin: 18px 0 8px; color: var(--muted); }
+h1, h2, h3, h4 { position: relative; }
+.anchor { position: absolute; left: -1.4em; top: 0; opacity: 0; transition: opacity .15s;
+  color: var(--brand); text-decoration: none; font-weight: 400; }
+h1:hover .anchor, h2:hover .anchor, h3:hover .anchor, h4:hover .anchor { opacity: 1; }
+p { margin: 10px 0; }
+ul, ol { padding-left: 1.6em; margin: 10px 0; }
+li { margin: 4px 0; }
+blockquote { margin: 14px 0; padding: 10px 16px; border-left: 4px solid var(--brand);
+  background: var(--quote-bg); border-radius: 0 8px 8px 0; color: var(--muted); }
+hr { border: 0; height: 1px; background: var(--hr); margin: 28px 0; }
+code { background: var(--code-bg); padding: 1px 6px; border-radius: 4px; font-size: 13px; color: var(--brand); }
+pre { background: var(--code-bg); padding: 14px 16px; border-radius: 8px; overflow: auto; margin: 14px 0; }
+pre code { background: transparent; padding: 0; color: var(--fg); font-size: 13px; }
+strong { color: var(--fg); font-weight: 700; }
+a { color: var(--brand); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.meta { color: var(--muted); font-size: 13px; margin-bottom: 24px; }
+.toc { background: #fafbff; border: 1px solid #e3e8f5; border-radius: 10px;
+  padding: 14px 18px; margin: 20px 0 32px; font-size: 13.5px; }
+.toc b { display: block; margin-bottom: 6px; color: var(--brand); }
+.toc ul { margin: 4px 0 0; padding-left: 1.4em; }
+.toc a { color: var(--muted); }
+.toc a:hover { color: var(--brand); }
+@media (max-width: 720px) { .wrap { padding: 24px 20px; } h1 { font-size: 22px; } h2 { font-size: 18px; } }
+</style>
+</head>
+<body>
+<main class="wrap">
+<h1>更新日志 · 个人AI办公能力测评（APCA）</h1>
+<div class="meta">最后同步: 2026-09-18 14:58:27 · 与 <code>系统更新日志.md</code> 同源 · 浏览请访问 <a href="#">本网页</a></div>
+<nav class="toc"><b>目录</b><ul><li><a href="#v0811---2026-09-18-移除内置默认口令-开源许可证落定">[v0.8.11] - 2026-09-18 · 移除内置默认口令 + 开源许可证落定</a></li><li><a href="#v0810---2026-09-13-专项卷复盘降级文案明确引导避免画像信息缺失不明不白">[v0.8.10] - 2026-09-13 · 专项卷复盘降级文案（明确引导，避免「画像信息缺失」不明不白）</a></li><li><a href="#v089---2026-09-13-全量整改-codex-回归审查服务端计分口径对齐-完整度收紧-安全加固-双服务器二维码-d3">[v0.8.9] - 2026-09-13 · 全量整改 Codex 回归审查（服务端计分口径对齐 / 完整度收紧 / 安全加固 / 双服务器二维码 / D3 中性化）</a></li><li><a href="#v088---2026-09-12-安全文案计分复盘整改admin-密码30题口径ping-信息安全头b64-栈溢出">[v0.8.8] - 2026-09-12 · 安全/文案/计分复盘整改（admin 密码/30题口径/ping 信息/安全头/b64 栈溢出）</a></li><li><a href="#v087---2026-09-12-交叉审查整改缺答刷分解读偏-d130-天路线服务端重算license-双服务器">[v0.8.7] - 2026-09-12 · 交叉审查整改（缺答/刷分/解读偏 D1/30 天路线/服务端重算/LICENSE 双服务器）</a></li><li><a href="#v086---2026-09-11-基于作答画像的个体化解读-d3-维度-2-道题lost-in-the-middle-多轮失忆">[v0.8.6] - 2026-09-11 · 基于作答画像的个体化解读 + D3 维度 +2 道题（Lost in the middle / 多轮失忆）</a></li><li><a href="#v084---2026-09-07-交叉审查整改学习地图-30-天-宣称勘误-解析裁决-产物门禁">[v0.8.4] - 2026-09-07 · 交叉审查整改（学习地图 30 天 / 宣称勘误 / 解析裁决 / 产物门禁）</a></li><li><a href="#v085---2026-09-07-计分归一化-乱序独立校验-服务端加固批次-c-批次-d">[v0.8.5] - 2026-09-07 · 计分归一化 + 乱序独立校验 + 服务端加固（批次 C + 批次 D）</a></li><li><a href="#v083---2026-09-04-更新日志-mdhtml-双载体-海报嵌入测评入口二维码">[v0.8.3] - 2026-09-04 · 更新日志 md→html 双载体 + 海报嵌入测评入口二维码</a></li><li><a href="#v082---2026-09-04-测评人信息必填校验-发版文档同步门禁">[v0.8.2] - 2026-09-04 · 测评人信息必填校验 + 发版文档同步门禁</a></li><li><a href="#v081---2026-09-04-计分锚点修正-历史数据迁移">[v0.8.1] - 2026-09-04 · 计分锚点修正 + 历史数据迁移</a></li><li><a href="#v08---2026-09-03-每题选项乱序防总选-d-得高分">[v0.8] - 2026-09-03 · 每题选项乱序（防&quot;总选 D 得高分&quot;）</a></li><li><a href="#v071---2026-09-03-题库答案长度均衡">[v0.7.1] - 2026-09-03 · 题库答案长度均衡</a></li><li><a href="#网站版上线与应用层迭代---2026-09-03">网站版上线与应用层迭代 - 2026-09-03</a></li><li><a href="#v07---2026-09-02-三套专项扩为完整独立模型">[v0.7] - 2026-09-02 · 三套专项扩为完整独立模型</a></li><li><a href="#v06---2026-09-02-通用测评-vs-专项模型双模式">[v0.6] - 2026-09-02 · 通用测评 vs 专项模型双模式</a></li><li><a href="#v05---2026-09-02-海报分享-逐题复盘">[v0.5] - 2026-09-02 · 海报分享 + 逐题复盘</a></li><li><a href="#v04---2026-09-02-微信小程序工程">[v0.4] - 2026-09-02 · 微信小程序工程</a></li><li><a href="#v03---2026-09-02-行业特化题包">[v0.3] - 2026-09-02 · 行业特化题包</a></li><li><a href="#v02---2026-09-02-demo-产品化">[v0.2] - 2026-09-02 · Demo 产品化</a></li><li><a href="#v01---2026-09-02-初始版本">[v0.1] - 2026-09-02 · 初始版本</a></li></ul></nav>
+<h1 id="更新日志-个人ai办公能力测评apca">更新日志 · 个人AI办公能力测评（APCA）</h1>
+<blockquote><strong>版本口径说明</strong></blockquote>
+<blockquote>- <code>questionSetVersion</code>（web/data.js 中的题库版本）：随题库内容变更递增（v0.7 → v0.7.1 → v0.8 → v0.8.1 → …）；</blockquote>
+<blockquote>- 产品功能版本（v0.1–v0.7）：小程序/网站架构迭代；</blockquote>
+<blockquote>- 每个条目包含：变更内容、验证结果、部署状态。</blockquote>
+<blockquote></blockquote>
+<blockquote><strong>发版惯例（自 v0.8.1 起固化）</strong></blockquote>
+<blockquote>1. 任何影响题库内容、计分逻辑或用户可见行为的发版，<strong>必须同步更新本文件</strong>，新增条目置顶；</blockquote>
+<blockquote>2. 版本号变更时同步修改 <code>tools/build-web-data.js</code> 中的 <code>questionSetVersion</code>；</blockquote>
+<blockquote>3. <code>tools/verify-web.js</code> 已设强制门禁（漏更说明文档无法通过回归）：</blockquote>
+<blockquote>   - <strong>§1.7</strong>：当前 <code>questionSetVersion</code> 若无对应 CHANGELOG 条目 → 校验直接失败；</blockquote>
+<blockquote>   - <strong>§1.8</strong>：<code>tools/build-web-data.js</code> 与 <code>web/data.js</code> 版本号不一致（半成品发版）→ 失败；</blockquote>
+<blockquote>   - <strong>§1.9</strong>：<code>README.md</code> 版本速览表未含当前版本号 → 失败；</blockquote>
+<blockquote>   - <strong>§1.10</strong>：<code>系统更新日志.html</code> 缺失 / 不含当前版本 / 比 md 旧 → 失败；</blockquote>
+<blockquote>   - <strong>§1.11</strong>（v0.8.4 起）：固定单字母期望分超出「不可套利」区间 → 失败（防对外宣称再次失实）；</blockquote>
+<blockquote>   - <strong>§1.12</strong>（v0.8.4 起）：学习地图 tips 总数 ≠ 30 或仍有 <code>idx % 5</code> 错位 → 失败；</blockquote>
+<blockquote>   - <strong>§1.13</strong>（v0.8.4 起）：<code>产物/02-题库.json</code>、<code>产物/04-行业特化题包.json</code> 与真源不一致 → 失败；</blockquote>
+<ul>
+<li><strong>§1.6 + §1.6b</strong>（v0.8.6 起）：§1.6 改为直接调用独立脚本 <code>tools/check-analysis-consistency.js</code>（单一真值源）；§1.6b 要求解析里「本题「最可能」是 X」的 X 必须等于该题满分锚点 → 失败。</li>
+</ul>
+<blockquote>4. <strong>文档同步范围</strong>（自 v0.8.2 起固化，用户明确要求）：每次系统更新，除本文件外还需同步——<code>README.md</code>（版本速览表 + 功能描述）、<code>产物/00-总览分析.md</code>（版本链路与产物清单）、<code>产物/05-网页版落地方案.md</code>（版本表与路线图）。涉及形态/口径变化时同步其余 <code>产物/*.md</code>。<strong>自 v0.8.4 起，题库内容变更时还必须重跑 <code>tools/build-archive-snapshots.js</code> 重导 <code>产物/02</code>、<code>产物/04</code> 快照</strong>（受 §1.13 门禁约束）。</blockquote>
+<blockquote>5. 部署顺序：本地改码 → 升版本号（<strong>只改 <code>build-web-data.js</code> 一处</strong>）→ <code>node tools/build-web-data.js</code> 重建 <code>web/data.js</code> → <code>node tools/build-archive-snapshots.js</code> 重导产物快照 → 跑 <code>tools/build-qrcode.py</code> + <code>tools/build-update-html.js</code> 产出 <code>web/qrcode.png</code> 与 <code>系统更新日志.html</code> → 更新本文件与上述文档 → 跑五件套校验 → <code>rsync</code> 部署 <code>web/</code> + 上传 <code>系统更新日志.md</code> / <code>系统更新日志.html</code> → 重启 <code>测评服务</code> → 线上验证版本号。</blockquote>
+<blockquote>6. <strong>同步至 GitHub 仓库</strong>（自 v0.8.5 起固化）：完成线上验证后执行 <code>./GitHub 同步脚本</code>，自动跑五件套校验、写带版本号的 commit message、<code>git push origin main</code>。详细操作与故障排查见 <code>GITHUB.md</code>（含 SSH key 配置、commit 规范、安全自查清单）。</blockquote>
+<hr/>
+<h2 id="v0811---2026-09-18-移除内置默认口令-开源许可证落定">[v0.8.11] - 2026-09-18 · 移除内置默认口令 + 开源许可证落定<a class="anchor" href="#v0811---2026-09-18-移除内置默认口令-开源许可证落定">#</a></h2>
+<h3 id="触发">触发<a class="anchor" href="#触发">#</a></h3>
+<p>为「将来是否转公开仓库」做前置排查时（清单见根目录 <code>内部过程文件/开源前清理清单_个人测评</code>），逐文件扫描出两处<strong>现在就该修</strong>的缺陷：</p>
+<ol>
+<li><strong>口令硬编码</strong>：<code>server/server.js</code> 写的是 <code>process.env.APCA_ADMIN_PASS || &#39;&lt;旧默认口令&gt;&#39;</code>。意思是没设环境变量时后台密码就是那个写死的值。仓库一旦转公开，等于把后台口令贴给所有人看；而&quot;照文档跑起来、却忘了设环境变量&quot;恰恰是最常见的漏改场景。</li>
+<li><strong>版权与许可证三处不自洽</strong>：根 <code>README.md</code> 的版权声明写的是&quot;仅授权某一外部域名下免费使用、不得用于其他域名、不得商用&quot;——这既与开源口径直接冲突，授权对象也不属于本项目自己；<code>README.md</code> 引用的 <code>./LICENSE</code> <strong>文件根本不存在</strong>（死链）；实际存在的 <code>web/LICENSE</code> 与 <code>LICENSE.template</code> 是&quot;免费使用但禁止商用、禁止部署到其他域名&quot;的个人作品许可，不是开源许可证。</li>
+</ol>
+<h3 id="主要变更">主要变更<a class="anchor" href="#主要变更">#</a></h3>
+<ul>
+<li><strong>服务端不再内置任何口令</strong> — <code>server/server.js</code>：未设置 <code>APCA_ADMIN_PASS</code> 时<strong>拒绝启动</strong>（退出码 1），并打印四行处置指引（给出完整命令、说明只想做问卷可直接打开 <code>web/index.html</code> 走本机模式）。删掉 <code>USING_DEFAULT_PASS</code> 变量。注意：只想做测评的人不经本服务，这条变更不影响问卷作答。</li>
+<li><strong>启动日志不再打印明文密码</strong> — 原逻辑在&quot;使用默认密码&quot;时会把密码原文打进控制台；现在一律输出 <code>******</code>，并移除那条默认密码告警分支（已经不可能触发）。</li>
+<li><strong>许可证改为 MIT</strong> — 新增仓库根目录 <code>LICENSE</code>（MIT 正本，Copyright © 2026 jmount）；<code>LICENSE.template</code> 由原&quot;限域名、禁商用&quot;的个人作品许可改写为 <strong>MIT 副本 + 部署登记信息</strong>（部署位置/对外地址/版本三项占位保留，<code>tools/build-license.py</code> 的双服务器渲染机制不变）；根 <code>README.md</code> 版权声明改写为&quot;源代码按 MIT 许可证开源&quot;。</li>
+<li><strong>文档同步</strong> — <code>server/README.md</code>：启动命令补 <code>APCA_ADMIN_PASS</code>、密码表改为&quot;无默认值（必填）&quot;、部署建议里的&quot;改掉默认密码&quot;改为&quot;设置一个强密码&quot;；根 <code>README.md</code> 的服务器差异对照表相应调整。</li>
+</ul>
+<h3 id="部署须知重要">部署须知（重要）<a class="anchor" href="#部署须知重要">#</a></h3>
+<p>本次改了服务端启动行为。<strong>两台在用服务器的服务配置里都已经带着 <code>APCA_ADMIN_PASS</code></strong>（公网机在 systemd 的服务配置里，内网机在 <code>/etc/apca/apca.env</code> 里，由部署脚本随机生成），所以升级后重启<strong>不会</strong>起不来。但<strong>任何新装的实例都必须先设这个变量</strong>，否则服务会拒绝启动——这是有意设计的。</p>
+<h3 id="验证">验证<a class="anchor" href="#验证">#</a></h3>
+<ul>
+<li>未设密码启动：进程退出码 1，输出四行指引 ✅</li>
+<li>设置密码后正常启动、后台登录鉴权正常 ✅（服务端端到端已覆盖）</li>
+<li>五件套回归：<strong>508 PASS / 0 FAIL</strong></li>
+</ul>
+<h3 id="部署状态">部署状态<a class="anchor" href="#部署状态">#</a></h3>
+<p>本地改码 + 文档同步完成，<strong>尚未 rsync 上线</strong>（待安排）。</p>
+<hr/>
+<h2 id="v0810---2026-09-13-专项卷复盘降级文案明确引导避免画像信息缺失不明不白">[v0.8.10] - 2026-09-13 · 专项卷复盘降级文案（明确引导，避免「画像信息缺失」不明不白）<a class="anchor" href="#v0810---2026-09-13-专项卷复盘降级文案明确引导避免画像信息缺失不明不白">#</a></h2>
+<h3 id="触发">触发<a class="anchor" href="#触发">#</a></h3>
+<p>v0.8.9 上线后复盘兜底逻辑（<code>reviewHTML</code> 在画像推不出时自动展开全部 + 提示「画像信息缺失」）对<strong>专项卷作答用户</strong>不友好：专项 18 题（招投标/制造业/零售业）目前未挂 abilities 标签（v0.9.0 题库能力点 V2 专项处理），所以用户作答后画像能力点为空，复盘默认折叠逻辑判定为「无相关题」→ 全展开 + 那句不明不白的「画像信息缺失」对用户没有明确下一步。本版本仅修复<strong>降级文案</strong>（不影响题库与算法），让专项用户看到明确引导。</p>
+<h3 id="主要变更">主要变更<a class="anchor" href="#主要变更">#</a></h3>
+<ul>
+<li><strong><code>web/app.js</code> <code>reviewHTML()</code> 兜底分支分流</strong>：</li>
+<li><code>record.packId !== &#39;none&#39;</code>（专项卷作答）→ tip 文案：「本次为专项卷作答（X 题），能力点级解读需配合通用 32 题作答开启；本次仅按维度+动作给出建议，建议先做一次通用 32 题获得能力点级画像。」（不再写「画像信息缺失」）</li>
+<li><code>record.packId === &#39;none&#39;</code>（通用卷或分享链接异常）→ 保留「画像信息缺失，已展开全部题目（分享链接或作答数据异常）」兜底说明</li>
+<li>tip 通过 <code>lastIndexOf(&#39;&lt;/div&gt;&#39;) + slice</code> 插到 review-list 闭合之前（renderResult 里的「展开全部题目 ▼」按钮在 block-h 仍正常显示 + 可切换）</li>
+<li><strong><code>tools/verify-web-dom.js</code></strong> J 段（专项 standalone 流程）新增 2 条断言：</li>
+<li><code>review-list data-showall === &#39;1&#39;</code>（兜底真的触发了）</li>
+<li>tip 同时包含「本次为专项卷作答」+「能力点级解读需配合通用 N 题作答开启」</li>
+</ul>
+<h3 id="题库与算法">题库与算法<a class="anchor" href="#题库与算法">#</a></h3>
+<ul>
+<li><strong>未改题库内容</strong>——v0.8.10 是文案降级，qVersion <strong>不 bump</strong>（仍为 v0.8.10 同元数据，但题库/算法与 v0.8.9 完全一致；v0.8.10 仅 framework 文案字段递增）</li>
+<li>abilities 标签覆盖现状：核心 32 题 100%（平均 1.3 个/题） / 专项 54 题 0%——后者将由 v0.9.0 题库能力点 V2 专项处理</li>
+</ul>
+<h3 id="验证">验证<a class="anchor" href="#验证">#</a></h3>
+<pre><code class="lang-">五件套: 508 PASS / 0 FAIL  (verify-web 360 + verify-web-dom 51 + verify-wiring 19 + verify-merge 11 + verify-server 67)
+独立一致性: 86 题 硬矛盾 0 / 软警示 0</code></pre>
+<h3 id="部署状态">部署状态<a class="anchor" href="#部署状态">#</a></h3>
+<ul>
+<li>✅ 老服务器 &lt;服务器IP&gt;：<code>rsync web/ + server/</code> → <code>重启测评服务</code> → 线上验证 <code>framework=APCA v0.8.10</code></li>
+<li>✅ 合作方内网服务器（内网 &lt;内网服务器IP&gt;，对外 <code>https://&lt;内网域名&gt;/ai-assess/</code>）：2026-09-14 经内网 SSH 更新——备份 <code>&lt;部署目录&gt;_backup_20260914_1151</code>（含 <code>records.json</code>）→ 解压覆盖 <code>web/</code> + <code>server/</code>（<strong>保留 <code>server/data/</code></strong>）→ <code>chown -R root:root</code> → <code>systemctl restart apca</code> → 验证通过：</li>
+<li>本机 <code>framework=APCA v0.8.10</code> / <code>authorizedDomain=&lt;内网域名&gt;</code> / <code>api/ping</code> 通 / 记录数仍为 1（未串数据）</li>
+<li>公网 <code>/ai-assess/</code> 返回 200，无尾斜杠 <code>/ai-assess</code> 正确 301 补斜杠 → 确认 nginx 前缀剥离配置本来就正确，<strong>未改动 nginx</strong></li>
+<li>公网 <code>qrcode.png</code> md5 = 域名版（<code>c0405fd4...</code>），入口二维码指向子路径无误</li>
+<li>真实浏览器端到端：hero 显示 <code>APCA v0.8.10</code>、信息页 → 答题页（第 1/32 题，选项已乱序）正常渲染</li>
+</ul>
+<h3 id="待办">待办<a class="anchor" href="#待办">#</a></h3>
+<ul>
+<li>v0.9.0 题库能力点 V2：三位行业评审对专项 54 题能力点分类 + D.dimensions[].abilities 跟 q.abilities 映射重过 + verify-web §1.6b 升级 + qVersion 升至 v0.9.0 并明确「能力点级解读仅 v0.9.0+ 起记」</li>
+<li>GitHub 同步（同 v0.8.9，待 SSH 公钥补到 https://github.com/settings/keys）</li>
+</ul>
+<hr/>
+<h2 id="v089---2026-09-13-全量整改-codex-回归审查服务端计分口径对齐-完整度收紧-安全加固-双服务器二维码-d3">[v0.8.9] - 2026-09-13 · 全量整改 Codex 回归审查（服务端计分口径对齐 / 完整度收紧 / 安全加固 / 双服务器二维码 / D3 中性化）<a class="anchor" href="#v089---2026-09-13-全量整改-codex-回归审查服务端计分口径对齐-完整度收紧-安全加固-双服务器二维码-d3">#</a></h2>
+<h3 id="触发">触发<a class="anchor" href="#触发">#</a></h3>
+<p>2026-09-13 用户提供<strong>第四个独立工作台 Codex</strong> 针对<strong>线上 v0.8.8</strong> 的回归审查报告（PDF，14 页）。该报告抓到了前三份都没发现的<strong>严重回归</strong>：v0.8.7 新增的服务端重算与前端专项加权模型不一致，导致专项卷/单独成卷记录大面积被服务端拒绝入库。本版本按「全修」口径完成 P0 + P1 + P2 共 13 项整改。</p>
+<h3 id="主要变更">主要变更<a class="anchor" href="#主要变更">#</a></h3>
+<p><strong>P0 计分正确性（生产事故级）：</strong></p>
+<ul>
+<li><strong>P0-1 服务端加权口径与前端对齐</strong>（回归修复）：<code>server/server.js</code> <code>serverCalcResult()</code> 弃用「每维度题目数」加权（每专项每维恰好 3 题 → 等价六维等权），改用 <code>pack.weights</code> 声明权重，与前端 <code>web/app.js:439/452 → 94-99</code> 同源；新增 <code>merged</code> 参数，合并出分路径走等权（对应前端 <code>app.js:542</code> 显式传 null）。<strong>此前专项 standalone 被拒 77~81%、blended 被拒 57~69%，最大偏差 6.6 分 → 修复后偏差 ≤0.5、全部入库。</strong></li>
+<li><strong>P0-2 完整度门槛收紧</strong>：<code>web/app.js:115</code> + <code>server/server.js:134</code> 判定由 <code>completeness &lt; 0.5</code> 改为 <code>&lt; 1</code>——<strong>只有全部题作答完成才生成等级</strong>。此前 18/32（0.5625）仍出 L4 并被服务端入库，属刷分缺口。</li>
+<li><strong>P0-3 门禁补维度不均衡回归用例</strong>：<code>tools/verify-server.js</code> 新增 2 条永久用例——①bid standalone（D4=0 其余 100）期望服务端重算 total=78.0；②merged 路径（核心全 0 + 专项全 100）期望等权 ≈36.3。<strong>此前用例全是「专项全 100 分」，两套加权模型结果都是 100，天然覆盖不到该回归。</strong></li>
+</ul>
+<p><strong>P1 安全与合规：</strong></p>
+<ul>
+<li><strong>P1-1 公网更新日志脱敏</strong>：<code>tools/build-update-html.js</code> 新增 <code>sanitize()</code>——生成公网 HTML 时屏蔽服务器 IP、SSH 目标、部署/同步脚本名与 systemd 服务名；仓库内 <code>系统更新日志.md</code> 保留技术细节（开发者文档）。</li>
+<li><strong>P1-2 CSV 公式注入</strong>：<code>web/admin.js</code> 导出 CSV 的 <code>cell()</code> 对 <code>=</code>/<code>+</code>/<code>-</code>/<code>@</code>/Tab/CR 开头的字段加单引号前缀，防 Excel/LibreOffice 把用户可控字段（姓名/公司/岗位/批次/备注）当公式执行。</li>
+<li><strong>P1-3 静态资源安全头</strong>：<code>server/server.js</code> <code>serveStatic()</code> 对 <code>.html/.htm/.js/.css</code> 补 <code>X-Frame-Options: DENY</code> + <code>Content-Security-Policy</code>；所有静态资源补 <code>X-Content-Type-Options: nosniff</code> + <code>Referrer-Policy: no-referrer</code>。此前 v0.8.8 S-04 只在 <code>sendJSON()</code> 加，CSP/X-Frame-Options 作用不到文档响应。</li>
+<li><strong>P1-4 分享链接防伪造</strong>：<code>web/app.js</code> 分享 payload 不再携带 <code>total/levelId/dimScores</code>；<code>tryLoadShared()</code> 一律按 <code>payload.answers</code> 重新调用 <code>calcResult</code> 计算分数与等级。任何人手工构造的「100 分 / L4」分享链接都会被重算覆盖。</li>
+<li><strong>P1-5 二维码双服务器版本</strong>：<code>tools/build-qrcode.py</code> 重写为双版本生成——主站版指向 <code>http://&lt;服务器IP&gt;:8787/</code>（<strong>用 IP</strong>，因 <code>&lt;你的域名&gt;</code> 根路径是公司官网而非测评系统），内网版指向 <code>https://&lt;内网域名&gt;/ai-assess/</code>（用域名 + 子路径：该服务器上测评挂在 <code>/ai-assess/</code> 子目录，不是域名根路径）。输出分别为 <code>web/qrcode.png</code> 与 <code>产物/qrcode_site-b.png</code>，各自部署到对应服务器。</li>
+</ul>
+<p><strong>P2 内容与体验：</strong></p>
+<ul>
+<li><strong>P2-1 海报版本号动态化</strong>：<code>tools/render-poster-preview.py</code> 两处硬编码 <code>v0.8.3</code> 改为读 <code>VER</code>（来自 <code>build-web-data.js</code> 单点真值），此前发版后海报版本号不跟随。</li>
+<li><strong>P2-2 D3-6/D3-7 外部引用中性化</strong>：<code>miniprogram/data/core.js</code> 两题解析中的机构名与产品名（Chroma / Laban / Morph / LawVu / 豆包工作 / QwenWork / WorkBuddy / ChatGPT）改为「业界 N 年公开评测 / 实践反馈」等中性表述，保留量化结论（10-25%、39%、50K 等）。</li>
+<li><strong>P2-3 复盘关联题去 D1 偏置</strong>：<code>web/app.js</code> 新增 <code>pickWeakAbilitiesByDim()</code>，复盘默认折叠的「关联能力点」由 <code>globalWeakAbilities</code>（全卷最弱 3 个，受 D1 题多+能力点多影响）改为「维度分升序取 3 个维度、每维取该维最弱能力点」，与 <code>buildAdviceForRecord</code> 同款逻辑。独立验证脚本 <code>tools/check-review-dim-bias.js</code>：D1 占比 36.5% → <strong>17.7%</strong>（接近理论均匀值 16.7%）。</li>
+<li><strong>P2-4 画像口径明示</strong>：54 道专项题不含 <code>abilities</code> 标签、不参与个体化画像（设计如此）。<code>web/app.js</code> 在专项卷/合并卷的建议区增加「画像口径: 基于通用卷作答」徽标（鼠标悬停说明），避免用户误以为专项作答也进入画像。<strong>未给专项题补标签</strong>——补标签会改动画像算法与 54 道题内容，属设计变更，需单独评估后另行发版。</li>
+<li><strong>P2-5 后台完整度展示</strong>：<code>web/admin.js</code> 记录详情新增「作答完整度」行（百分比 + 实际作答题数 + 未答完提示），配套 P0-2 的缺答治理。</li>
+</ul>
+<p><strong>测试增强（不影响产品行为）：</strong></p>
+<ul>
+<li>承接 v0.8.8 遗留的 D-01/D-02：新增 <code>tools/lib/b64safe.js</code>（0x8000 分块 base64，<code>verify-web-dom.js</code> 改调 helper）；<code>web/admin.js</code> 新增 <code>S.serverUnreachable</code> 标志，公网后端不可达时给出运维级错误文案（区分「本地登录已禁用」与「后端服务不可达」）。</li>
+</ul>
+<h3 id="验证结果">验证结果<a class="anchor" href="#验证结果">#</a></h3>
+<pre><code class="lang-">五件套: 506 PASS / 0 FAIL
+  verify-web 360 + verify-web-dom 49 + verify-wiring 19 + verify-merge 11 + verify-server 67
+独立一致性: 86 题 硬矛盾 0 / 软警示 0
+计分口径对齐: tools/check-backend-front-scoring-parity.js — 三专项 blended/standalone/merged 偏差全部 ≤0.5
+复盘维度偏置: tools/check-review-dim-bias.js — D1 占比 35.5% → 17.6%</code></pre>
+<ul>
+<li><code>tools/check-backend-front-scoring-parity.js</code>：独立复现两套加权模型（不 require app.js / server.js）。极端场景「bid standalone, D4=0 其余 100」前端 78.0 / 旧服务端 83.3（偏差 5.3）→ 修复后两端<strong>完全一致 0.0</strong>；三专项 × blended/standalone × 3000 组随机不均衡作答，<strong>不一致 0 组、最大偏差 0.0</strong>（旧模型会被拒 279~411/500）。merged 路径两端一致 36.3。</li>
+<li><code>tools/check-review-dim-bias.js</code>：500 组随机作答，复盘 D1 偏置 36.5% → <strong>17.7%</strong>（接近理论均匀值 16.7%）。</li>
+</ul>
+<h3 id="部署状态">部署状态<a class="anchor" href="#部署状态">#</a></h3>
+<ul>
+<li>✅ 老服务器 &lt;服务器IP&gt;：<code>rsync web/ + server/</code> → <code>重启测评服务</code> → 线上验证通过（版本号 APCA v0.8.9 / 4 安全头覆盖静态资源 / 分享链接重算 / 二维码指向 IP 入口）</li>
+<li>⬜ 合作方内网服务器 &lt;另一台服务器IP&gt;：由用户在内网手工同步；同步前先跑 <code>python tools/build-qrcode.py --server=site-b</code> 与 <code>python tools/build-license.py --server=site-b</code>，再 rsync（域名授权 &lt;内网域名&gt;，二维码指向子路径入口 <code>https://&lt;内网域名&gt;/ai-assess/</code>）</li>
+</ul>
+<hr/>
+<h2 id="v088---2026-09-12-安全文案计分复盘整改admin-密码30题口径ping-信息安全头b64-栈溢出">[v0.8.8] - 2026-09-12 · 安全/文案/计分复盘整改（admin 密码/30题口径/ping 信息/安全头/b64 栈溢出）<a class="anchor" href="#v088---2026-09-12-安全文案计分复盘整改admin-密码30题口径ping-信息安全头b64-栈溢出">#</a></h2>
+<h3 id="触发">触发<a class="anchor" href="#触发">#</a></h3>
+<p>2026-09-12 用户提供<strong>第三个独立工作台 TRAE SOLO</strong>针对 v0.8.6 的二次审查报告（HTML 格式，9 项 finding），与之前 v0.8.6 PDF 报告交叉对照，发现：唯一被两份独立审查同时点出的真 bug 是「通用 30 题」硬编码；其他 6 项 HTML 独家 finding（admin 密码 / ping 信息 / 安全头 / b64 栈溢出 / 0-33-67-100 / 全站 HTTP）均为真实存在但当时漏检的安全/文案隐患。本版本一并整改。</p>
+<h3 id="主要变更">主要变更<a class="anchor" href="#主要变更">#</a></h3>
+<p><strong>P0 安全（必修）：</strong></p>
+<ul>
+<li><strong>S-01 admin 密码硬编码</strong>: web/admin.js 删除 <code>LOCAL_USER = &#39;admin&#39; / LOCAL_PASS = &#39;&lt;旧默认口令&gt;&#39;</code> 两个明文常量；本地模式 fallback 加 <code>isLocalHost()</code> 守卫，仅 <code>localhost / 127.0.0.1 / file://</code> 允许无口令快速预览，任何公网 host 一律拒绝本地登录、强制走服务端鉴权（server.js /api/admin/login）。</li>
+</ul>
+<p><strong>P1 文案与计分精确化：</strong></p>
+<ul>
+<li><strong>B-01 「通用 30 题」硬编码</strong>: web/admin.js:415（合并出分提示）、web/index.html:43（首屏默认「通用 30 题 + 专项 N 题」）、web/index.html:115（首屏默认「第 1 / 30 题」）全部改成动态——admin.js 用 <code>D.core.length</code>，index.html 用「通用 ? 题 + 专项 ? 题（启动后自动填充）」+「第 ? / ? 题」占位避免首屏闪现旧值；app.js 头注释同步更新。</li>
+<li><strong>B-02 「0 / 33 / 67 / 100」文案</strong>: web/app.js 复盘说明 + web/index.html 关于页计分说明，改为与 scoreMap 一致的 <code>0 / 33.3 / 66.7 / 100</code>。</li>
+</ul>
+<p><strong>P1 安全响应：</strong></p>
+<ul>
+<li><strong>S-03 /api/ping 信息泄露</strong>: server.js:518 删除 <code>count: records.length</code> 字段，仅返回 <code>{ok:true, service:&#39;apca-admin-by-jmount&#39;}</code>（/api/admin/ping 鉴权后的 count 字段保留，供后台管理员使用）。</li>
+<li><strong>S-04 缺安全响应头</strong>: server.js <code>sendJSON()</code> 加 4 个响应头：<code>X-Content-Type-Options: nosniff</code>、<code>X-Frame-Options: DENY</code>、<code>Referrer-Policy: no-referrer</code>、<code>Content-Security-Policy: default-src &#39;self&#39;; img-src &#39;self&#39; data:; script-src &#39;self&#39;; style-src &#39;self&#39; &#39;unsafe-inline&#39;</code>。</li>
+</ul>
+<p><strong>P2 代码质量：</strong></p>
+<ul>
+<li><strong>C-01 b64encodeUnicode apply 栈溢出隐患</strong>: web/app.js 改为 0x8000 字节分块拼接（块大小 32768 远低于 V8 ~65535 上限），当前 32-50 题 payload 实际触发概率很低但修掉避免日后超长分享链接踩雷。</li>
+</ul>
+<h3 id="验证">验证<a class="anchor" href="#验证">#</a></h3>
+<ul>
+<li>五件套 <strong>500+ PASS / 0 FAIL</strong>（完整跑 verify-web / verify-web-dom / verify-wiring / verify-merge / verify-server）</li>
+<li>独立一致性脚本（解析-分值一致性）：硬矛盾 0 / 软警示 0（86 题）</li>
+<li>/api/ping 响应不再含 <code>count</code> 字段（curl 验证）</li>
+<li>admin.html 公网部署下本地登录 fallback 拒绝（curl POST 模拟）</li>
+</ul>
+<h3 id="部署">部署<a class="anchor" href="#部署">#</a></h3>
+<ul>
+<li>老服务器 &lt;服务器IP&gt;: <code>rsync web/ + server/</code> → <code>重启测评服务</code> → curl 验证 framework=APCA v0.8.8</li>
+<li>合作方内网服务器 &lt;另一台服务器IP&gt;: 由用户在<strong>内网手工</strong>跑 <code>python tools/build-license.py --server=site-b</code> 后再 rsync 同步（避免公网重复授权主站）</li>
+</ul>
+<hr/>
+<h2 id="v087---2026-09-12-交叉审查整改缺答刷分解读偏-d130-天路线服务端重算license-双服务器">[v0.8.7] - 2026-09-12 · 交叉审查整改（缺答/刷分/解读偏 D1/30 天路线/服务端重算/LICENSE 双服务器）<a class="anchor" href="#v087---2026-09-12-交叉审查整改缺答刷分解读偏-d130-天路线服务端重算license-双服务器">#</a></h2>
+<h3 id="触发">触发<a class="anchor" href="#触发">#</a></h3>
+<p>2026-09-11 用户部署 v0.8.6 给<strong>另一个工作台</strong>做独立交叉审查，回收 13 页 PDF 报告。报告梳理出 3 严重 + 5 较高风险 + 6 一般问题，10 条完全属实。本版本就其中 P0 部分整改。</p>
+<h3 id="主要变更">主要变更<a class="anchor" href="#主要变更">#</a></h3>
+<p><strong>P0 安全与正确性（必修）：</strong></p>
+<ul>
+<li><strong>P0-2.1 缺答即可 L4 / 伪造入库</strong>：calcResult 返回 completeness（作答题数/总题数），completeness &lt; 0.5 时 level=null；服务端 /api/submit 独立重算 total+dimScores（不信任客户端提交值），偏差 &gt; 0.5 拒绝；入库存重算结果。</li>
+<li><strong>P0-2.2 个体化解读 72% 回退模板</strong>：buildAdviceForRecord 改按 dimScores 升序选最低维度 → 在该维度内 abilityScores 升序选最弱能力点，不再用偏到 D1 的 globalWeakAbilities（74.7%）。</li>
+<li><strong>P0-2.3 30 天路线输出 21-36 天</strong>：buildLearningMap 改为固定 6 维 × 5 天 = 30 天（弱 2 维走画像动作，其余维度走模板，弱项补足至 5 条/维）。</li>
+<li><strong>P0-3.3 LICENSE 双服务器差异部署</strong>：删除旧 LICENSE，新增 LICENSE.template + tools/build-license.py 按 <code>--server=site-a|site-b</code> 渲染。主站服务器授权 &lt;你的域名&gt;，合作方内网服务器授权 &lt;内网域名&gt;。data.js meta 新增 authorizedDomain 字段。</li>
+<li><strong>P1-3.1 跨版本合并未按 qVersion</strong>：findGeneralRecord 加 qVersion 校验，跨版本返回 null + UI 提示「你之前的通用测评是旧版本, 单独成卷前请先重答当前通用卷」。</li>
+<li><strong>P1-3.2 同步失败前端 toast</strong>：syncToServer 改为成功 toast / 失败弹「同步失败」+ 持久化 record 到 localStorage，下次提交自动重试。</li>
+<li><strong>P1 复盘兜底空操作</strong>：reviewHTML 中 items.forEach(() =&gt; no-op) 改为真实现：画像缺失时自动展开所有题 + 切换按钮替换为说明文案。</li>
+</ul>
+<p><strong>P2 文案修正：</strong></p>
+<ul>
+<li>「通用 30 题 + 本专项」→「通用 &#39; + D.core.length + &#39; 题 + 本专项」动态（v0.8.6 已 32 题）</li>
+<li>「选项顺序随机打乱」→「每题选项按固定规则乱序呈现」（更精确表述）</li>
+<li>二维码默认 URL 由 <code>http://&lt;服务器IP&gt;:8787/</code> 改为 <code>https://&lt;你的域名&gt;/</code>，可通过 APCA_ASSESS_URL 覆盖</li>
+</ul>
+<p><strong>工具与门禁：</strong></p>
+<ul>
+<li>tools/build-web-data.js: framework + questionSetVersion 同时升 v0.8.7</li>
+<li>miniprogram/utils/calc.js: 小程序端 calcResult 也加 completeness 校验（与 web 端同步）</li>
+<li>verify-web.js: 新增 §5 完整性 + 低完整度不出综合等级回归；新增 §6 buildLearningMap 30 天固定回归；新增 §7 buildAdviceForRecord 不再用 globalWeakAbilities 回归</li>
+<li>tools/verify-server.js: RECORDS mock 用 32 题全 D（与服务端重算口径一致）+ bids 题 id 修正为 BID-1..18</li>
+<li>tools/build-qrcode.py: 默认 URL 改域名</li>
+<li>新增 LICENSE.template + tools/build-license.py（双服务器差异）</li>
+</ul>
+<h3 id="验证">验证<a class="anchor" href="#验证">#</a></h3>
+<ul>
+<li>五件套 <strong>495 PASS / 0 FAIL</strong>（verify-web 355 + verify-web-dom 47 + verify-wiring 19 + verify-merge 11 + verify-server 63）</li>
+<li>独立一致性脚本（解析-分值一致性）：硬矛盾 0 / 软警示 0（86 题全覆盖）</li>
+<li>buildLearningMap 输出恒为 30 天（6×5），第 i 条标 Day i+1</li>
+<li>服务端重算对客户端伪造 total 偏差超 0.5 自动拒绝；缺答 &lt; 0.5 不出综合等级</li>
+</ul>
+<h3 id="部署">部署<a class="anchor" href="#部署">#</a></h3>
+<ul>
+<li>rsync web/ → 部署用户@&lt;服务器IP&gt;:&lt;部署目录&gt;/web/（同步 LICENSE + authorizedDomain 已切到 &lt;你的域名&gt;）</li>
+<li>&lt;另一台服务器IP&gt; 合作方内网服务器：由用户去内网同步，同步时跑 <code>python tools/build-license.py --server=site-b</code> 重新生成正确的 LICENSE</li>
+</ul>
+<hr/>
+<h2 id="v086---2026-09-11-基于作答画像的个体化解读-d3-维度-2-道题lost-in-the-middle-多轮失忆">[v0.8.6] - 2026-09-11 · 基于作答画像的个体化解读 + D3 维度 +2 道题（Lost in the middle / 多轮失忆）<a class="anchor" href="#v086---2026-09-11-基于作答画像的个体化解读-d3-维度-2-道题lost-in-the-middle-多轮失忆">#</a></h2>
+<blockquote>本轮为「解读是否真实有用」复盘的整改：</blockquote>
+<blockquote>把「<strong>同段位同建议</strong>」这种<strong>花架子风险</strong>拿掉，让&quot;最该做的 3 件事&quot;基于本次作答画像生成；</blockquote>
+<blockquote>同时把 D3 维度补到 7 题，覆盖 2026 年长文档失忆与多轮对话失忆这两个<strong>普通 AI 协作场景下仍真实存在</strong>的痛点。</blockquote>
+<h3 id="变更">变更<a class="anchor" href="#变更">#</a></h3>
+<p><strong>A. 个体化解读（基于作答画像）</strong></p>
+<ul>
+<li>在 <code>miniprogram/data/reports.js</code> 新增 <code>ACTION_DICT</code>（24 能力点 × 3 具体动作 = 72 条），按维度 id × 能力点 key 索引。</li>
+<li>在 <code>web/app.js</code> 新增 <code>analyzeProfile(record)</code>：</li>
+<li>解码每题 <code>abilities</code> → 按维度 × 能力点累加 → 按维度实际题数归一化 → 0-100 分的能力点评估；</li>
+<li>推导 <code>byDim</code>（每维度的弱能力点 + 强能力点）、<code>globalWeakAbilities</code>（全卷最弱 3 个）、<code>globalStrongAbilities</code>（全卷最强 2 个）。</li>
+<li>重写 <code>buildAdviceForRecord(record)</code>：基于画像取最弱维度的最弱能力点 → 取 <code>ACTION_DICT</code> 的 3 条具体动作（按降序）→ 拼成「本周重点练 / 推进路径 / 把强项沉淀为团队资产」3 条建议。</li>
+<li>重写 <code>buildLearningMap(dimScores, abilityScores)</code>：30 天动作从「按维度模板铺」升级为「按画像从 ACTION_DICT 取具体动作」（缺画像时回退模板）。</li>
+<li>重写 <code>reviewHTML(record, profile)</code>：默认<strong>折叠</strong>到本次解读提到的能力点相关题（约 5-10 道），顶部加「展开全部题目」按钮可切换。</li>
+</ul>
+<p><strong>B. D3 维度新增 2 道题（v0.8.6 必做）</strong></p>
+<ul>
+<li>通用卷 30 → 32 题（D3 5 → 7 题）。</li>
+<li>D3-6「Lost in the middle」：80 页合同场景，AI 一次装下但中间条款被弱化（D 是让 AI 重新聚焦中间）。</li>
+<li>题目依据：Chroma Research 2025（18 模型 lost in the middle）/ Morph 2026（200K 在 50K 退化）/ LawVu 2026（分块重审仍出现编造）等。</li>
+<li>D3-7「多轮对话上下文锁定」：跨 8 轮对话 AI 忘记早期约束（D 是把跨轮约束沉淀为外置清单）。</li>
+<li>题目依据：Laban et al. 2025（多轮平均性能下降 39%）/ Morph 2026 / Chroma Research 2025。</li>
+<li>旧的两版 D3-6 题面（Agent 编排、长文档分块 → 弹窗仅处理 30 页）均被打回作废——前者太工程化非通用卷画像、后者 2024 痛点 2026 已不存在。</li>
+</ul>
+<p><strong>C. 题面 abilities 标签字段（30 题全部补齐）</strong></p>
+<ul>
+<li>在 <code>core.js</code> 每道题加 <code>abilities: [...]</code> 字段，按 <code>q.id</code> 维度前缀归到对应能力点（每题 1-2 个能力点）。</li>
+</ul>
+<p><strong>D. 发版验收中发现并修复的缺陷（D3-6 / D3-7 选项与分值错位）</strong></p>
+<ul>
+<li><strong>现象</strong>：受测人反馈最后一题「解析说某选项是最优解，但界面把 100 分标在了另一个选项上」，解析与分值自相矛盾。</li>
+<li><strong>根因</strong>：系统硬规则为「源数据选项 A→D 即成熟度升序（A=0 / B=33.3 / C=66.7 / D=100）」，构建脚本按<strong>位置</strong>赋分。新增两题时按&quot;自然叙述顺序&quot;排了选项，未按成熟度升序排列 → 解析（按内容写）与分值（按位置赋）打架。</li>
+<li><strong>修复</strong>：两题选项按成熟度升序重排，解析内的字母引用与结论一并重映射——</li>
+<li>D3-6：A 接受 AI 意见(0) → B 分 3 段重审(33.3) → C 自己过一遍(66.7) → D 让 AI 重新聚焦中间(100)；</li>
+<li>D3-7：A 换更长上下文模型(0) → B 拆成独立短对话(33.3) → C 再粘贴一遍约束(66.7) → D 沉淀为跨轮约束清单(100)。</li>
+<li><strong>门禁补强（关键）</strong>：独立校验脚本 <code>tools/check-analysis-consistency.js</code> <strong>已抓到</strong>这 2 题硬矛盾，但 <code>verify-web.js</code> §1.6 用的是自维护的<strong>残缺正则</strong>（只认「最强 / 最高级 / 最稳的起点」，不认「最优 / 最稳做法」），<strong>且从未调用该独立脚本</strong>，导致漏网。本轮改为：</li>
+</ul>
+<ol>
+<li><strong>§1.6 直接调用独立脚本</strong>（单一真值源，规则不再漂移）；</li>
+<li><strong>新增 §1.6b</strong>：解析里凡写「本题「最可能」是 X」的，X 必须等于该题满分锚点（源数据不带 <code>scores</code>，锚点恒为 D）。</li>
+</ol>
+<h3 id="验证">验证<a class="anchor" href="#验证">#</a></h3>
+<ul>
+<li><strong>五件套 491 PASS / 0 FAIL</strong>：verify-web 351 + verify-web-dom 47 + verify-wiring 19 + verify-merge 11 + verify-server 63</li>
+<li><strong>独立一致性脚本 <code>check-analysis-consistency.js</code>：硬矛盾 0 题 / 软警示 0 题</strong>（86 题全覆盖）</li>
+<li>§1.6 改造后改由独立脚本驱动（单一真值源）；新增 §1.6b「解析结论指向满分锚点」断言 1 条</li>
+<li>题库内容变更：通用 30 → 32 题（D3 5 → 7 题）；满分项字母分布 {A:19, B:25, C:20, D:22}（86 题）</li>
+<li>§1.13 真源与导出可配对题数 86（v0.8.5 基线 84 → +2）；选项长度均衡（D3-6/D3-7 均在 1.67 阈值内）</li>
+</ul>
+<h3 id="部署">部署<a class="anchor" href="#部署">#</a></h3>
+<ul>
+<li>✅ <strong>老服务器 / 原始服务器（本公司 &lt;服务器IP&gt;）</strong>：<code>rsync --delete</code> 同步 <code>web/</code> → <code>&lt;部署目录&gt;/web/</code> + scp <code>系统更新日志.md</code>（→ <code>&lt;部署目录&gt;/</code>）与 <code>系统更新日志.html</code>（→ <code>&lt;部署目录&gt;/web/</code>）→ <code>重启测评服务</code> → 源站验证 <code>APCA v0.8.6</code> + 32 通用题（含 D3-6 / D3-7）通过。<strong>修复版（选项重排）后再次同步并重启，源站验证通过。</strong></li>
+<li>⬜ <strong>合作方内网服务器（&lt;另一台服务器IP&gt; / &lt;内网域名&gt;/ai-assess/）</strong>：需在内网更新（<code>tools/deploy-site-b.sh</code>），由管理员执行。</li>
+</ul>
+<hr/>
+<h2 id="v084---2026-09-07-交叉审查整改学习地图-30-天-宣称勘误-解析裁决-产物门禁">[v0.8.4] - 2026-09-07 · 交叉审查整改（学习地图 30 天 / 宣称勘误 / 解析裁决 / 产物门禁）<a class="anchor" href="#v084---2026-09-07-交叉审查整改学习地图-30-天-宣称勘误-解析裁决-产物门禁">#</a></h2>
+<blockquote>本轮为三份第三方交叉审查报告（另见 <code>交叉审查裁定_v0.8.3_20260904.md</code>）的<strong>批次 A + 批次 B</strong> 整改。</blockquote>
+<h3 id="变更">变更<a class="anchor" href="#变更">#</a></h3>
+<p><strong>A-1 学习地图修为真正的 30 天（用户可见缺陷）</strong></p>
+<ul>
+<li>原 <code>buildLearningMap()</code> 每个维度只 <code>push</code> 1 天 → 全库只输出 <strong>6 天</strong>，与结果页标题「30 天提升路线」不符；</li>
+<li>且 <code>TIPS[dim][idx % 5]</code> 用<strong>维度排名</strong>当 tips 下标（第 6 名维度错位取回 <code>tips[0]</code>），内容重复。</li>
+<li>现改为：维度按得分升序（弱项优先），每维度连续铺满其全部 5 条 tips → <strong>6×5 = 30 天</strong>，下标不再错位。</li>
+</ul>
+<p><strong>A-2 「无脑选 D ≈ 35 分（L1）」对外宣称勘误</strong></p>
+<ul>
+<li>实测全库 84 题<strong>固定单字母期望分</strong>：A 47.2 / B 55.2 / C 48.4 / D 49.2（随机作答期望≈50）。原宣称的「约 35 分（L1）」<strong>失实</strong>（固定选 B 甚至可达 L3 低区）。</li>
+<li><code>README.md</code> 版本速览表、<code>产物/05-网页版落地方案.md</code> 更正为「固定单字母最高约 55 分，不达 L4，无规律可套利」；本文件 v0.8 条目加勘误标注。</li>
+<li><code>tools/verify-web.js</code> <strong>新增 §1.11 回归断言</strong>锁死该口径：最高 &lt; 76（不可达 L4）/ 最低 ≥ 40 / 极差 ≤ 20 / 100 分选项覆盖四个字母 / 单字母承载 100 分题占比 ≤ 40%。</li>
+</ul>
+<p><strong>A-3 清理 v0.7 版本残留</strong></p>
+<ul>
+<li>关于页 <code>题库 v0.7</code> 硬编码 → 改为动态读取 <code>meta.questionSetVersion</code>；</li>
+<li><code>index.html</code> hero 与关于页两处静态 <code>v0.7</code> → 改为 <code>APCA</code>（由 JS 填充当前版本）；</li>
+<li><code>web/data.js</code> 头注释、<code>web/app.js</code> / <code>tools/build-web-data.js</code> 注释中的 v0.7 表述清理；</li>
+<li>本文件 v0.8.3 条目的「⬜ 待部署」更正为已上线。</li>
+</ul>
+<p><strong>A-4 15 题「解析与分值矛盾」清零</strong></p>
+<ul>
+<li>源数据选项为成熟度升序（A=0 … D=100），但 15 道题的解析未把最高级定性落在 D 上；其中 <strong>D1-2 解析推崇 C（66.7）却弱化 D（100）</strong>，属解析与计分口径冲突。</li>
+<li>逐题改写（<code>tools/patch-analysis-v084.py</code>，一次性补丁）：D1-1 / D1-2 / D1-3 / D1-4 / D1-5 / D2-2 / D2-3 / D2-4 / D2-5 / D3-2 / D3-3 / D3-4 / D6-2 / D6-3 / D6-4。</li>
+<li><code>check-analysis-consistency.js</code>：软警示 <strong>15 → 0</strong>，硬矛盾保持 <strong>0/84</strong>。</li>
+</ul>
+<p><strong>B-1 产物/ 快照重导 + 新增 §1.13 门禁（原门禁盲区）</strong></p>
+<ul>
+<li><code>产物/02-题库.json</code> 与真源有 <strong>19/30 题</strong>选项不同；<code>产物/04-行业特化题包.json</code> 仍写 4 包 21 题（geo/gov），真源实为 <strong>bid/mfg/retail 3 包 54 题</strong>。</li>
+<li>新增 <code>tools/build-archive-snapshots.js</code>：从 <code>miniprogram/data/</code> 真源重导两份快照，版本从 <code>build-web-data.js</code> 单点真值读取，并写入 <code>source.version</code>。</li>
+<li><code>tools/verify-web.js</code> <strong>新增 §1.13</strong>：快照必须存在、版本标注等于当前版本、且与真源<strong>逐题（选项 + 解析）比对一致</strong>。</li>
+</ul>
+<p><strong>B-2 权重口径统一</strong></p>
+<ul>
+<li>关于页展示各维权重，但通用卷实际六维等权（<code>app.js</code> 固定 <code>/6</code>）。已在「6 大能力维度」区新增说明：<strong>权重仅在专项卷参与加权，通用版六维等权</strong>。</li>
+</ul>
+<p><strong>工程卫生</strong></p>
+<ul>
+<li><code>verify-web.js</code> 原 L42 硬编码 <code>v0.8.3</code> → 改为从 <code>build-web-data.js</code> 读取单点真值，往后发版无需再改校验脚本；</li>
+<li>新增 <strong>§1.12 学习地图门禁</strong>（tips 总数 = 30、每维 5 条、<code>tips.length</code> 循环、禁用 <code>idx % 5</code>、标题一致）。</li>
+</ul>
+<h3 id="验证">验证<a class="anchor" href="#验证">#</a></h3>
+<ul>
+<li><code>node tools/check-analysis-consistency.js</code>：硬矛盾 <strong>0/84</strong> · 软警示 <strong>0/84</strong>（原 15）；</li>
+<li><code>node tools/verify-web.js</code>：<strong>337 PASS</strong>（新增 §1.11 / §1.12 / §1.13 共 13 条断言全绿）；</li>
+<li>题库与计分口径未变：乱序分布仍 A:19 / B:25 / C:18 / D:22，恒等排列 6 题；</li>
+<li>待跑 verify-web-dom / verify-wiring / verify-merge / verify-server 五件套后才算全绿。</li>
+</ul>
+<h3 id="部署">部署<a class="anchor" href="#部署">#</a></h3>
+<ul>
+<li>✅ 已上线（2026-09-07）：<code>rsync --delete</code> 同步 <code>web/</code>（含 <code>data.js</code>/<code>app.js</code>/<code>index.html</code>/<code>qrcode.png</code>）→ <code>scp 系统更新日志.md</code> 到 <code>&lt;部署目录&gt;/</code>、<code>系统更新日志.html</code> 到 <code>&lt;部署目录&gt;/web/</code> → <code>重启测评服务</code>。线上验证：<code>data.js</code> 版本号 <code>v0.8.4</code>（3 处）、<code>app.js</code> 学习地图为按短板铺满 30 天、<code>index.html</code> 与 <code>app.js</code> 用户可见面已无 <code>v0.7</code> 残留（仅保留一条说明性代码注释）、首页/二维码/更新日志 HTML（URL 百分号编码）均 200。</li>
+</ul>
+<hr/>
+<h2 id="v085---2026-09-07-计分归一化-乱序独立校验-服务端加固批次-c-批次-d">[v0.8.5] - 2026-09-07 · 计分归一化 + 乱序独立校验 + 服务端加固（批次 C + 批次 D）<a class="anchor" href="#v085---2026-09-07-计分归一化-乱序独立校验-服务端加固批次-c-批次-d">#</a></h2>
+<blockquote>本轮为三份第三方交叉审查报告的<strong>批次 C（计分与数据） + 批次 D（工程卫生）</strong>整改。</blockquote>
+<blockquote>题库内容、解析措辞、乱序分布均未变化（与 v0.8.4 完全一致）；仅修正计分/校验/服务端的<strong>实现缺陷</strong>。</blockquote>
+<h3 id="变更">变更<a class="anchor" href="#变更">#</a></h3>
+<p><strong>C-1 blended 分母按实际作答维度归一化（计分口径缺陷）</strong></p>
+<ul>
+<li>原 <code>calcResult()</code> 在通用卷分支硬编码 <code>/ 6</code>。当有维度未作答时（如中途 confirm 提交），<code>dimScores</code> 键数 &lt; 6，分母仍为 6 → 系统性<strong>低估</strong>总分；</li>
+<li>且与 standalone 分支按「实际权重和 <code>sw</code> 归一化」的口径不一致。</li>
+<li>改为：按<strong>实际参与计分的维度数</strong>归一化（六维等权逻辑不变）。涉及 4 处复刻：<code>web/app.js</code> + <code>tools/verify-web.js</code> + <code>tools/verify-merge.js</code> + <code>miniprogram/utils/calc.js</code> 全部同步。</li>
+<li><code>verify-web.js</code> <strong>新增 §1.15 回归断言</strong>：构造「只答 3 维且全满分 → 总分 100」「六维全满分 → 100」「六维全 0 → 0」三个场景锁定。</li>
+</ul>
+<p><strong>C-2 乱序结果独立交叉校验（用自己验自己的盲区）</strong></p>
+<ul>
+<li>原 §1.5 校验与构建共用 <code>tools/lib/shuffle.js</code>，只能证明&quot;构建跑了乱序&quot;，抓不出乱序实现本身的 bug（如分值没跟选项走、某一档分值丢失/重复）。</li>
+<li>新建 <code>tools/lib/shuffle-indep.js</code>：<strong>完全不引用 <code>shuffle.js</code></strong>，靠&quot;源题选项文本 ↔ 导出题选项文本&quot;反查，独立推导出每题各展示字母应有的分值。前提（每题四选项文本互异）已实测全库 0 例重复。</li>
+<li><code>verify-web.js</code> <strong>新增 §1.14</strong>：4 条断言</li>
+<li>① 真源/导出可配对题数 = 84；</li>
+<li>② 每题四选项文本互异（保证可反查）；</li>
+<li>③ 独立推导分值与导出 <code>q.scores</code> 全部一致（选项与分值未错位）；</li>
+<li>④ 满分项字母分布回归锁定 A:19 / B:25 / C:18 / D:22（确定性函数）。</li>
+</ul>
+<p><strong>D-1 服务端 <code>/api/submit</code> 强化校验 + 限流</strong></p>
+<ul>
+<li>原校验仅查 3 个字段存在性，无范围/类型/完整性，且无限流。攻击者可刷数据 / 写满磁盘。</li>
+<li>新增 <code>validateRecord(rec)</code>：覆盖 <code>total</code>(0-100) / <code>levelId</code>(L1-L4) / <code>dimScores</code>(6 维每维 0-100) / <code>info.*</code>(类型+长度) / <code>answers</code>(qid 长度+四档分值+数量) / <code>packId</code> / <code>qVersion</code> / <code>ts</code>；</li>
+<li>新增 <code>checkSubmitRate(ip)</code>：单 IP 滑动窗口，默认 10 次/60s（<code>APCA_SUBMIT_RATE_LIMIT</code> 环境变量可覆盖，便于单测与压测）；</li>
+<li>限流优先于校验：超额直接 429，避免被利用做负载放大。</li>
+</ul>
+<p><strong>D-2 工具脚本硬编码绝对路径清理</strong></p>
+<ul>
+<li><code>tools/verify-web-dom.js</code> / <code>tools/verify-anchor-migration.js</code> 写死 <code>/Users/jmount/WorkBuddy/.../web</code> 与 <code>/Users/jmount/.workbuddy/binaries/.../linkedom</code>，<strong>换机器即失败</strong>。</li>
+<li>改为 <code>__dirname</code> 推导仓库根 + linkedom 两级 fallback（标准 <code>require(&#39;linkedom&#39;)</code> → 受控环境 managed workspace），跨平台可移植。</li>
+</ul>
+<p><strong>D-3 记录与分享带 <code>qVersion</code>（跨版本统计隔离）</strong></p>
+<ul>
+<li>前端 <code>web/app.js</code>：测评记录构造处补 <code>qVersion: D.meta.questionSetVersion</code>、<code>framework: D.meta.framework</code>；分享 URL payload 同步带上；</li>
+<li>后台 <code>server/server.js</code>：补字段长度/类型校验、缺省填充为 <code>&#39;unknown&#39;</code> 以兼容历史记录；</li>
+<li>后台 <code>web/admin.js</code>：记录详情卡新增&quot;题目版本&quot;行，展示 <code>qVersion</code> 与 <code>framework</code>。</li>
+</ul>
+<p><strong>D-4 byPack 按 (packId, qVersion) 分组（同名不同版本混池修复）</strong></p>
+<ul>
+<li>原 <code>byPack</code> 仅按 <code>r.packName</code> 分组。若 v0.8.x 和 v0.9.x 都有&quot;招投标专项&quot;，同名的题包会被混在一个池里统计均值。</li>
+<li>改为 <code>r.packId + &#39;@&#39; + r.qVersion</code>（&#39;none&#39; 归一为 &#39;通用&#39;），新版本 §1.14 的 byPack 回归断言锁定分组行为。</li>
+</ul>
+<h3 id="验证">验证<a class="anchor" href="#验证">#</a></h3>
+<ul>
+<li><code>node tools/verify-web.js</code>：<strong>350 PASS / 0 FAIL</strong>（新增 §1.14 + §1.15 共 9 条断言全绿）；</li>
+<li><code>node tools/verify-web-dom.js</code>：<strong>47 PASS / 0 FAIL</strong>；</li>
+<li><code>node tools/verify-wiring.js</code>：<strong>19 PASS / 0 FAIL</strong>；</li>
+<li><code>node tools/verify-merge.js</code>：<strong>11 PASS / 0 FAIL</strong>；</li>
+<li><code>node tools/verify-server.js</code>：<strong>53 PASS / 0 FAIL</strong>（v0.8.4 基线 40 → +13：7 条强化校验拒绝 + 3 条 byPack/qVersion + 2 条限流子进程测试 + 1 条文件计数）；</li>
+<li><strong>五件套合计 480 PASS / 0 FAIL</strong>（v0.8.4 基线 458 → +22）；</li>
+<li>题库内容、计分映射、解析措辞、乱序分布均与 v0.8.4 完全一致（A:19 / B:25 / C:18 / D:22，恒等排列 6 题）。</li>
+</ul>
+<h3 id="部署">部署<a class="anchor" href="#部署">#</a></h3>
+<ul>
+<li>⬜ 待部署（<code>rsync --delete</code> 同步 <code>web/</code> + <code>server/</code> → <code>scp</code> 更新日志 → <code>重启测评服务</code> → 线上验证 <code>v0.8.5</code> + 30 天地图 + 提交限流）。</li>
+</ul>
+<hr/>
+<h2 id="v083---2026-09-04-更新日志-mdhtml-双载体-海报嵌入测评入口二维码">[v0.8.3] - 2026-09-04 · 更新日志 md→html 双载体 + 海报嵌入测评入口二维码<a class="anchor" href="#v083---2026-09-04-更新日志-mdhtml-双载体-海报嵌入测评入口二维码">#</a></h2>
+<h3 id="变更">变更<a class="anchor" href="#变更">#</a></h3>
+<ul>
+<li><strong>日志文件改名：<code>CHANGELOG.md</code> → <code>系统更新日志.md</code></strong>；所有文档引用同步更新。</li>
+<li><strong>同步生成 <code>系统更新日志.html</code></strong>：<code>tools/build-update-html.js</code>（自包含 CSS + 极简 Markdown 渲染：H1–H4 / 列表 / 引用 / code / hr / 加粗 / 行内 code / em + 自动目录 + 锚点），每次发版后跑一次即可产出离线可读 HTML 版。</li>
+<li><strong><code>tools/verify-web.js</code> 新增 §1.10 门禁</strong>：HTML 必须存在、含当前版本号条目、文件 mtime 不早于 md（防产物过期/漏更）。</li>
+<li><strong>海报嵌入测评入口二维码</strong>：</li>
+<li>新增 <code>tools/build-qrcode.py</code>（依赖 <code>qrcode[pil]</code>），预生成 <code>web/qrcode.png</code>（580×580 白底，指向 <code>http://&lt;服务器IP&gt;:8787/</code>，可用 <code>APCA_ASSESS_URL</code> 环境变量覆盖）。</li>
+<li><code>web/app.js</code> 的 <code>downloadPoster()</code> 改异步：先 <code>Image()</code> 加载 <code>qrcode.png?v=&lt;version&gt;</code>（用版本号做 query bypass 缓存），加载完成调 <code>drawPosterBody()</code>；二维码放海报左下角白底圆角块（150×150，留 10px 静默区），右侧三行配套引导文案。</li>
+<li>QR 加载失败自动降级为占位块（不阻塞海报下载）。</li>
+<li><strong>海报同步迭代</strong>：</li>
+<li><code>framework</code> 字段从遗留的 <code>&#39;APCA v0.7&#39;</code> 升级到 <code>&#39;APCA v0.8.3&#39;</code>（副标题显示修正）。</li>
+<li>下载文件名带版本号：<code>AI办公能力测评_&lt;分&gt;_&lt;v0.8.3&gt;.png</code>。</li>
+<li>页脚&quot;扫码测你的 AI 办公能力&quot;一行 + &quot;生成于...&quot; 收为右下三行（含当前版本号 + 卷别 + 网页版直入 + 生成时间）。</li>
+<li><strong>设计原则</strong>：本次沿用项目一贯的零运行时依赖；HTML 渲染器纯 Node 内置实现，QR 码用 Python qrcode 库（已装到 managed venv）。</li>
+</ul>
+<h3 id="验证">验证<a class="anchor" href="#验证">#</a></h3>
+<ul>
+<li><code>node tools/verify-web.js</code>：含新增 §1.10 HTML 同步门禁，全量 PASS；</li>
+<li>题库与计分未动，乱序分布仍 A:19 / B:25 / C:18 / D:22；<code>anchorBad=0</code>；</li>
+<li>待跑 verify-web-dom / verify-wiring / verify-merge / verify-server 五件套后才算全绿。</li>
+</ul>
+<h3 id="部署">部署<a class="anchor" href="#部署">#</a></h3>
+<ul>
+<li>✅ 已上线（rsync + scp + <code>测评服务</code> 重启）：线上验证题库版本 <code>v0.8.3</code>、海报二维码与 <code>qrcode.png</code> 可访问、更新日志 HTML 版线上可读（中文文件名需 URL 百分号编码访问）。</li>
+</ul>
+<hr/>
+<h2 id="v082---2026-09-04-测评人信息必填校验-发版文档同步门禁">[v0.8.2] - 2026-09-04 · 测评人信息必填校验 + 发版文档同步门禁<a class="anchor" href="#v082---2026-09-04-测评人信息必填校验-发版文档同步门禁">#</a></h2>
+<h3 id="变更">变更<a class="anchor" href="#变更">#</a></h3>
+<ul>
+<li><strong>测评人信息页：姓名 / 所在公司 / 岗位改为必填项，但可虚拟填写</strong>（不需要真实身份信息）。未填写时点击「开始答题」会被拦截并提示&quot;请先填写姓名、公司、岗位（均可虚拟填写）后再开始测评。&quot;；三个字段标签加红色 <code>*</code> 必填标记，输入框 placeholder 明示&quot;必填，可虚拟填写&quot;；测评批次与其他说明仍为选填。</li>
+<li><strong>消除&quot;非必填&quot;残留文案矛盾</strong>：信息页顶部说明由&quot;全部非必填&quot;改为&quot;带 * 的姓名、所在公司、岗位为必填项，均可虚拟填写&quot;；关于页隐私条目由&quot;信息页内容为自愿选填&quot;改为&quot;姓名、公司、岗位为必填但可虚拟填写，不必提供真实身份信息&quot;，避免与新增校验自相矛盾。</li>
+<li><strong>发版门禁加固</strong>：<code>tools/verify-web.js</code> 新增 <strong>§1.8 版本号单点真值</strong>（构建脚本与产物版本必须一致，防止只改 <code>data.js</code> 不改 <code>build-web-data.js</code> 的半成品发版）与 <strong>§1.9 README 版本同步</strong>（<code>README.md</code> 版本速览表须含当前版本号）；<code>CHANGELOG.md</code> 发版惯例补充&quot;文档同步范围&quot;与标准部署顺序。</li>
+</ul>
+<h3 id="验证">验证<a class="anchor" href="#验证">#</a></h3>
+<ul>
+<li>全量校验 <strong>439 项 PASS / 0 FAIL</strong>（计分 322 + DOM 47 + 接线 19 + 合并 11 + 服务端 40）；</li>
+<li>新增 DOM 断言 3 条：必填项全空 / 仅填姓名 / 缺岗位三种情形点击「开始答题」均被拦截；同时补上 <code>window.alert</code> stub（linkedom 未实现，原会在拦截路径抛异常）；</li>
+<li>题库与计分未改动，<code>v0.8.1</code> 的解析-锚点一致性、长度均衡、乱序分布（A:19 / B:25 / C:18 / D:22）全部保持。</li>
+</ul>
+<h3 id="部署">部署<a class="anchor" href="#部署">#</a></h3>
+<ul>
+<li>✅ 已上线（rsync + 测评服务 重启）；线上验证题库版本 <code>v0.8.2</code>、信息页必填文案生效、&quot;全部非必填 / 自愿选填&quot;残留已清零。</li>
+</ul>
+<hr/>
+<h2 id="v081---2026-09-04-计分锚点修正-历史数据迁移">[v0.8.1] - 2026-09-04 · 计分锚点修正 + 历史数据迁移<a class="anchor" href="#v081---2026-09-04-计分锚点修正-历史数据迁移">#</a></h2>
+<h3 id="变更">变更<a class="anchor" href="#变更">#</a></h3>
+<ul>
+<li><strong>修正 12 道通用题&quot;解析与分值矛盾&quot;</strong>（D2-1 / D3-1 / D3-3 / D3-5 / D4-1 / D4-2 / D4-4 / D4-5 / D5-1 / D5-4 / D5-5 / D6-5）：原解析贬低 D 选项（&quot;不靠谱&quot;&quot;放任&quot;&quot;不可持续&quot;）或推崇 A/B/C 为最优，与 D=100 的&quot;最高成熟度锚点&quot;计分矛盾。修法为<strong>纯置换</strong>——按解析公认成熟度排序重排选项位置（最优→D=100，最差→A=0），解析字母引用同步重排，文案一字未改，长度均衡不受影响。</li>
+<li><strong>历史数据自动迁移</strong>：分值-内容映射变更后，浏览器端在启动时对 localStorage 历史记录 / 未完成进度 / 分享链接三类旧数据按上线时点（2026-09-04 01:00 GMT+8）自动换算分值并重算总分/维度/等级，幂等可重复执行；线上服务端 records.json 中 3 条真实提交记录已同步迁移（备份 records.json.bak-v071）。</li>
+<li><strong>新增工具</strong>：<code>tools/check-analysis-consistency.js</code>（解析-分值一致性扫描）、<code>tools/verify-anchor-migration.js</code>（迁移功能测试）；<code>tools/verify-web.js</code> 新增 §1.6 锚点一致性长期门禁。</li>
+</ul>
+<h3 id="验证">验证<a class="anchor" href="#验证">#</a></h3>
+<ul>
+<li>全量校验 <strong>432 项 PASS / 0 FAIL</strong>（计分 318 + DOM 44 + 接线 19 + 合并 11 + 服务端 40）；</li>
+<li>迁移表用改前备份逐内容交叉验证 <strong>48/48 通过</strong>；迁移功能测试 8/8 通过；</li>
+<li>解析-分值一致性扫描硬矛盾 <strong>0/84</strong>；长度均衡 <strong>0/84</strong> 失衡（未破坏 v0.7.1 成果）。</li>
+</ul>
+<h3 id="部署">部署<a class="anchor" href="#部署">#</a></h3>
+<ul>
+<li>✅ 已上线（rsync + 测评服务 重启），线上验证 v0.8.1 生效、D2-1 最优行为持 100 分且经乱序展示在 B 位。</li>
+</ul>
+<hr/>
+<h2 id="v08---2026-09-03-每题选项乱序防总选-d-得高分">[v0.8] - 2026-09-03 · 每题选项乱序（防&quot;总选 D 得高分&quot;）<a class="anchor" href="#v08---2026-09-03-每题选项乱序防总选-d-得高分">#</a></h2>
+<h3 id="变更">变更<a class="anchor" href="#变更">#</a></h3>
+<ul>
+<li><strong>架构</strong>：源数据（miniprogram/data/）保持成熟度升序不变；<code>tools/build-web-data.js</code> 导出时按题目 ID 做确定性乱序（FNV-1a + mulberry32，<code>tools/lib/shuffle.js</code>）——选项文本<strong>连同分值一起换位置</strong>，每题输出独立 <code>scores</code> 字段，解析中的 A/B/C/D 字母引用同步重映射。</li>
+<li><strong>效果</strong>：100 分选项在全库 84 题中的分布为 A:19 / B:25 / C:18 / D:22（D 仅 26%）。</li>
+<li>&gt; ⚠️ <strong>勘误（v0.8.4）</strong>：本条目原写「无脑总选 D 预期得分降至约 35 分（L1）」，经实测复算<strong>该数字错误</strong>。正确实测值为<strong>固定单字母期望分 A 47.2 / B 55.2 / C 48.4 / D 49.2</strong>（随机作答期望≈50），固定选 B 可达 L3 低区。防作弊结论（乱序有效、无固定字母可套利）依然成立，但「35 分」不得再对外引用；v0.8.4 已加 §1.11 回归断言锁死该口径。</li>
+<li><strong>兼容性</strong>：系统存储的是分值而非字母，历史记录、未完成进度、单独成卷合并出分全部天然兼容，无需迁移。</li>
+<li><strong>配套 UI 透明化</strong>：复盘页每选项标注实际分值，&quot;最高成熟度&quot;标签跟随每题真正的 100 分选项；关于页与后台计分说明同步更新。</li>
+</ul>
+<h3 id="验证">验证<a class="anchor" href="#验证">#</a></h3>
+<ul>
+<li>全量校验 <strong>431 项 PASS / 0 FAIL</strong>（含 7 项新乱序校验：分值排列合法性 / 分布均匀性 / 选项内容与源数据等价 / 乱序确定性可复现 / 源数据未污染）。</li>
+</ul>
+<h3 id="部署">部署<a class="anchor" href="#部署">#</a></h3>
+<ul>
+<li>✅ 已上线，公网验证乱序分布与解析重映射正确（&quot;D4到D8&quot;等数字组合不误伤）。</li>
+</ul>
+<hr/>
+<h2 id="v071---2026-09-03-题库答案长度均衡">[v0.7.1] - 2026-09-03 · 题库答案长度均衡<a class="anchor" href="#v071---2026-09-03-题库答案长度均衡">#</a></h2>
+<h3 id="变更">变更<a class="anchor" href="#变更">#</a></h3>
+<ul>
+<li><strong>修正&quot;最长=最优&quot;视觉诱导缺陷</strong>：84 题中 49 道严重失衡（最长选项字数达中位的 1.8–7.5 倍，且 48/49 道最长项恰是满分选项 D）。两轮补丁共改写 <strong>65 题、260 处选项文案</strong>——超长选项压缩冗余枚举、过短干扰项补充&quot;看似具体但仍有缺陷&quot;的细节；解析与 A/B/C/D 计分顺序不动。</li>
+<li><strong>新增工具</strong>：<code>tools/check-option-balance.js</code>（四选项长度 ratio 扫描，阈值可调）。</li>
+</ul>
+<h3 id="验证">验证<a class="anchor" href="#验证">#</a></h3>
+<ul>
+<li>阈值 1.5 下失衡 <strong>0/84</strong>；全库最大 ratio 1.49、中位 1.23；全量校验 <strong>423 项 PASS / 0 FAIL</strong>。</li>
+</ul>
+<h3 id="部署">部署<a class="anchor" href="#部署">#</a></h3>
+<ul>
+<li>✅ 已上线。</li>
+</ul>
+<hr/>
+<h2 id="网站版上线与应用层迭代---2026-09-03">网站版上线与应用层迭代 - 2026-09-03<a class="anchor" href="#网站版上线与应用层迭代---2026-09-03">#</a></h2>
+<ul>
+<li><strong>网站版首版</strong>：纯静态单页（<code>web/</code>），完全复用小程序 v0.7 题库与计分，零服务端（数据仅存本机 localStorage），支持进度续答、六维雷达、30 天提升地图、逐题复盘、结果分享（文字 / URL hash 链接 / 海报 PNG）、历史记录。</li>
+<li><strong>UX 修复</strong>：结果卡显式展示 L1–L4 等级代号；复盘页 D 选项由&quot;推荐&quot;改为&quot;最高成熟度锚点&quot;标注并透明化计分规则。</li>
+<li><strong>测评人信息页</strong>：答题前可选填姓名/公司/岗位/批次，随记录落库，支持按终端归并（clientId）。</li>
+<li><strong>管理后台</strong>：零依赖 Node 服务（<code>server/server.js</code>）一体托管测评站与后台页——密码鉴权、令牌 8h、防爆破锁定、目录穿越防护、原子写库；后台含汇总概览 / 人员清单（搜索、筛选、CSV 导出）/ 题库 / 规则库四 Tab。纯静态分发形态保留（无服务端时静默降级）。</li>
+<li><strong>单独成卷合并出分</strong>：专项单卷完成后与最近通用记录按 blended 同口径合并出分；无通用记录时单卷入口置灰。</li>
+<li><strong>产品改名</strong>：「个人AI能力评测」→「个人AI办公能力测评」。</li>
+<li><strong>部署上线</strong>：http://&lt;服务器IP&gt;:8787/（systemd 常驻）；后台密码已改强密码（systemd Environment，不进代码库）；登录框/图标细节优化；隐私文案按&quot;云端部署&quot;口径修正（服务端模式下如实标注结果同步至组织方服务器，本机模式自动回退&quot;仅留本机&quot;文案）。</li>
+<li>验证：verify-server 40/40、verify-wiring 19/19、verify-merge 11/11；真实浏览器 E2E 全流程通过。</li>
+</ul>
+<hr/>
+<h2 id="v07---2026-09-02-三套专项扩为完整独立模型">[v0.7] - 2026-09-02 · 三套专项扩为完整独立模型<a class="anchor" href="#v07---2026-09-02-三套专项扩为完整独立模型">#</a></h2>
+<ul>
+<li>招投标 / 制造业 / 连锁零售三个专项各扩为 <strong>18 题完整独立模型</strong>（D1–D6 各 3 题、4 题型覆盖），各带独立维度权重（和为 1）；收敛 GEO / 数字市民包。</li>
+<li>小程序侧隐私合规：<code>__usePrivacyCheck__</code> + 隐私授权弹层组件（相册保存场景）、首次启动隐私告知、关于页权限口径对齐；版本号全链路修正（app.js / project.config.json / 页脚）。</li>
+<li>验证：小程序冒烟测试 108 项全绿。</li>
+</ul>
+<h2 id="v06---2026-09-02-通用测评-vs-专项模型双模式">[v0.6] - 2026-09-02 · 通用测评 vs 专项模型双模式<a class="anchor" href="#v06---2026-09-02-通用测评-vs-专项模型双模式">#</a></h2>
+<ul>
+<li>定位纠正：APCA 是<strong>通用测评</strong>，专项为可选叠加的独立模型（自带标准+题库+入口+权重）。</li>
+<li><code>buildQuestions(packId, mode)</code> 支持 blended（加测）/ standalone（单独成卷按专项权重计分）双模式；首页&quot;仅测XX专项&quot;独立入口。</li>
+<li>验证：冒烟测试 107 项全绿。</li>
+</ul>
+<h2 id="v05---2026-09-02-海报分享-逐题复盘">[v0.5] - 2026-09-02 · 海报分享 + 逐题复盘<a class="anchor" href="#v05---2026-09-02-海报分享-逐题复盘">#</a></h2>
+<ul>
+<li>结果海报（750×1080 canvas，等级+雷达+强弱项+小程序码，缺码自动降级）；逐题复盘（按维度分挑最弱已答题，附解析）；交卷存 answerTrail。</li>
+</ul>
+<h2 id="v04---2026-09-02-微信小程序工程">[v0.4] - 2026-09-02 · 微信小程序工程<a class="anchor" href="#v04---2026-09-02-微信小程序工程">#</a></h2>
+<ul>
+<li>完整小程序工程：5 页面 + 6 组件 + data/utils/tools，零服务端设计；雷达图用旧版 Canvas API 兼容；断点续答 + 退出拦截。</li>
+<li>踩坑沉淀：小程序无 computed 用 observers；bindtap 带参需无参包装；页面 wxss 覆盖 app.wxss 需双类选择器。</li>
+</ul>
+<h2 id="v03---2026-09-02-行业特化题包">[v0.3] - 2026-09-02 · 行业特化题包<a class="anchor" href="#v03---2026-09-02-行业特化题包">#</a></h2>
+<ul>
+<li>4 个行业包（招投标/制造/GEO/数字市民，共 21 题）；首页卷别选择、题数联动、记录标注卷别。</li>
+</ul>
+<h2 id="v02---2026-09-02-demo-产品化">[v0.2] - 2026-09-02 · Demo 产品化<a class="anchor" href="#v02---2026-09-02-demo-产品化">#</a></h2>
+<ul>
+<li>localStorage 进度保存（中断可恢复）、成长记录（最近 20 次）、打印 PDF、返回首页确认保护。</li>
+</ul>
+<h2 id="v01---2026-09-02-初始版本">[v0.1] - 2026-09-02 · 初始版本<a class="anchor" href="#v01---2026-09-02-初始版本">#</a></h2>
+<ul>
+<li>APCA 指标体系：六大维度（AI 沟通/任务拆解/流程选择/质量管控/风险应对/经验复用）+ 4 级能力等级（L1 摸索 / L2 指令 / L3 流程 / L4 系统）；</li>
+<li>30 道原创通用题，覆盖 4 种题型（情境决策/实际自评/方法反思/教别人）；</li>
+<li>可交互单文件 HTML Demo；计分映射 A=0 / B=33.3 / C=66.7 / D=100（成熟度量表，非对错题）。</li>
+</ul>
+<hr/>
+<p style="text-align:center;color:var(--muted);font-size:12.5px;">
+APCA · 个人AI办公能力测评 · 系统更新日志（HTML 版，由 <code>tools/build-update-html.js</code> 生成）
+</p>
+</main>
+</body>
+</html>

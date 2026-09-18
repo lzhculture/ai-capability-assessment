@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "AI 能力诊断评估",
+  "usingComponents": {
+    "comp-hero": "/components/comp-hero/comp-hero",
+    "comp-pack-picker": "/components/comp-pack-picker/comp-pack-picker"
+  }
+}

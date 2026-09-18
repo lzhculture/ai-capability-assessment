@@ -1,0 +1,11 @@
+<view class="chips">
+  <view wx:for="{{packs}}"
+        wx:key="id"
+        class="chip {{selected === item.id ? 'on' : ''}}"
+        data-id="{{item.id}}"
+        bindtap="onPick">
+    <view class="name">{{item.name}}</view>
+    <view class="desc">{{item.desc}}</view>
+    <view class="count">{{item.tag}}</view>
+  </view>
+</view>

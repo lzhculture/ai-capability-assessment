@@ -1,0 +1,124 @@
+<view class="container">
+  <block wx:if="{{!rec}}">
+    <view class="card empty">
+      <view>没有找到这份测评记录</view>
+      <view class="muted" style="margin-top: 12rpx;">记录只保存在本机, 更换设备或清理缓存后不可恢复</view>
+    </view>
+    <view class="actions">
+      <button class="btn primary" bindtap="retest">去测一次</button>
+    </view>
+  </block>
+
+  <block wx:else>
+    <comp-level-card level="{{rec.level}}"
+                     total="{{rec.total}}"
+                     answered="{{rec.answered}}"
+                     total-q="{{rec.totalQ}}"
+                     pack-name="{{rec.packName}}"
+                     tip="{{tip}}"></comp-level-card>
+
+    <view class="section-title">六维能力雷达</view>
+    <view class="card radar-card">
+      <comp-radar scores="{{radarScores}}" size="{{560}}"></comp-radar>
+      <view class="radar-foot">
+        强项 <text class="hl">{{strongText}}</text>
+        <text class="sep">·</text>
+        待提升 <text class="hl warn">{{weakText}}</text>
+      </view>
+    </view>
+
+    <view class="section-title">维度明细 (按得分排序)</view>
+    <view class="card">
+      <view wx:for="{{dimList}}" wx:key="id" class="dim-row">
+        <view class="dim-hd">
+          <text class="dim-tag">{{item.id}}</text>
+          <text class="dim-name">{{item.name}}</text>
+          <text class="dim-lvl lvl-{{item.lvlId}}">{{item.lvlId}}</text>
+          <text class="dim-score">{{item.score}}</text>
+        </view>
+        <view class="track"><view class="fill" style="width: {{item.width}};"></view></view>
+        <view class="dim-sub">{{item.tagline}}</view>
+      </view>
+    </view>
+
+    <block wx:if="{{hasReview}}">
+      <view class="section-title">逐题复盘 (你答得最吃力的 4 题)</view>
+      <view class="card rv-head">
+        <view class="rv-lead">针对性回看</view>
+        <view class="rv-hl">{{reviewHeadline}}</view>
+      </view>
+      <view wx:for="{{reviewItems}}" wx:key="id" class="card rv-card">
+        <view class="rv-top" bindtap="toggleReview" data-i="{{index}}">
+          <view class="rv-q">
+            <text class="rv-dim">{{item.dimName}}</text>
+            <text class="rv-id">{{item.id}}</text>
+          </view>
+          <view class="rv-qt">{{item.question}}</view>
+          <view class="rv-pick">
+            <text class="rv-badge pick-{{item.yourLetter}}">{{item.yourLetter}}</text>
+            <text class="rv-pick-txt">你的选择: {{item.yourText}}</text>
+          </view>
+          <view class="rv-more">{{item.open ? '收起解析 ▲' : '查看解析 ▼'}}</view>
+        </view>
+        <view wx:if="{{item.open}}" class="rv-body">
+          <view class="rv-blk">
+            <view class="rv-lb">这道题在测什么</view>
+            <view class="rv-tx">{{item.dimTagline}}</view>
+          </view>
+          <view class="rv-blk">
+            <view class="rv-lb">选项差异</view>
+            <view class="rv-tx">{{item.analysis}}</view>
+          </view>
+          <view class="rv-blk">
+            <view class="rv-lb">更优解 (D)</view>
+            <view class="rv-tx best">{{item.bestText}}</view>
+          </view>
+          <view class="rv-blk">
+            <view class="rv-lb">下一步</view>
+            <view class="rv-tx">{{item.nextStep}}</view>
+          </view>
+        </view>
+      </view>
+    </block>
+
+    <view class="section-title">起步地图 (按弱项优先, Day 1-6)</view>
+    <view class="card">
+      <view wx:for="{{map}}" wx:key="t" class="day">
+        <view class="day-t">{{item.t}} · {{item.dimName}}</view>
+        <view class="day-d">{{item.d}}</view>
+      </view>
+    </view>
+
+    <view class="section-title">最该做的 3 件事</view>
+    <view class="card">
+      <view wx:for="{{advice}}" wx:key="t" class="adv">
+        <view class="adv-t">{{index + 1}}. {{item.t}}</view>
+        <view class="adv-d">{{item.d}}</view>
+      </view>
+    </view>
+
+    <view class="tip">
+      测评结果仅供参考, 用于个人能力提升规划, 不涉及考核。数据仅保存在本机。
+    </view>
+
+    <view class="actions">
+      <button class="btn primary" bindtap="makePoster">生成结果海报</button>
+      <button class="btn" bindtap="copySummary">复制摘要</button>
+    </view>
+    <view class="actions">
+      <button class="btn" bindtap="goHistory">成长记录</button>
+      <button class="btn" bindtap="retest">再测一次</button>
+    </view>
+
+    <view class="tip" style="margin-top: 8rpx;">
+      海报会保存到本机相册, 不含任何个人身份信息。
+    </view>
+
+    <view class="foot">APCA v0.1 · {{rec.dateStr}} · {{rec.packName}} · {{rec.totalQ}} 题</view>
+
+    <comp-poster id="poster"
+                 rec="{{posterRec}}"
+                 bind:saved="onPosterSaved"
+                 bind:error="onPosterError"></comp-poster>
+  </block>
+</view>

@@ -1,0 +1,10 @@
+<view class="lc">
+  <view class="tag">你的 AI 能力等级</view>
+  <view class="lvl-row">
+    <view class="lvl">{{level.id}}</view>
+    <view class="name">{{level.name}}</view>
+  </view>
+  <view class="subtitle">{{level.subtitle}}</view>
+  <view class="tip">{{tip}}</view>
+  <view class="score">综合得分 {{total}} 分 · 答了 {{answered}}/{{totalQ}} 题 · 卷别: {{packName}}</view>
+</view>

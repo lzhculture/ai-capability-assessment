@@ -1,0 +1,27 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/quiz/quiz",
+    "pages/result/result",
+    "pages/history/history",
+    "pages/about/about"
+  ],
+  "window": {
+    "navigationBarTitleText": "AI 能力诊断评估",
+    "navigationBarBackgroundColor": "#1f5cff",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f4f6fb",
+    "backgroundTextStyle": "dark"
+  },
+  "usingComponents": {
+    "comp-hero": "/components/comp-hero/comp-hero",
+    "comp-pack-picker": "/components/comp-pack-picker/comp-pack-picker",
+    "comp-question-card": "/components/comp-question-card/comp-question-card",
+    "comp-progress-bar": "/components/comp-progress-bar/comp-progress-bar",
+    "comp-radar": "/components/comp-radar/comp-radar",
+    "comp-level-card": "/components/comp-level-card/comp-level-card",
+    "comp-privacy-popup": "/components/comp-privacy-popup/comp-privacy-popup"
+  },
+  "sitemapLocation": "sitemap.json",
+  "__usePrivacyCheck__": true
+}

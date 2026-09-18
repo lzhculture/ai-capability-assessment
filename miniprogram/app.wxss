@@ -1,0 +1,128 @@
+/* app.wxss - 全局主题与工具样式 */
+
+page {
+  --brand: #1f5cff;
+  --brand-2: #3b7bff;
+  --good: #2aaf6a;
+  --bad: #d84a4a;
+  --warn: #f0a93b;
+  --ink: #1f2a44;
+  --ink-2: #525a7a;
+  --muted: #8a92ad;
+  --line: #e6ebf5;
+  --bg: #f4f6fb;
+  --card: #ffffff;
+  --shadow: 0 8px 24px rgba(31, 92, 255, 0.06);
+  --shadow-strong: 0 12px 32px rgba(31, 92, 255, 0.18);
+
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.container {
+  padding: 24rpx;
+  max-width: 720rpx;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 20rpx;
+  padding: 28rpx;
+  margin-bottom: 20rpx;
+  box-shadow: var(--shadow);
+}
+
+.pill {
+  display: inline-block;
+  padding: 4rpx 14rpx;
+  background: #eaf0ff;
+  color: var(--brand);
+  border-radius: 100rpx;
+  font-size: 22rpx;
+  font-weight: 600;
+  letter-spacing: 0.5rpx;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 80rpx;
+  padding: 0 36rpx;
+  border-radius: 16rpx;
+  background: #fff;
+  color: var(--ink);
+  border: 1rpx solid var(--line);
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+.btn.primary {
+  background: var(--brand);
+  color: #fff;
+  border-color: var(--brand);
+  box-shadow: 0 8rpx 20rpx rgba(31, 92, 255, 0.25);
+}
+
+.btn[disabled] {
+  opacity: 0.4;
+}
+
+.btn + .btn {
+  margin-left: 16rpx;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.row.between {
+  justify-content: space-between;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 40rpx 0 16rpx;
+  padding-left: 16rpx;
+  border-left: 8rpx solid var(--brand);
+}
+
+.tip {
+  background: #fff7e6;
+  border: 1rpx solid #f3e3b1;
+  color: #7a5a10;
+  padding: 16rpx 20rpx;
+  border-radius: 12rpx;
+  font-size: 24rpx;
+  line-height: 1.6;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 24rpx;
+}
+
+.hr {
+  height: 1rpx;
+  background: var(--line);
+  margin: 24rpx 0;
+}
+
+/* 等级配色 (全局复用) */
+.lvl-L1 { background: linear-gradient(135deg, #e5484d, #f4706f); }
+.lvl-L2 { background: linear-gradient(135deg, #f0a93b, #f7c469); }
+.lvl-L3 { background: linear-gradient(135deg, #1f5cff, #3b7bff); }
+.lvl-L4 { background: linear-gradient(135deg, #1f9255, #2aaf6a); }

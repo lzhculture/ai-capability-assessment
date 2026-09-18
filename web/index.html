@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="AJsQuhnEfpDJ0DS2TKkvzs">
+<head data-page-node-id="HQUAYnB11pGsemJbFYr81S">
+  <meta charset="UTF-8" data-page-node-id="P7q8o43KUNPEfpeCvLtnCj" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" data-page-node-id="FYsFfkWZBcyt3w04OwMTL9" />
+  <meta name="theme-color" content="#1f5eff" data-page-node-id="1CInlfdA0UfPNoBG1ckI6S" />
+  <title>个人AI办公能力测评 · APCA</title>
+  <meta name="description" content="通用个人 AI 办公能力测评：6 维度 + 4 级能力模型，含招投标/制造业/连锁零售专项。浏览器即可测评，结果支持后台汇总分析。" data-page-node-id="mP6BJ6uBX6kjgbDAWGaJQ0" />
+  <link rel="stylesheet" href="style.css" data-page-node-id="kod17L8ZHzfbEp0MmQG7PT" />
+</head>
+<body data-page-node-id="lwV3EFtcHh1VDTIHeq07un">
+  <div class="app" data-page-node-id="iD3aIiT3TsV2EC7ujZoSww">
+    <!-- 顶部应用栏 -->
+    <header class="appbar" id="appbar" data-page-node-id="aNEIXrNnlUTjNS78PFTE0P">
+      <button class="appbar-btn" id="btnBack" aria-label="返回" hidden data-page-node-id="BHiPhAjBoktRyxodGgrmT3">‹</button>
+      <div class="appbar-title" id="appbarTitle" data-page-node-id="cv8FashCBt18b8SmNh1ezb">个人AI办公能力测评</div>
+      <button class="appbar-btn" id="btnAbout" aria-label="关于" data-page-node-id="5Utx2h7w6ttqeRrIEZ89h4"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg></button>
+    </header>
+
+    <main class="views" data-page-node-id="SY3Xz8hAGiVbtvmWPDpHi6">
+
+      <!-- ============ 首页 ============ -->
+      <section class="view view-home is-active" id="view-home" data-page-node-id="JxaW2sOUZILBvLwoW4MPXh">
+        <div class="hero" data-page-node-id="BvaFr9WlmXHhMxgCJWh73z">
+          <div class="hero-logo" data-page-node-id="kCRgbMHvzdP7tcpFcj45YL">AI</div>
+          <h1 class="hero-title" data-page-node-id="rbU5WNe5vghk81pFRfzKdj">个人AI办公能力测评</h1>
+          <div class="hero-version" id="heroVersion" data-page-node-id="g0sQoHDWZZ6zhsxki9soVL">APCA</div>
+          <p class="hero-sub" data-page-node-id="3y5OMOo6gfyW1E4Et5MV1Y">6 大能力维度 · 4 级能力模型 · 浏览器即测即走</p>
+        </div>
+
+        <div class="card" data-page-node-id="fVrxQdKdZ2uuLQePeO8BVB">
+          <div class="card-h" data-page-node-id="VPlqeIw7dihAtYJIsGw385">选择测评卷</div>
+          <div class="pack-list" id="packList" data-page-node-id="EGcLyDEYtrFpirxKm6KiRn"><!-- JS 渲染 --></div>
+        </div>
+
+        <div class="card" id="modeCard" hidden data-page-node-id="eyAHYYWCulGsADaikekfAP">
+          <div class="card-h" data-page-node-id="tv04jyO2o5aO7UbravFjuT">专项测法</div>
+          <div class="mode-row" id="modeRow" data-page-node-id="lFVQzLUtmyaEexCn1PHEGB">
+            <label class="mode-opt" data-page-node-id="mSbl9f4H470rAR0hGqhZPZ">
+              <input type="radio" name="mode" value="blended" checked data-page-node-id="fapHxJ2XYBVfijxbyCBH0c" />
+              <span class="mode-box" data-page-node-id="I6W2LVhPEB61y1B7e7dFhX">
+                <b data-page-node-id="OfcDqscBLw9O7HkkU5Y74K">加测</b>
+                <i id="modeBlendedDesc" data-page-node-id="mvnHkmq5NiRJqhtz1OGMjC">通用 ? 题 + 专项 ? 题（启动后自动填充）</i>
+              </span>
+            </label>
+            <label class="mode-opt" data-page-node-id="kGAQAR1JjVbMXv0TMthFDG">
+              <input type="radio" name="mode" value="standalone" data-page-node-id="fQqTfTTSpjyGaBBCFyHDZL" />
+              <span class="mode-box" data-page-node-id="uD6oAQOVI9wg1kLWE5K9Vy">
+                <b data-page-node-id="hic2T6aFFCV3cWgt7Licor">单独成卷</b>
+                <i id="modeStandaloneDesc" data-page-node-id="JipENCF3jHhLZ9riz467VH">只做本专项 N 题（需先完成通用测评）</i>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="resume-banner" id="resumeBanner" hidden data-page-node-id="DTrzvYl9TLN9fG0TGGV5bD">
+          <div data-page-node-id="qabnO1JEh57tbxBDBONGld">
+            <b data-page-node-id="Z6A85GLhtRekc8dOTnRZS9">检测到未完成的测评</b>
+            <span id="resumeInfo" data-page-node-id="W5GztDrecONGNuI5VOTOec"></span>
+          </div>
+          <div class="resume-actions" data-page-node-id="lCehmhhekkjXkw9Aq6AQnS">
+            <button class="btn btn-ghost btn-sm" id="btnResumeDiscard" data-page-node-id="KK84KA3ZuFa32U7Vsuyco0">丢弃</button>
+            <button class="btn btn-primary btn-sm" id="btnResume" data-page-node-id="GHyBRzHF2yH0U63UmuNwyh">继续</button>
+          </div>
+        </div>
+
+        <button class="btn btn-primary btn-block btn-lg" id="btnStart" data-page-node-id="nvYCCbEa3hdyVXGbY9JKLv">开始测评</button>
+
+        <div class="home-footer" data-page-node-id="JrHL6MNuWHXD5vRpJtL6wD">
+          <a href="#" id="linkHistory" data-page-node-id="HAHmhYlFYiikr3sEmYNApy">历史记录</a>
+          <span class="dot" data-page-node-id="UAcGeVdvWPCZxB0QpH346Z">·</span>
+          <a href="#" id="linkAbout" data-page-node-id="SFaLYK9zTu4IoMr4FLVObD">关于与隐私</a>
+          <span class="dot">·</span>
+          <a href="admin.html" id="linkAdmin">管理后台</a>
+        </div>
+        <p class="home-privacy" id="homePrivacy" data-page-node-id="netmuE06CXAFriC55oKi1l">🔒 作答在本机浏览器完成，测评结果将同步至组织方服务器用于汇总分析。</p>
+      </section>
+
+      <!-- ============ 测评人信息 ============ -->
+      <section class="view view-info" id="view-info" hidden>
+        <div class="info-hero">
+          <h2>填写测评人信息</h2>
+          <p class="info-sub">带 <span class="req">*</span> 的<b>姓名、所在公司、岗位为必填项</b>，均<b>可虚拟填写</b>（如"张三 / 示例公司 / 产品经理"），无需填写真实信息；测评批次与其他说明为选填。这些信息仅用于后台按公司、岗位、批次做汇总与分类分析。提交后测评结果会同步至组织方服务器。</p>
+        </div>
+        <div class="card">
+          <div class="form-row">
+            <label for="infoName">姓名 <span class="req">*</span></label>
+            <input type="text" id="infoName" placeholder="必填，可虚拟填写（例：张三）" />
+          </div>
+          <div class="form-row">
+            <label for="infoCompany">所在公司 <span class="req">*</span></label>
+            <input type="text" id="infoCompany" placeholder="必填，可虚拟填写（例：示例科技有限公司）" />
+          </div>
+          <div class="form-row">
+            <label for="infoPosition">岗位 <span class="req">*</span></label>
+            <input type="text" id="infoPosition" placeholder="必填，可虚拟填写（例：产品经理）" />
+          </div>
+          <div class="form-row">
+            <label for="infoBatch">测评批次</label>
+            <input type="text" id="infoBatch" placeholder="例：2026校招批 / 内部培训第一期（可留空）" />
+          </div>
+          <div class="form-row">
+            <label for="infoNotes">其他说明</label>
+            <textarea id="infoNotes" rows="3" placeholder="任何想备注的内容（可留空）"></textarea>
+          </div>
+        </div>
+        <button class="btn btn-primary btn-block btn-lg" id="btnInfoStart">开始答题</button>
+        <p class="info-tip">姓名、公司与岗位为必填项（均可虚拟填写），请填写后再开始测评。</p>
+      </section>
+
+      <!-- ============ 答题 ============ -->
+      <section class="view view-quiz" id="view-quiz" hidden data-page-node-id="dYBsxDmHCqQZir6MlEh5HM">
+        <div class="quiz-progress" data-page-node-id="zT1n03bhHHL1QgbwGJSqDA">
+          <div class="quiz-progress-top" data-page-node-id="uOFCwfygoLltsswWLaquw4">
+            <span id="quizCounter" data-page-node-id="nPTeBaEhM0jVWCVMixKLUE">第 ? / ? 题</span>
+            <span class="quiz-pack" id="quizPackTag" data-page-node-id="FhYmnzQDaHVi4H7nXbJ8MN">通用版</span>
+          </div>
+          <div class="bar" data-page-node-id="TQFilMDhMy1CWmNiHzZGbv"><div class="bar-fill" id="quizBarFill" data-page-node-id="Ew71Ob49JURs7QrXB0O0gV"></div></div>
+        </div>
+        <div class="quiz-card" id="quizCard" data-page-node-id="HUATRC2ZhcHqr8nYQPn0iQ"><!-- JS 渲染 --></div>
+        <div class="quiz-nav" data-page-node-id="LOwpVVrb1TBg8Sq9ThCWxU">
+          <button class="btn btn-ghost" id="btnPrev" data-page-node-id="HSNwRkb3PAbMOvzibqIH4q">上一题</button>
+          <button class="btn btn-primary" id="btnNext" data-page-node-id="uHcTXPXjxTsYFyk0zRgS8Q">下一题</button>
+        </div>
+        <button class="quiz-exit" id="btnExit" data-page-node-id="E4qkKAUFWBHNBkGdHwGhZr">退出测评（进度已保存）</button>
+      </section>
+
+      <!-- ============ 结果 ============ -->
+      <section class="view view-result" id="view-result" hidden data-page-node-id="zf9XUxFPClLWdp8ZE5Zs4y">
+        <div class="shared-banner" id="sharedBanner" hidden data-page-node-id="6qp46UHSmTAuFSuCAbRMf6">
+          📨 这是他人分享的测评结果 · <a href="#" id="linkTakeMine" data-page-node-id="CQ2Mv7Y2BMrBcaIbACnoq0">我也测一次</a>
+        </div>
+        <div id="resultBody" data-page-node-id="v3tSAS3Apy5nPfopFrHBJI"><!-- JS 渲染 --></div>
+        <div class="result-actions" data-page-node-id="q3LBdPUspOnzOXUMloFKLG">
+          <button class="btn btn-ghost btn-sm" id="btnCopyText" data-page-node-id="HPw5HDIJt0cx5h2kkM6nJN">复制文字结果</button>
+          <button class="btn btn-ghost btn-sm" id="btnCopyLink" data-page-node-id="rTkBBA9KgsXSc2Qy0TCt7a">复制结果链接</button>
+          <button class="btn btn-ghost btn-sm" id="btnPoster" data-page-node-id="90dvEUcnxd2UI5tMCRcHDq">下载海报</button>
+        </div>
+        <div class="result-actions result-actions-2" data-page-node-id="4G6zQBkhsXGs1F55Lwbwqc">
+          <button class="btn btn-primary btn-sm" id="btnRetake" data-page-node-id="kqHVfPIyV9o0vOaTXrnNsG">重新测评</button>
+          <button class="btn btn-ghost btn-sm" id="btnResultHistory" data-page-node-id="PTqrE6qW5OuF0pUtVXG2VM">历史记录</button>
+          <button class="btn btn-ghost btn-sm" id="btnResultHome" data-page-node-id="XXdcRKG8N7toWEuZpsMeTz">返回首页</button>
+        </div>
+        <canvas id="posterCanvas" width="750" height="1080" hidden data-page-node-id="i0PFTL5VtbUEmqgfti7soC"></canvas>
+      </section>
+
+      <!-- ============ 历史 ============ -->
+      <section class="view view-history" id="view-history" hidden data-page-node-id="VVXzalD6xKN1FXaqP4gLTo">
+        <div class="card-h pad" data-page-node-id="Ac4rgIOC4Q700NOV2wlPtW">我的测评记录</div>
+        <div id="historyList" class="history-list" data-page-node-id="Xem2JCGDjrFvOjUcbqC99V"><!-- JS 渲染 --></div>
+        <div class="history-empty" id="historyEmpty" hidden data-page-node-id="jnrotIHvFgzf0OgTF0Iu6t">
+          <p data-page-node-id="KVmWStTS913iMk7AEVcHn9">还没有测评记录。</p>
+          <button class="btn btn-primary btn-sm" id="btnEmptyStart" data-page-node-id="yua3hMpFwcSU00QFWs3yLW">去测一次</button>
+        </div>
+        <button class="btn btn-ghost btn-block btn-sm" id="btnClearHistory" hidden data-page-node-id="eYYF9ZpzWIgMtLUI2hPTgj">清空全部记录</button>
+      </section>
+
+      <!-- ============ 关于 ============ -->
+      <section class="view view-about" id="view-about" hidden data-page-node-id="CDCDtr78DT1vDJfE9Mht5c">
+        <div class="card" data-page-node-id="KLflAwnkIdRCcIxPwRuEoP">
+          <div class="card-h" data-page-node-id="LababeU56RlxqNsnLMuwQr">关于 APCA</div>
+          <p class="about-p" data-page-node-id="Hpea88ScXZaYdvFyFWtHzi">APCA（AI Personal Capability Assessment）是一套<strong data-page-node-id="k6O3LAP4X8nwFGHfz1EoZs">通用个人 AI 办公能力测评</strong>框架，覆盖 6 大能力维度与 4 级能力模型。它用于帮助个人与团队看清"用 AI 做事"的能力结构，定位短板，给出 30 天提升路线。</p>
+          <p class="about-p" data-page-node-id="U0Z1l1Sd1I7wdSPhicdXWG">通用版是产品主入口；招投标 / 制造业 / 连锁零售 为<strong data-page-node-id="Uj7y3amOAcLEeEcw9AvvBM">可选专项模型</strong>（自带题库与权重，可加测；完成通用测评后也可单独成卷，结果自动与通用测评合并），不会把整体定位成某一行业专项。</p>
+        </div>
+        <div class="card">
+          <div class="card-h">计分与等级说明</div>
+          <p class="about-p">本测评是<strong>自我报告式成熟度量表</strong>，不是"对错考试"。每题 4 个选项<b>乱序呈现</b>，四个选项分别计 <b>0 / 33.3 / 66.7 / 100 分</b>，各选项对应多少分<b>每题都不同</b>：</p>
+          <ul class="privacy-list">
+            <li>🔀 <b>每题选项按固定规则乱序呈现</b>：所有用户的「高分选项位置」分布一致（见 README「乱序分布」一节），不存在随机抽题；作答时请按真实行为选择。</li>
+            <li>🔝 <b>100 分选项是「最高成熟度」锚点</b>：代表该维度上 AI 应用最成熟的行为，是量表顶端，<b>不代表对所有人唯一正确的解</b>；复盘时会标注每题各选项的分值。</li>
+            <li>📖 解析只说明各选项的<b>适用情境</b>与成熟度高低，不断言某一选项放之四海皆准。</li>
+            <li>🏅 综合得分与 L1–L4 等级，反映你<b>当前自我评估的成熟度位置</b>，用于定位短板、制订提升计划。</li>
+          </ul>
+        </div>
+        <div class="card" data-page-node-id="UXcIhQOWFUQRRBelIFMQdq">
+          <div class="card-h" data-page-node-id="0S7GvvxHCsO5A78MzaYk7m">6 大能力维度</div>
+          <p class="about-p about-muted" data-page-node-id="w1QrTzVnKd7mYbXe5cNpLz">维度后标注的<b>权重仅在专项卷</b>（招投标 / 制造业 / 连锁零售）<b>参与加权</b>；通用版为产品主入口，六维<b>等权</b>计分，便于全员普查与横向对比。</p>
+          <ul class="dim-list" id="aboutDimList" data-page-node-id="4kx7BGcGe7BxuBT0GyaHfN"><!-- JS 渲染 --></ul>
+        </div>
+        <div class="card" data-page-node-id="jGMktJa3zdtUtQhRZj6dy4">
+          <div class="card-h" data-page-node-id="SS05mOMVf8OLrB5cXEyKiJ">4 级能力模型</div>
+          <ul class="level-list" id="aboutLevelList" data-page-node-id="8ddYlhOe16OGCd4nPx7GlM"><!-- JS 渲染 --></ul>
+        </div>
+        <div class="card" data-page-node-id="fEF92FGr6eD5CtDAzPd17c">
+          <div class="card-h" data-page-node-id="yS4Syeg63aQaY3PSNVoMwd">数据与隐私</div>
+          <ul class="privacy-list" data-page-node-id="H57zLPgQCBDfwpFELcQY5c">
+            <li data-page-node-id="z8IVi060jPa4TF62NfiJQY">📦 <b data-page-node-id="tutRNxT47rIkc4DUEbIZ2n">数据存储</b>：作答过程在本机浏览器完成，结果保存在本地；当站点连接后台服务时，测评结果会<b data-page-node-id="BtXZnbJTpuIeydF19A11NS">同步至组织方服务器用于汇总分析</b>（本部署即为此模式）。</li>
+            <li data-page-node-id="vn1uaL2fLtFnSyTM48fyS4">🔓 <b data-page-node-id="YEExiDR0oDCd98gekkkyI9">无需注册</b>：无需创建账号即可测评；信息页中<b data-page-node-id="Uq9Vz2mK7bRc4dXe8fLpQa">姓名、公司、岗位为必填但可虚拟填写</b>，不必提供真实身份信息，仅用于按公司、岗位、批次做汇总分析。</li>
+            <li data-page-node-id="HH8StUj5wF5oGOyql788hH">🧹 <b data-page-node-id="aakvxkpqMJlOhKAuWN7pku">如何删除</b>：在「历史记录」中可单条删除或一键清空；也可直接清除浏览器站点数据。</li>
+            <li data-page-node-id="xhCP54eLtf0Xao5CfgxyC2">📤 <b data-page-node-id="n2DIUkSonWn7XtQjQOxtcL">分享链接</b>：复制结果链接会把你的结果编码进网址后携带，仅在你主动分享时才会被看到链接的人读取。</li>
+          </ul>
+        </div>
+        <div class="card" data-page-node-id="7NoRTTrNrQoXZZpIPVsF6p">
+          <div class="card-h" data-page-node-id="Y5qENQzYGqogf27bvrKGDX">声明</div>
+          <p class="about-p about-muted" data-page-node-id="GYFI14VMRFLIyntyzSVnxs">本测评结果仅用于个人能力提升与团队培训规划参考，<strong data-page-node-id="pEuD0zK80jYG78xJBhPDyC">不涉及任何个人考核、招聘或评价结论</strong>。得分是相对自我报告的能力画像，非绝对标准。</p>
+        </div>
+        <div class="card">
+          <div class="card-h">版权与许可</div>
+          <p class="about-p about-muted" id="aboutLicense"><!-- JS 渲染 --></p>
+        </div>
+        <p class="about-version" id="aboutVersion" data-page-node-id="r0SruMxFDBGVXjLE9r7SDH">APCA</p>
+      </section>
+
+    </main>
+
+    <!-- 轻提示 -->
+    <div class="toast" id="toast" hidden data-page-node-id="zqTj2f9w1qxEoXKQXYPvLW"></div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

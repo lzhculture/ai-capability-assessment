@@ -1,0 +1,10 @@
+<view class="hero">
+  <view class="tag">{{versionTag}}</view>
+  <view class="title">AI 使用能力诊断评估</view>
+  <view class="subtitle">{{total}} 道情境化选择题{{packTag}} · {{minutes}} · 覆盖六大维度 · 输出雷达图 + 30 天学习地图</view>
+  <view class="grid">
+    <view class="cell"><text class="num">6</text>核心维度</view>
+    <view class="cell"><text class="num">{{total}}</text>本卷题量</view>
+    <view class="cell"><text class="num">4</text>能力等级</view>
+  </view>
+</view>
